@@ -1,0 +1,41 @@
+[tool.poetry]
+name = "audio-extractor"
+version = "0.1.0"
+description = "Extract audio from video, split into chunks, and transcribe with Whisper"
+authors = ["Your Name <your.email@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.9"
+ffmpeg-python = "^0.2.0"
+openai = "^1.0.0"
+pydub = "^0.25.1"
+python-dotenv = "^1.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.0.0"
+pytest-mock = "^3.10.0"
+black = "^23.0.0"
+isort = "^5.12.0"
+mypy = "^1.0.0"
+ipykernel = "^6.30.0"
+jupyter = "^1.1.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+extract-audio = "audio_extractor.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+
+[tool.isort]
+profile = "black"
+line_length = 88
+
+[tool.mypy]
+python_version = "3.8"
+ignore_missing_imports = true 
