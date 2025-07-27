@@ -1,0 +1,1432 @@
+=== SLIDE 1 ===
+L1SpS: UE 2 Les molécules du vivant
+7.1 Architecture du génome 
+humain
+U.E.2 Les molécules du vivant
+7. Organisation du génome humain, méthodes en 
+biotechnologie
+Jean Muller
+Laboratoire Diagnostic Génétique (HUS)
+Laboratoire de Génétique médicale (Inserm U1112)
+jeanmuller@unistra.fr
+
+=== SLIDE 2 ===
+L1SpS: UE 2 Les molécules du vivant
+Plan du cours
+• Introduction
+• Notions fondamentales
+• Le génome humain
+• Projet de séquençage
+• Architecture globale
+• Génome mitochondrial
+• Génome nucléaire
+• Description des principaux éléments constituants
+• Gènes (codants et non-codants), pseudogènes et éléments répétés
+• Comparaison aux autres génomes
+• Les types de variations du génome humain et leurs conséquences
+• La variabilité du génome humain
+• Evolution des génomes: notions essentielles, mécanismes
+2
+
+=== SLIDE 3 ===
+L1SpS: UE 2 Les molécules du vivant
+Introduction
+3
+
+=== SLIDE 4 ===
+L1SpS: UE 2 Les molécules du vivant
+L’arbre de la vie
+LUCA 
+Last Universal Common Ancestor
+Notions essentielles:
+• Evolution
+• Temps
+• Adaptation
+• Sélection
+4
+
+=== SLIDE 5 ===
+L1SpS: UE 2 Les molécules du vivant
+Arbre des eucaryotes
+35 eucaryotes
+18 métazoaires
+Choix d’organismes modèles
+•
+Intérêt(s) économique(s)
+•
+Intérêt(s) technique(s)
+•
+Facilités hébergement,
+•
+Développement embryonnaire/temps 
+de génération
+•
+Partage d’éléments communs (ADN)
+•
+Hérités/Transmis
+5
+
+=== SLIDE 6 ===
+L1SpS: UE 2 Les molécules du vivant
+A propos de l’homologie
+• Définition
+• En
+biologie,
+l'homologie
+désigne
+un
+caractère
+propre
+à
+plusieurs
+espèces hérité d'un ancêtre commun. Les structures en question, qu'elles
+soient d'ordre anatomique, moléculaire ou génétique, partagent donc une
+histoire évolutive.
+• ≠analogie (ex: ailes oiseaux et insectes qui est une évolution séparée)
+• Orthologie (gènes orthologues): gènes homologues dans 2 espèces ayant
+évolué à partir d’un gène ancestral suite à une spéciation
+• Paralogie (gènes paralogues): gènes homologues au sein de la même
+espèce ayant évolué à partir d’un gène ancestral par duplication au cours de
+l’évolution de cette espèce.
+6
+
+=== SLIDE 7 ===
+L1SpS: UE 2 Les molécules du vivant
+A propos de l’homologie
+• Définition
+• En biologie, l'homologie désigne un caractère propre à plusieurs espèces
+hérité d'un ancêtre commun. Les structures en question, qu'elles soient
+d'ordre anatomique, moléculaire ou génétique, partagent donc une histoire
+évolutive.
+• Orthologie (gènes orthologues): gènes homologues dans 2 espèces ayant
+évolué à partir d’un gène ancestral suite à une spéciation
+• Paralogie (gènes paralogues): gènes homologues au sein de la même
+espèce ayant évolué à partir d’un gène ancestral par duplication au cours de
+l’évolution de cette espèce.
+7
+
+=== SLIDE 8 ===
+L1SpS: UE 2 Les molécules du vivant
+A propos de l’homologie
+• Exemple
+8
+
+=== SLIDE 9 ===
+L1SpS: UE 2 Les molécules du vivant
+A propos de l’homologie 
+• Comment déterminer si les gènes sont homologues ou pas?
+• Les séquences des génomes peuvent être alignées entres elles tout comme 
+les séquences des protéines.
+• La comparaison de 2 séquences permet d’établir une évaluation de leur 
+proximité ou de leur éloignement par le calcul:
+• du pourcentage d’identité* entre ces 2 séquences
+* résidus strictement identique
+• du pourcentage de similarité* entre ces 2 séquences
+* résidus identique + proche (critère à déterminer; ex: caractéristiques physicochimiques)
+• Seuil de significativité >20% (dépendant de la famille de protéines)
+9
+
+=== SLIDE 10 ===
+L1SpS: UE 2 Les molécules du vivant
+A propos de l’homologie 
+• Remarques:
+• Un % similarité/identité non significatif ne veut pas dire que les gènes, ne sont 
+pas homologues.
+• 2 séquences similaires peuvent l’être :
+• par hasard (région de faible complexité)
+• par convergence évolutive
+Actine humaine
+MreB bactérienne
+<15% identité
+10
+
+=== SLIDE 11 ===
+L1SpS: UE 2 Les molécules du vivant
+Biologie du gène – dogme central
+11
+
+=== SLIDE 12 ===
+L1SpS: UE 2 Les molécules du vivant
+Références
+• Le génome est une des références d’un organisme
+génome
+transcriptome
+protéome
+méthylome
+…
+12
+
+=== SLIDE 13 ===
+L1SpS: UE 2 Les molécules du vivant
+Le génome humain
+13
+
+=== SLIDE 14 ===
+L1SpS: UE 2 Les molécules du vivant
+Homo sapiens
+• Composition du génome humain :
+• Génome nucléaire
+• 22 paires chromosomes homologues (autosomes: 1 à 22)
+• 1 paire chromosomes sexuels (gonosomes: X et Y)
+• Génome mitochondrial
+• Molécule circulaire
+Illustration des chromosomes humains condensés en métaphase du cycle cellulaire (≠organisation des chromosomes dans le noyau hors métaphase)
+14
+
+=== SLIDE 15 ===
+L1SpS: UE 2 Les molécules du vivant
+Composition générale du génome
+Génome haploïde
+15
+Nomenclature de Paris (1971)
+
+=== SLIDE 16 ===
+L1SpS: UE 2 Les molécules du vivant
+Composition générale du génome
+Résolution
+16
+Nomenclature de Paris (1971)
+
+=== SLIDE 17 ===
+L1SpS: UE 2 Les molécules du vivant
+Composition générale du génome
+Génome diploïde
+• Génome maternel et paternel
+17
+
+=== SLIDE 18 ===
+L1SpS: UE 2 Les molécules du vivant
+Détermination de la séquence du génome Humain
+• Projet international: durée ~15 ans, budget global ~3 milliards $
+• Démarrage en 1990
+• Cible principale: séquence de l’euchromatine
+18
+
+=== SLIDE 19 ===
+L1SpS: UE 2 Les molécules du vivant
+Projet Génome Humain
+• Projet international: durée ~15 ans, budget global ~3 milliards $
+• Cartographie génétique: basée sur les fréquences de recombinaison (cM)
+19
+
+=== SLIDE 20 ===
+L1SpS: UE 2 Les molécules du vivant
+Projet Génome Humain
+• Projet international: durée ~15 ans, budget global ~3 milliards $
+• Cartographie physique: distance réelle (en kb ou Mb)
+20
+
+=== SLIDE 21 ===
+L1SpS: UE 2 Les molécules du vivant
+Projet Génome Humain
+• Projet international: durée ~15 ans, budget global ~3 milliards $
+• Début du séquençage en 1999 (20 centres, 6 pays)
+21
+
+=== SLIDE 22 ===
+L1SpS: UE 2 Les molécules du vivant
+Projet Génome Humain
+• Projet international: durée ~15 ans, budget global ~3 milliards $
+• Séquence complète en 2000, version brouillon ou « draft » (90%, qualité variable)
+• Séquence finalisée en 2003, version finale (99%, haute qualité)
+• Fini, vraiment ?
+22
+
+=== SLIDE 23 ===
+L1SpS: UE 2 Les molécules du vivant
+Gestion des versions du génome humain
+Nom
+Date
+Version majeure
+« release »
+hg38
+Dec. 2013
+GRCh38
+hg19
+Feb. 2009
+GRCh37
+hg18
+Mar. 2006
+NCBI Build 36.1
+hg17
+May 2004
+NCBI Build 35
+hg16
+Jul. 2003
+NCBI Build 34
+hg15
+Apr. 2003
+NCBI Build 33
+hg13
+Nov. 2002
+NCBI Build 31
+hg12
+Jun. 2002
+NCBI Build 30
+hg11
+Apr. 2002
+NCBI Build 29
+hg10
+Dec. 2001
+NCBI Build 28
+hg8
+Aug. 2001
+UCSC-assembled
+hg7
+Apr. 2001
+UCSC-assembled
+hg6
+Dec. 2000
+UCSC-assembled
+hg5
+Oct. 2000
+UCSC-assembled
+hg4
+Sep. 2000
+UCSC-assembled
+hg3
+Jul. 2000
+UCSC-assembled
+hg2
+Jun. 2000
+UCSC-assembled
+hg1
+May 2000
+UCSC-assembled
+Patch résolu
+Nouveau patch
+Dernière version mineure Février 2022 -> GRCh38.p14
+53 (164) patchs résolus, et 18 (90) nouveaux patchs.
+23
+https://www.ncbi.nlm.nih.gov/grc
+2022: 1ère version avec la séquence complète (hors Y)
+2023: 1ère version complète du chrY
+Rhie et al., Nature 2023
+Nurk et al., Science 2022
+
+=== SLIDE 24 ===
+L1SpS: UE 2 Les molécules du vivant
+« Genome browser » (navigateur) de l’Université de Californie, Santa Cruz (UCSC) 
+http://genome-euro.ucsc.edu/
+Chromosome
+Annotations:
+• Gènes
+• Protéines
+• Conservation…
+Zoom
+Visualisation et exploration du génome humain
+24
+
+=== SLIDE 25 ===
+L1SpS: UE 2 Les molécules du vivant
+Zoom
+Gène X, Y et Z
+Exploration du génome humain
+25
+
+=== SLIDE 26 ===
+L1SpS: UE 2 Les molécules du vivant
+Zoom
+Gène X
+Sens de transcription
+26
+
+=== SLIDE 27 ===
+L1SpS: UE 2 Les molécules du vivant
+Zoom
+Exons
+Introns
+27
+
+=== SLIDE 28 ===
+L1SpS: UE 2 Les molécules du vivant
+Zoom
+28
+
+=== SLIDE 29 ===
+L1SpS: UE 2 Les molécules du vivant
+Nucléotides
+Acide aminés
+29
+
+=== SLIDE 30 ===
+L1SpS: UE 2 Les molécules du vivant
+Composition générale du génome
+5% du génome conservé au cours de l’évolution
+30
+
+=== SLIDE 31 ===
+L1SpS: UE 2 Les molécules du vivant
+Génome mitochondrial
+• Génome compact
+• 16,6 kb 
+• Séquence complète en 1981
+• 37 gènes au total:
+• 13 codants pour des protéines
+• Phosphorylation oxydative
+• 24 non codants (22 ARNt et 2 ARNr)
+• Code génétique universel mais 
+utilisation différente (cf chapitre 9):
+• 60 codons codants pour des AA, 
+• 4 codons STOP
+31
+
+=== SLIDE 32 ===
+L1SpS: UE 2 Les molécules du vivant
+Génome mitochondrial
+• Très proche d’un génome de bactérie
+• Origine endosymbiotique (alpha-protéobactérie)
+• Héritage maternel
+• >1000 copies/cellule
+• Hétéroplasmie: présence de copies différentes du génome mitochondrial 
+au sein de la même cellule:
+• Selon le tissu
+• Selon l’âge
+Stewart, J., Larsson, N. PLOS Genetics 2014
+32
+
+=== SLIDE 33 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison des génomes mitochondriaux
+Génome
+Homo sapiens
+Drosophila
+melanogaster
+Saccharomyces 
+cerevisiae
+Arabidopsis 
+thaliana
+Taille
+16,6 kb
+19,5 kb
+86 kb
+367 kb
+Organisation
+circulaire
+linéaire/circulaire
+Nombre de copies
+>1000
+20-200
+Total gènes
+37
+37
+55
+60
+Gènes codants
+13
+13
+28
+33
+Gènes ARN
+24
+24
+27
+25
+https://www.yeastgenome.org/contig/Chromosome_Mito#feature
+33
+
+=== SLIDE 34 ===
+L1SpS: UE 2 Les molécules du vivant
+Génome nucléaire
+• Taille: 3,1 Gb (haploïde)
+• Séquencé et disponible en 2001 (brouillon)
+• Complète en 2022
+• Hétérochromatine constitutive
+• 0,2 Gb: partie condensée du génome, transcription inactive 
+(zones hautement répétées)
+• Euchromatine
+• 2,9 Gb: partie riche en gènes et dont la transcription est active
+34
+Cf cours Didier Devys
+
+=== SLIDE 35 ===
+L1SpS: UE 2 Les molécules du vivant
+Génome nucléaire
+35
+
+=== SLIDE 36 ===
+L1SpS: UE 2 Les molécules du vivant
+Les éléments constitutifs du 
+génome humain
+36
+
+=== SLIDE 37 ===
+L1SpS: UE 2 Les molécules du vivant
+Gène
+• Définition:
+• Segment d’ADN génomique utilisé comme matrice pour 
+synthétiser un ARN simple brin (transcription).
+• ARN codants, ARNm:
+• contiennent l’information pour la synthèse protéique
+• ARN non-codants:
+• 11 classes majeures
+• ARNt, ARNr: utilisés pour la traduction
+• miARN (microARN): régulation de l’expression
+• snARN, snoARN, lncARN…
+37
+
+=== SLIDE 38 ===
+L1SpS: UE 2 Les molécules du vivant
+Définition - Gène
+38
+
+=== SLIDE 39 ===
+L1SpS: UE 2 Les molécules du vivant
+• Définition:
+• Segment d’ADN génomique utilisé comme matrice pour 
+synthétiser un ARN simple brin (transcription).
+• ARN codants: ~20 000 gènes pour ~35 Mb (~1,1% du génome)*
+• ARN non-codants: > 40 000
+• Le nombre définitif de gènes (codants + non codants) est proche des
+60 000 mais demeure encore incertain (besoin de validation) mais se
+stabilise avec le temps et l’amélioration des annotations.
+Définition - Gène
+*En ne tenant compte que les régions codantes (exclusion des régions régulatrices)
+39
+Nurk et al., Science 2022
+
+=== SLIDE 40 ===
+L1SpS: UE 2 Les molécules du vivant
+Evolution du compte total: gènes codants
+40
+19,969
+2022
+
+=== SLIDE 41 ===
+L1SpS: UE 2 Les molécules du vivant
+Ordres de grandeurs
+• Taille des gènes:
+• Moyenne: 54 kb
+• Plus petit: quelques 100aines pb
+• Plus grand: 2,5 Mb (DMD, dystrophine)
+• Nombre / taille d’exons
+• Moyenne: 10 / 280 pb
+• Plus petit: 1 (pas d’intron) / <10 pb
+• Plus grand: 363 (titin) / 18 kb
+• Taille des protéines:
+• Plus petite: ~10 AA
+• Plus grande: 34 350 AA (Titin)
+• Taille des introns
+• Plus petit: <30 pb
+• Plus grand: 1 Mb
+Le valeurs sont arrondies au plus proche
+AA: Acide Aminé
+41
+
+=== SLIDE 42 ===
+L1SpS: UE 2 Les molécules du vivant
+Quelques exemples de structures de gènes codants
+Bleu: exons numérotés
+Jaune: intron
+CDS: séquence codante
+Gène
+CDS
+AA
+Nombre d’exons
+ALMS1
+13 kb 
+4169
+23 exons
+CEP290
+7,4 kb 
+2403
+54 exons
+MKKS
+1,7 kb
+571
+6 exons (3 codants)
+BBS10 
+2,1 kb 
+724
+2 exons (2 codants)
+BBS12 
+2,1 kb 
+711
+3 exons (1 codant)
+ALMS1
+CEP290
+MKKS
+BBS10
+BBS12
+42
+Visualisation avec Alamut Visual (Interactive Biosoftware)
+
+=== SLIDE 43 ===
+L1SpS: UE 2 Les molécules du vivant
+Organisation des gènes sur le génome
+• 2 organisation possibles
+• Non regroupée:
+• Territoire génique indépendant et bien défini 
+• Gènes avec des fonctions différentes
+• Pas de similarité de séquence particulière
+• Sens de transcription variable
+43
+
+=== SLIDE 44 ===
+L1SpS: UE 2 Les molécules du vivant
+• Non regroupée:
+• Situation bien souvent plus complexe
+• Territoires chevauchants
+Organisation des gènes sur le génome
+44
+
+=== SLIDE 45 ===
+L1SpS: UE 2 Les molécules du vivant
+• Groupée ou dite en « cluster »:
+• Origine: liée à une duplication en tandem
+• Les gènes partagent souvent: 
+• Sens de transcription identique
+• Séquences homologues
+• Présence de pseudogènes
+• 1 cluster sur 1 chromosome
+• 2 clusters sur 2 chromosomes
+Organisation des gènes sur le génome
+45
+
+=== SLIDE 46 ===
+L1SpS: UE 2 Les molécules du vivant
+• Famille des gènes d’histones (>60 gènes)
+• 3 clusters principaux 
+• 2 sur le chromosome 6
+• 1 sur le chromosome 1
+• Plusieurs pseudogènes
+Exemples d’organisations remarquables
+46
+Visualisation avec ensembl genome browser
+
+=== SLIDE 47 ===
+L1SpS: UE 2 Les molécules du vivant
+• Famille de gènes des récepteurs olfactifs
+• Répertoire définissant notre capacité à détecter des 
+odeurs différentes
+• >900 gènes
+• 25 grands clusters
+Exemples d’organisations remarquables
+47
+Visualisation avec ensembl genome browser
+
+=== SLIDE 48 ===
+L1SpS: UE 2 Les molécules du vivant
+Gènes non codants
+• ARN de transfert (ARNt): 
+• Fonction lors de la traduction
+• ~500 gènes et ~300 pseudogènes
+• Plusieurs clusters répartis un peu partout sur le génome
+• ARN ribosomaux (ARNr): 
+• Fonction lors de la traduction (composants du ribosome)
+• 5S: plusieurs copies dans de petits clusters (le plus grands 
+contient 16 gènes sur le chromosome 1)
+• 45S incluant 28S/5,8S/18S: 30-40 répétitions 
+• Le nombre total est mal connu (exclu du projet initial du 
+génome humain)
+48
+
+=== SLIDE 49 ===
+L1SpS: UE 2 Les molécules du vivant
+Pseudogène
+• Définition: 
+• Copie généralement défectueuse d’un gène fonctionnel avec lequel le 
+pseudogène partage une similarité de séquence significative.
+• Concerne 10% des gènes codants, avec un nombre plus important 
+pour des gènes activement transcrits
+• >14000 décrits pour 3 catégories principales:
+• Pseudogène processé 
+(~72%, ~10 000 copies)
+• Pseudogène non processé
+(~23%,   ~3 500 copies)
+• Pseudogène unitaire 
+(~1,4%,     ~200 copies)
+49
+
+=== SLIDE 50 ===
+L1SpS: UE 2 Les molécules du vivant
+Origine des pseudogènes
+• Pseudogène dit non processé
+• Mécanisme lié à la duplication d’une partie du génome
+• Conservation de la structure intron/exon*
+• Conservation de la région de régulation 
+* divergence par accumulation de variations
+50
+
+=== SLIDE 51 ===
+L1SpS: UE 2 Les molécules du vivant
+Origine des pseudogènes
+51
+• Pseudogène dit processé
+• Mécanisme lié à la rétrotransposition
+d’un ARNm
+• Perte de la structure intron/exon
+(le pseudogène ne contient que de 
+l’exon)
+• Perte de la région de régulation
+
+=== SLIDE 52 ===
+L1SpS: UE 2 Les molécules du vivant
+• Pseudogène dit unitaire
+• Mécanisme de fin de vie du gène (pression de sélection diminuée 
+-> accumulation de mutations)
+Origine des pseudogènes
+52
+
+=== SLIDE 53 ===
+L1SpS: UE 2 Les molécules du vivant
+Pseudogènes - remarques
+• Remarques:
+• Longtemps catégorisés comme des gènes « fossiles », leur 
+fonction est encore mal connue
+• Pourtant, 15% des pseudogènes sont transcrits
+• Un des mécanismes de l’évolution des génomes
+• En règle générale:
+• Les gènes les plus fortement exprimés ont plus de pseudogènes, 
+et en particulier de type « processé »
+• Les pseudogènes non processés sont souvent physiquement 
+proches des gènes dont ils sont dérivés 
+53
+
+=== SLIDE 54 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés en tandem
+• 6,5% du génome
+• ADN satellite
+• ADN minisatellite
+• ADN microsatellite
+• Eléments répétés dispersés (« interspersed »)
+• 40-45% du génome
+• Rétrotransposons
+• LINE, SINE (Long/Short Interspersed Elements), rétrovirus
+• Autonomes, non autonomes
+• Transposons
+Eléments répétés
+54
+
+=== SLIDE 55 ===
+L1SpS: UE 2 Les molécules du vivant
+Eléments répétés
+• Eléments répétés en tandem
+• 6,5% du génome
+• Hétérochromatine constitutive
+• 3 classes d’éléments selon la taille totale de la zone répétée
+• Chaque élément est constitué d’unités plus petites hautement répétées
+55
+
+=== SLIDE 56 ===
+L1SpS: UE 2 Les molécules du vivant
+Eléments répétés
+• Eléments répétés en tandem
+• 6,5% du génome
+• Hétérochromatine constitutive
+• 3 classes d’éléments selon la taille totale de la zone répétée
+• Chaque élément est constitué d’unités plus petites hautement répétées
+56
+
+=== SLIDE 57 ===
+L1SpS: UE 2 Les molécules du vivant
+Eléments répétés
+• Eléments répétés en tandem
+• 6,5% du génome
+• Hétérochromatine constitutive
+• 3 classes d’éléments selon la taille totale de la zone répétée
+• Chaque élément est constitué d’unités plus petites hautement répétées
+57
+
+=== SLIDE 58 ===
+L1SpS: UE 2 Les molécules du vivant
+Eléments répétés
+• Eléments répétés en tandem
+• 6,5% du génome
+• Hétérochromatine constitutive
+• 3 classes d’éléments selon la taille totale de la zone répétée
+• Chaque élément est constitué d’unités plus petites hautement répétées
+58
+
+=== SLIDE 59 ===
+L1SpS: UE 2 Les molécules du vivant
+Eléments répétés
+• Eléments répétés en tandem
+• Microsatellites
+• Disposés en moyenne tous les 30 kb sur le génome humain
+• Polymorphiques (séquences et/ou nombre de répétitions variables d'un 
+génome/individu à l'autre)
+• Application génotypage
+•
+Carte génétique pour le génome humain
+•
+Empreintes génétiques et médecine légale
+Individu 1
+Individu 2
+(CA)20
+(CA)35
+(CA)10
+(CA)40
+59
+
+=== SLIDE 60 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés dispersés (« interspersed »)
+• 40-45% du génome
+• Eléments dérivés des transposons. Ce sont des éléments mobiles 
+capables de migrer d’une région du génome à une autre
+• 2 grandes catégories:
+• Rétrotransposons
+• LINE, SINE, rétrovirus
+• Autonomes, non autonomes
+• Transposons
+Eléments répétés
+60
+
+=== SLIDE 61 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés dispersés (« interspersed »)
+• Rétrotransposons (« Copié/Collé »): Passage par une étape de 
+transcription (ARN), transcription inverse (ADN) puis intégration
+• LINE: « Long Interspersed Nuclear Elements »
+• 3 sous-familles (Line-1, Line-2, Line-3), seule la 1ère est encore active
+• 1 000 000 de copies dont <1% sont complètes
+• ~100 éléments encore actifs (Line-1)
+Eléments répétés
+ORF1: protéine de fixation à l’ARN
+ORF2: endonucléase, transcriptase inverse
+61
+
+=== SLIDE 62 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés dispersés (« interspersed »)
+• Rétrotransposons (« Copié/Collé »)
+• SINE: « Short Interspersed Nuclear Elements » répartis en 3 sous-
+familles dont principalement:
+• Alu: spécifique des primates (élément le plus abondant du génome)
+• MIR: présent chez les mammifères
+• Non autonomes, ils utilisent la machinerie des LINEs
+Eléments répétés
+62
+
+=== SLIDE 63 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés dispersés (« interspersed »)
+• Rétrotransposons (« Copié/Collé »): 
+• LTR transposons ou rétrovirus
+• LTR (Long Terminal Repeat) contiennent la machinerie utile à la 
+transcription 
+Eléments répétés
+2-3 gènes typiques de rétrovirus (gag/pol/env) codent pour une protéase, 
+transcriptase inverse, RNAse H et une intégrase
+63
+
+=== SLIDE 64 ===
+L1SpS: UE 2 Les molécules du vivant
+• Eléments répétés dispersés (« interspersed »)
+• Transposons (« Coupé/Collé »)
+• Déplacement par une transposase qui va exciser l’élément et le 
+réinsérer à une autre localisation du génome
+• De nombreuses sous-familles
+• Durée de vie limitée dans un génome
+• Eléments considérés comme inactifs ou « fossiles » du génome 
+humain
+Eléments répétés
+64
+
+=== SLIDE 65 ===
+L1SpS: UE 2 Les molécules du vivant
+• Une part importante de notre génome
+• La plupart de ces éléments sont inactifs
+• Un des mécanismes de l’évolution des génomes
+Conclusion: éléments répétés
+65
+
+=== SLIDE 66 ===
+L1SpS: UE 2 Les molécules du vivant
+Exemples: visualisation des éléments répétés
+66
+
+=== SLIDE 67 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison de nos 2 génomes
+Génome
+Nucléaire
+Mitochondrial
+Taille
+3,1Gb
+16,6 kb
+Nombre de molécules
+23/24
+1 circulaire
+Nombre de copies
+23/46
+>1000
+Gène codant
+~20 000
+13
+Gène non codant
+>40 000 (incertitude)
+24
+Densité en gène
+~1/120 kb
+1/0,45 kb
+Zones répétées
+>50%
+peu
+Introns
+Oui
+Non
+% codant
+~1,1%
+~66%
+% G+C
+41% [38-49]
+44%
+Hérédité
+Mendélienne*
+Maternelle
+* 1 allèle d'origine paternelle et 1 d'origine maternelle
+67
+
+=== SLIDE 68 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison aux autres génomes
+68
+
+=== SLIDE 69 ===
+L1SpS: UE 2 Les molécules du vivant
+Protozoaires: eucaryotes unicellulaires, métazoaires: animaux (eucaryotes multicellulaires)
+La capacité codante d'une espèce n’est pas proportionnelle à la taille du génome en 
+paires de bases ni au nombre de chromosomes.
+69
+Comparaison des génomes
+
+=== SLIDE 70 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison des génomes
+• Distribution du nombre de gènes dans les 3 
+domaines du vivant:
+• Le nombre de gènes est variable selon les groupes 
+d’organismes
+• Le nombre de gènes n’est pas le reflet de la complexité 
+d’un organisme
+70
+
+=== SLIDE 71 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison des génomes
+Relation linéaire, génomes compacts et denses en gènes
+71
+
+=== SLIDE 72 ===
+L1SpS: UE 2 Les molécules du vivant
+Pas de lien entre la taille d’un génome eucaryote et le nombre de gènes
+72
+Comparaison des génomes
+
+=== SLIDE 73 ===
+L1SpS: UE 2 Les molécules du vivant
+Comparaison des génomes nucléaires
+Génome
+Homme
+Drosophila
+melanogaster
+Saccharomyces 
+cerevisiae
+Oryza
+sativa
+Paris 
+japonica
+Taille
+3,1 Gb
+122,6 Mb
+12,2 Mb
+430 Mb
+~150 Gb
+Total 
+gènes
+~21 000
+~14 000
+~5 800
+~40 000
+?
+Le plus grand génome connu (40 chromosomes)
+73
+
+=== SLIDE 74 ===
+L1SpS: UE 2 Les molécules du vivant
+Les types de variations du génome 
+humain et leurs conséquences
+74
+
+=== SLIDE 75 ===
+L1SpS: UE 2 Les molécules du vivant
+• Une mutation?
+• En biologie: une modification héritée de l'information contenue
+dans le génome d’une espèce.
+• En génétique/santé: modification de la séquence du génome
+responsable
+d’un
+phénotype
+(modification
+d’un
+caractère
+pathologique) pour cette espèce.
+• Un polymorphisme?
+• Une mutation bénigne/non pathologique
+• Mutation pathogène ou délétère?
+• Possible confusion, besoin d’un vocabulaire contrôlé
+75
+Définitions
+
+=== SLIDE 76 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions
+• Vocabulaire et nomenclature contrôlée et non ambiguë
+• Une variation: mutation
+• Différence entre la séquence d’un génome de référence et la 
+séquence d’un individu de la même espère
+• Une ou quelques bases (1-50 bases) 
+• SNV: Single Nucleotide Variation
+• Un grande nombre de bases (>50 bases ou >1 kb)
+• Variation de structure équilibrée ou non
+• CNV: Copy Number Variation
+GTAAAAGC
+GTATAAGC
+GTA--AGC
+Référence
+ex1
+ex2
+76
+
+=== SLIDE 77 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions
+• Nomenclature
+• Mémorisable, éloquente, stable, non équivoque
+• Plusieurs référentiels: 
+• Nom de gène, référence ARNm/protéine
+• Position (génomique, ARNm, protéique)
+• g. génomique
+• c. ARN messager/cDNA
+• p. protéique
+GTAAAAGC
+GTATAAGC
+GTA--AGC
+Référence
+ex1
+ex2
+c.76A>T
+Référentiel
+Position(s)
+Base de référence
+Base mutée
+Type de changement
+77
+
+=== SLIDE 78 ===
+L1SpS: UE 2 Les molécules du vivant
+Nomenclature des protéines
+• Uniquement en plus des informations ADN et ARN
+• Acides aminés décrit sous la forme "Trp26" ou "W26“ (1ère
+lettre majuscule)
+p.Arg22Ser
+Référentiel
+AA muté
+Position(s)
+AA de référence
+p.Arg22*
+p.Arg22fs*5
+78
+
+=== SLIDE 79 ===
+L1SpS: UE 2 Les molécules du vivant
+Des variations multiples dans un individu
+• 2 variations sur des allèles différents 
+• c.[76A>C];[87delG]
+• 2 variations sur le même allèle
+• c.[76A>C;83G>C]
+• 2 variations avec aucune appréciation
+• c.[76A>C(;)83G>C]
+?
+?
+79
+• Génotype
+
+=== SLIDE 80 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions
+• Un polymorphisme:
+• Variation présente à une fréquence élevée (≥1%) dans une 
+population donnée
+• SNP: Single Nucleotide Polymorphism
+• Exemples:
+• NM_024649.4(BBS1):c.1413C>T, p.Leu471=
+• EU 38%, AFR 3,77%
+• NM_024649.4(BBS1):c.1169T>G, p.Met390Arg
+• EU 0,27%, AFR 0,09%
+• NM_000492.4(CFTR):c.1521_1523del, p.Phe508del
+– EU 1,24%, AFR 0,26%, SAS 0,0019%
+80
+
+=== SLIDE 81 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions
+• Variant pathogène ou délétère? 
+• Affecte la fonction de la protéine
+• Selon le contexte la variation est responsable de la pathologie 
+(causale)
+• Ex. 1: Rétinopathie pigmentaire, gène RPGR (chromosome X)
+• Mode de transmission lié à l’X
+• Variation affectant la fonction de la protéine RPGR
+• Homme: rétinopathie pigmentaire 
+• Femme: asymptomatique ou apparition très tardive
+• Ex. 2: Syndrome de Bardet-Biedl, gène BBS1 (chromosome 11)
+• Mode de transmission autosomique récessif
+• Causale d’un syndrome de Bardet-Biedl, si homozygote ou en 
+présence d’un second allèle affectant la fonction de la protéine
+81
+
+=== SLIDE 82 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions
+• Notions complémentaires
+• Variation rare / fréquente
+• Variation bénigne vs pathogène/délétère
+• Variation causale d’un phénotype
+• Ex: Couleur des cheveux…
+• Une des plus grandes variabilités du génome humain
+• Responsables de la plupart des pathologies humaines liées à 
+l’ADN (cancer et maladies rares génétiques)
+82
+
+=== SLIDE 83 ===
+L1SpS: UE 2 Les molécules du vivant
+Conséquences - Gène
+83
+
+=== SLIDE 84 ===
+L1SpS: UE 2 Les molécules du vivant
+Conséquences - Gène
+84
+
+=== SLIDE 85 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions – quelles variations?
+• Substitution:
+• Modification d’une base par une autre
+• Transition: 
+Pu<->Pu ou Py<->Py
+• Transversion: Pu<->Py
+Purine
+Pyrimidine
+GTAAAAGC
+GTATAAGC
+Référence
+ex1
+85
+
+=== SLIDE 86 ===
+L1SpS: UE 2 Les molécules du vivant
+• Insertion/délétion (indel):
+• Indel ou petites insertion/délétions (<50pb)
+• Ajout ou délétion d’une ou plusieurs bases
+GTAAAAGC
+GTAA--GC
+Référence
+ex1
+GTAAAA-GC
+GTAAAAAGC
+Référence
+ex2
+Définitions – quelles variations?
+86
+
+=== SLIDE 87 ===
+L1SpS: UE 2 Les molécules du vivant
+Substitutions/indels
+• Localisation:
+• Partout sur le génome (exon, intron et intergénique)
+• Fréquence:
+• 3-5 millions entre 2 génomes (même sexe)
+• La plus grande source de variation du génome en 
+nombre d’évènements
+87
+
+=== SLIDE 88 ===
+L1SpS: UE 2 Les molécules du vivant
+Variation du gène
+Séquence de référence/normale/Sauvage
+88
+
+=== SLIDE 89 ===
+L1SpS: UE 2 Les molécules du vivant
+Substitution dans le gène
+Modification d’une base de l’ADN/ARN
+Variation faux-sens
+Variation silencieuse
+89
+Variation du gène
+
+=== SLIDE 90 ===
+L1SpS: UE 2 Les molécules du vivant
+Variation non-sens
+Rappel: 3 codons STOP du génome nucléaire humain: UAA, UAG, UGA
+90
+Variation du gène
+
+=== SLIDE 91 ===
+L1SpS: UE 2 Les molécules du vivant
+• Variation de la 1ère base
+• 95% de chance d’avoir un faux sens
+• Variation de la 2ème base
+• 100% de chance d’avoir un impact (faux 
+sens ou non-sens)
+• Variation de la 3ème base
+• 28% de chance d’avoir un faux sens
+91
+Variation du gène
+
+=== SLIDE 92 ===
+L1SpS: UE 2 Les molécules du vivant
+Décalage du cadre de lecture
+protéine erronée
+Insertion/délétion d’un nombre de bases non multiple de 3
+Décalage du cadre de lecture
+protéine erronée
+...
+...
+insertion 1 base
+délétion 1 base
+92
+Variation du gène
+
+=== SLIDE 93 ===
+L1SpS: UE 2 Les molécules du vivant
+Cadre de lecture conservé
+perte d’un acide aminé
+Cadre de lecture conservé
+gain d’un acide aminé
+Insertion/délétion d’un nombre de bases multiple de 3
+délétion 3 bases
+insertion 3 bases
+93
+Variation du gène
+
+=== SLIDE 94 ===
+L1SpS: UE 2 Les molécules du vivant
+60
+70
+100
+100
+100
+100
+GT-AG: >98% site d’épissage canonique
+T
+T
+T
+ADN
+Site donneur (5’)
+Site accepteur (3’)
+Site de branchement
+protéine
+Exon n
+Exon n+1
+Intron n
+Variation d’épissage
+94
+Variation du gène
+
+=== SLIDE 95 ===
+L1SpS: UE 2 Les molécules du vivant
+Rétention complète de l’intron
+Conséquences sur l’épissage:
+Rétention partielle de l’intron (5’)
+Rétention partielle de l’intron (3’)
+Saut complet d’un exon
+95
+Variation du gène
+Très probable décalage du cadre de lecture
+
+=== SLIDE 96 ===
+L1SpS: UE 2 Les molécules du vivant
+variation non-sens
+Insertion / délétion dans le gène
+Substitution dans le gène
+protéine erronée
+protéine erronée
+Insertion/délétion d’un multiple
+de 3 bases
+variation faux-sens
+mutation épissage
+96
+Variation du gène
+
+=== SLIDE 97 ===
+L1SpS: UE 2 Les molécules du vivant
+• Expansion de triplet
+• Les répétitions (n) de trinucléotides et aussi tétra, penta, 
+hexanucléotides
+• X-Fragile: (CGG)n 
+• Huntington: (CAG)n 
+• Localisation: 5’UTR, exon, intron ou 3’UTR
+• Zones instables lors de la réplication
+• Expansion du nombre de répétitions
+• Mutation dite dynamique
+• ~ 50 pathologies causées par expansion dans un gène
+Définitions – quelles variations?
+97
+Depienne & Mandel AJHG 2021
+
+=== SLIDE 98 ===
+L1SpS: UE 2 Les molécules du vivant
+Définitions – quelles variations?
+• Variations de structures:
+• Modification de la localisation d’un « morceau » du génome
+• Affecte un nombre important de bases (>50 pb à plusieurs Mb)
+• Origine: remaniements chromosomiques ou autres mécanismes 
+spécifiques
+• 2 classes:
+• Equilibrées
+• Déséquilibrées (variation du nombre de copies ou CNV 
+pour Copy Number Variant)
+98
+
+=== SLIDE 99 ===
+L1SpS: UE 2 Les molécules du vivant
+Variations de structure
+Déséquilibrées
+Equilibrées
+99
+
+=== SLIDE 100 ===
+L1SpS: UE 2 Les molécules du vivant
+• Localisation:
+• Partout dans le génome (exon, intron et intergénique)
+• Fréquence:
+• 2 000 à 10 000 entre 2 génomes (même sexe)
+• ~1000 grandes délétions
+• ~160 CNV
+• ~1000 insertions éléments mobiles 
+• ~10 inversions
+• La plus grande source de variation du génome en nombre de 
+bases affectées (20 millions)
+Variations de structure
+100
+Sudmant et al 2015
+
+=== SLIDE 101 ===
+L1SpS: UE 2 Les molécules du vivant
+Autres mécanismes rares et commentaires
+• Conversion génique
+• Séquences très homologues entres elles
+• Empreinte parentale
+• Modification spécifique de la méthylation du génome
+• Selon le gène (pathologie)
+• Chaque type de variations doit être évalué et potentiellement identifié 
+comme causal
+• Type de mutations spécifiques
+• Que des mutations faux sens
+• Grandes délétions du gène
+101
+
+=== SLIDE 102 ===
+L1SpS: UE 2 Les molécules du vivant
+• Perte de fonction (totale ou partielle):
+• Non sens, décalage du cadre de lecture
+• Faux sens si il y a un effet drastique sur la fonction, la localisation ou 
+la stabilité de la protéine
+• Gain de fonction:
+• Protéine plus active ou avec une action différente ou alors il y a un 
+gain de propriété toxique
+• Variations très spécifiques (ex: activation site catalytique d’une 
+enzyme)
+• Dominant négatif:
+• La protéine mutée perd sa fonction et interfère avec la fonction de la 
+protéine codée par l’allèle normal
+Les différents effets des variations
+102
+
+=== SLIDE 103 ===
+L1SpS: UE 2 Les molécules du vivant
+Variabilité du génome humain
+103
+
+=== SLIDE 104 ===
+L1SpS: UE 2 Les molécules du vivant
+Bilan sur la variabilité du génome humain
+http://dgv.tcag.ca/dgv/app/statistics
+http://www.ncbi.nlm.nih.gov/snp
+• De nombreuses sources de variabilité
+• Variations qui sont rares et d’autres plus fréquentes (effet fondateur ou
+mécanique)
+• >1,1 milliard de variations déjà décrites dans dbSNP soit ~34% du génome
+• >7 millions de variations structurales décrites dans DGV soit ~79% du génome
+104
+
+=== SLIDE 105 ===
+L1SpS: UE 2 Les molécules du vivant
+Evolution des génomes:
+notions essentielles et mécanismes
+105
+
+=== SLIDE 106 ===
+L1SpS: UE 2 Les molécules du vivant
+• Les génomes des espèces se modifient au cours du temps
+• Processus dynamique qui permet l’ajout, la perte et/ou un 
+remaniement du matériel génétique (ADN)
+• Adaptation aux conditions environnementales ou non: les 
+variations du génome peuvent permettre un avantage sélectif
+• Espèces plus performantes au regard des conditions de vie
+• Nouvelles espèces
+• Comment? 
+• Variations ponctuelles (substitutions et indels)
+• Variations structurales
+Evolution des génomes
+Notions essentielles:
+• Evolution, Temps, Adaptation, Sélection
+106
+
+=== SLIDE 107 ===
+L1SpS: UE 2 Les molécules du vivant
+• Duplication en tandem des exons d’un gène
+• ~10% des gènes chez l’Homme
+• Responsable de domaines répétés dans une protéine
+• Recombinaison illégitime avec une résolution inégale d’un 
+« crossing-over » (cf autre cours)
+Duplication d’exons
+107
+
+=== SLIDE 108 ===
+L1SpS: UE 2 Les molécules du vivant
+• Plusieurs mécanismes possibles:
+• Recombinaison non-allélique
+• Rétransposons (LINEs)
+Brassage d’exon ou exon « shuffling »
+108
+
+=== SLIDE 109 ===
+L1SpS: UE 2 Les molécules du vivant
+Duplication des gènes
+109
+• Scénarios possibles:
+
+=== SLIDE 110 ===
+L1SpS: UE 2 Les molécules du vivant
+Duplication complète du génome
+110
+
+=== SLIDE 111 ===
+L1SpS: UE 2 Les molécules du vivant
+Certains schémas de ce cours ont été adaptés à partir d'illustrations provenant des ouvrages
+suivants:
+-Biologie moléculaire de la cellule, B. Alberts et al. 6ième ed. (Garland science)
+-Human Molecular Genetics, Strachan and Reed, 4ième ed., (Garland science)
+-Génétique médicale, Enseignement thématique, Collège National des Enseignants et Praticiens
+de Génétique Médicale (Elsevier Masson)
+Certaines illustrations sont tirées d'articles scientifiques (références sur les diapos) ou de l'espace
+numérique (creative commons licensing)
+Courtesy: National Human Genome Research Institute and the Smithsonian National Museum of
+Natural History“ ou du DataBase Center for Life Science (DBCLS)
+Mentions légales :
+L'utilisation des documents de cours est strictement réservée à l'usage privé des étudiants inscrits à
+l'université de Strasbourg. Leur diffusion et/ou mise en réseau est strictement réservée à l'université
+de Strasbourg, et à une association agréée (association amicale des étudiants en médecine de
+Strasbourg). Toute autre utilisation, diffusion ou mise en réseau est interdite. Ces documents sont
+interdits à la vente ou à la location, et à tout usage par des organismes privés (préparations, etc).
+L'ensemble de ces documents relève des législations française et internationale sur le droit d'auteur
+et la propriété intellectuelle.
+111
+
