@@ -1,0 +1,4787 @@
+[
+  {
+    "page": 1,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "U.E.2 Les molécules du vivant",
+            "children": [
+              {
+                "text": "7. Organisation du génome humain, méthodes en",
+                "children": [
+                  {
+                    "text": "biotechnologie",
+                    "children": []
+                  },
+                  {
+                    "text": "7.1 Architecture du génome",
+                    "children": [
+                      {
+                        "text": "humain",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Jean Muller",
+        "children": []
+      },
+      {
+        "text": "Laboratoire Diagnostic Génétique (HUS)",
+        "children": []
+      },
+      {
+        "text": "Laboratoire de Génétique médicale (Inserm U1112)",
+        "children": []
+      },
+      {
+        "text": "jeanmuller@unistra.fr",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 2,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Plan du cours",
+        "children": [
+          {
+            "text": "Introduction",
+            "children": [
+              {
+                "text": "Notions fondamentales",
+                "children": []
+              },
+              {
+                "text": "Le génome humain",
+                "children": [
+                  {
+                    "text": "Projet de séquençage",
+                    "children": []
+                  },
+                  {
+                    "text": "Architecture globale",
+                    "children": [
+                      {
+                        "text": "Génome mitochondrial",
+                        "children": []
+                      },
+                      {
+                        "text": "Génome nucléaire",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Description des principaux éléments constituants",
+                    "children": [
+                      {
+                        "text": "Gènes (codants et non-codants), pseudogènes et éléments répétés",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Comparaison aux autres génomes",
+                "children": []
+              },
+              {
+                "text": "Les types de variations du génome humain et leurs conséquences",
+                "children": []
+              },
+              {
+                "text": "La variabilité du génome humain",
+                "children": []
+              },
+              {
+                "text": "Evolution des génomes: notions essentielles, mécanismes",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 3,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Introduction",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 4,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "L’arbre de la vie",
+        "children": [
+          {
+            "text": "Notions essentielles:",
+            "children": [
+              {
+                "text": "Evolution",
+                "children": [
+                  {
+                    "text": "Temps",
+                    "children": []
+                  },
+                  {
+                    "text": "Adaptation",
+                    "children": []
+                  },
+                  {
+                    "text": "Sélection",
+                    "children": [
+                      {
+                        "text": "LUCA",
+                        "children": []
+                      },
+                      {
+                        "text": "Last Universal Common Ancestor",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 5,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Arbre des eucaryotes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Choix d’organismes modèles",
+        "children": [
+          {
+            "text": "Intérêt(s) économique(s)",
+            "children": [
+              {
+                "text": "Intérêt(s) technique(s)",
+                "children": [
+                  {
+                    "text": "Facilités hébergement,",
+                    "children": [
+                      {
+                        "text": "Développement embryonnaire/temps",
+                        "children": []
+                      },
+                      {
+                        "text": "de génération",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Partage d’éléments communs (ADN)",
+                    "children": []
+                  },
+                  {
+                    "text": "Hérités/Transmis",
+                    "children": [
+                      {
+                        "text": "35 eucaryotes",
+                        "children": [
+                          {
+                            "text": "18 métazoaires",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 6,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "A propos de l’homologie",
+            "children": []
+          },
+          {
+            "text": "Définition",
+            "children": [
+              {
+                "text": "En biologie, l'homologie désigne un caractère propre à plusieurs",
+                "children": [
+                  {
+                    "text": "espèces hérité d'un ancêtre commun. Les structures en question, qu'elles",
+                    "children": []
+                  },
+                  {
+                    "text": "soient d'ordre anatomique, moléculaire ou génétique, partagent donc une",
+                    "children": []
+                  },
+                  {
+                    "text": "histoire évolutive.",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "≠ analogie (ex: ailes oiseaux et insectes qui est une évolution séparée)",
+                "children": []
+              },
+              {
+                "text": "Orthologie (gènes orthologues): gènes homologues dans 2 espèces ayant",
+                "children": [
+                  {
+                    "text": "évolué à partir d’un gène ancestral suite à une spéciation",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Paralogie (gènes paralogues): gènes homologues au sein de la même",
+                "children": [
+                  {
+                    "text": "espèce ayant évolué à partir d’un gène ancestral par duplication au cours de",
+                    "children": []
+                  },
+                  {
+                    "text": "l’évolution de cette espèce.",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 7,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "A propos de l’homologie",
+            "children": []
+          },
+          {
+            "text": "Définition",
+            "children": [
+              {
+                "text": "En biologie, l'homologie désigne un caractère propre à plusieurs espèces",
+                "children": [
+                  {
+                    "text": "hérité d'un ancêtre commun. Les structures en question, qu'elles soient",
+                    "children": []
+                  },
+                  {
+                    "text": "d'ordre anatomique, moléculaire ou génétique, partagent donc une histoire",
+                    "children": []
+                  },
+                  {
+                    "text": "évolutive.",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Orthologie (gènes orthologues): gènes homologues dans 2 espèces ayant",
+                "children": [
+                  {
+                    "text": "évolué à partir d’un gène ancestral suite à une spéciation",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Paralogie (gènes paralogues): gènes homologues au sein de la même",
+                "children": [
+                  {
+                    "text": "espèce ayant évolué à partir d’un gène ancestral par duplication au cours de",
+                    "children": []
+                  },
+                  {
+                    "text": "l’évolution de cette espèce.",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 8,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "A propos de l’homologie",
+            "children": []
+          },
+          {
+            "text": "Exemple",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 9,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "A propos de l’homologie",
+            "children": [
+              {
+                "text": "Comment déterminer si les gènes sont homologues ou pas?",
+                "children": [
+                  {
+                    "text": "Les séquences des génomes peuvent être alignées entres elles tout comme",
+                    "children": [
+                      {
+                        "text": "les séquences des protéines.",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "La comparaison de 2 séquences permet d’établir une évaluation de leur",
+                    "children": [
+                      {
+                        "text": "proximité ou de leur éloignement par le calcul:",
+                        "children": [
+                          {
+                            "text": "du pourcentage d’identité* entre ces 2 séquences",
+                            "children": [
+                              {
+                                "text": "* résidus strictement identique",
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "text": "du pourcentage de similarité* entre ces 2 séquences",
+                            "children": [
+                              {
+                                "text": "* résidus identique + proche (critère à déterminer; ex: caractéristiques physicochimiques)",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Seuil de significativité >20% (dépendant de la famille de protéines)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 10,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "A propos de l’homologie",
+            "children": [
+              {
+                "text": "Remarques:",
+                "children": [
+                  {
+                    "text": "Un % similarité/identité non significatif ne veut pas dire que les gènes, ne sont",
+                    "children": [
+                      {
+                        "text": "pas homologues.",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "2 séquences similaires peuvent l’être :",
+                    "children": [
+                      {
+                        "text": "par hasard (région de faible complexité)",
+                        "children": [
+                          {
+                            "text": "par convergence évolutive",
+                            "children": [
+                              {
+                                "text": "<15% identité",
+                                "children": []
+                              }
+                            ]
+                          },
+                          {
+                            "text": "Actine humaine MreB bactérienne",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 11,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Biologie du gène",
+            "children": [
+              {
+                "text": "dogme central",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 12,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Références",
+            "children": [
+              {
+                "text": "Le génome est une des références d’un organisme",
+                "children": [
+                  {
+                    "text": "…",
+                    "children": []
+                  },
+                  {
+                    "text": "méthylome",
+                    "children": []
+                  },
+                  {
+                    "text": "protéome",
+                    "children": []
+                  },
+                  {
+                    "text": "transcriptome",
+                    "children": []
+                  },
+                  {
+                    "text": "génome",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 13,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Le génome humain",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 14,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Homo sapiens",
+            "children": [
+              {
+                "text": "Composition du génome humain :",
+                "children": [
+                  {
+                    "text": "Génome nucléaire",
+                    "children": [
+                      {
+                        "text": "22 paires chromosomes homologues (autosomes: 1 à 22)",
+                        "children": [
+                          {
+                            "text": "1 paire chromosomes sexuels (gonosomes: X et Y)",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Génome mitochondrial",
+                        "children": [
+                          {
+                            "text": "Molécule circulaire",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Illustration des chromosomes humains condensés en métaphase du cycle cellulaire (≠organisation des chromosomes dans le noyau hors métaphase)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 15,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Composition générale du génome",
+            "children": [
+              {
+                "text": "Génome haploïde",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Nomenclature de Paris (1971)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 16,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Composition générale du génome",
+            "children": [
+              {
+                "text": "Résolution",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Nomenclature de Paris (1971)",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 17,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Composition générale du génome",
+        "children": [
+          {
+            "text": "Génome diploïde",
+            "children": [
+              {
+                "text": "Génome maternel et paternel",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 18,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Détermination de la séquence du génome Humain",
+        "children": [
+          {
+            "text": "Projet international: durée ~15 ans, budget global ~3 milliards $",
+            "children": [
+              {
+                "text": "Démarrage en 1990",
+                "children": [
+                  {
+                    "text": "Cible principale: séquence de l’euchromatine",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 19,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Projet Génome Humain",
+            "children": [
+              {
+                "text": "Projet international: durée ~15 ans, budget global ~3 milliards $",
+                "children": [
+                  {
+                    "text": "Cartographie génétique: basée sur les fréquences de recombinaison (cM)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 20,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Projet Génome Humain",
+            "children": [
+              {
+                "text": "Projet international: durée ~15 ans, budget global ~3 milliards $",
+                "children": [
+                  {
+                    "text": "Cartographie physique: distance réelle (en kb ou Mb)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 21,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Projet Génome Humain",
+            "children": [
+              {
+                "text": "Projet international: durée ~15 ans, budget global ~3 milliards $",
+                "children": [
+                  {
+                    "text": "Début du séquençage en 1999 (20 centres, 6 pays)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 22,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Projet Génome Humain",
+            "children": [
+              {
+                "text": "Projet international: durée ~15 ans, budget global ~3 milliards $",
+                "children": [
+                  {
+                    "text": "Séquence complète en 2000, version brouillon ou « draft » (90%, qualité variable)",
+                    "children": []
+                  },
+                  {
+                    "text": "Séquence finalisée en 2003, version finale (99%, haute qualité)",
+                    "children": []
+                  },
+                  {
+                    "text": "Fini, vraiment ?",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 23,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Gestion des versions du génome humain",
+        "children": [
+          {
+            "text": "Version majeure",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Nom Date",
+        "children": [
+          {
+            "text": "« release »",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "hg38 Dec. 2013 GRCh38",
+        "children": []
+      },
+      {
+        "text": "hg19 Feb. 2009 GRCh37",
+        "children": []
+      },
+      {
+        "text": "hg18 Mar. 2006 NCBI Build 36.1",
+        "children": []
+      },
+      {
+        "text": "hg17 May 2004 NCBI Build 35",
+        "children": []
+      },
+      {
+        "text": "hg16 Jul. 2003 NCBI Build 34",
+        "children": []
+      },
+      {
+        "text": "hg15 Apr. 2003 NCBI Build 33",
+        "children": []
+      },
+      {
+        "text": "hg13 Nov. 2002 NCBI Build 31",
+        "children": []
+      },
+      {
+        "text": "hg12 Jun. 2002 NCBI Build 30",
+        "children": []
+      },
+      {
+        "text": "hg11 Apr. 2002 NCBI Build 29",
+        "children": [
+          {
+            "text": "Patch résolu",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "hg10 Dec. 2001 NCBI Build 28",
+        "children": []
+      },
+      {
+        "text": "hg8 Aug. 2001 UCSC-assembled Nouveau patch",
+        "children": []
+      },
+      {
+        "text": "hg7 Apr. 2001 UCSC-assembled",
+        "children": []
+      },
+      {
+        "text": "hg6 Dec. 2000 UCSC-assembled",
+        "children": [
+          {
+            "text": "Dernière version mineure Février 2022 -> GRCh38.p14",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "hg5 Oct. 2000 UCSC-assembled",
+        "children": [
+          {
+            "text": "53 (164) patchs résolus, et 18 (90) nouveaux patchs.",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "hg4 Sep. 2000 UCSC-assembled",
+        "children": []
+      },
+      {
+        "text": "hg3 Jul. 2000 UCSC-assembled",
+        "children": [
+          {
+            "text": "1ère",
+            "children": [
+              {
+                "text": "2022: version avec la séquence complète (hors Y)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "hg2 Jun. 2000 UCSC-assembled",
+        "children": [
+          {
+            "text": "1ère",
+            "children": [
+              {
+                "text": "2023: version complète du chrY",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "hg1 May 2000 UCSC-assembled",
+        "children": [
+          {
+            "text": "Rhie et al., Nature 20",
+            "children": [
+              {
+                "text": "https://www.ncbi.nlm.nih.gov/grc Nurket al., Science 2022",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 24,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Visualisation et exploration du génome humain",
+        "children": []
+      },
+      {
+        "text": "« Genome browser » (navigateur) de l’Université de Californie, Santa Cruz (UCSC)",
+        "children": []
+      },
+      {
+        "text": "Chromosome",
+        "children": [
+          {
+            "text": "Zoom",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Annotations:",
+        "children": [
+          {
+            "text": "Gènes",
+            "children": [
+              {
+                "text": "http://genome-euro.ucsc.edu/",
+                "children": []
+              },
+              {
+                "text": "Protéines",
+                "children": []
+              },
+              {
+                "text": "Conservation…",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 25,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Exploration du génome humain",
+        "children": [
+          {
+            "text": "Gène X, Y et Z",
+            "children": [
+              {
+                "text": "Zoom",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 26,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Gène X",
+            "children": [
+              {
+                "text": "Zoom",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Sens de transcription",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 27,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Exons",
+            "children": [
+              {
+                "text": "Zoom",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Introns",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 28,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Zoom",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 29,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Nucléotides",
+            "children": []
+          },
+          {
+            "text": "Acide aminés",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 30,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Composition générale du génome",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "5% du génome conservé au cours de l’évolution",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 31,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Génome mitochondrial",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Génome compact",
+        "children": []
+      },
+      {
+        "text": "16,6 kb",
+        "children": []
+      },
+      {
+        "text": "Séquence complète en 1981",
+        "children": []
+      },
+      {
+        "text": "37 gènes au total:",
+        "children": [
+          {
+            "text": "13 codants pour des protéines",
+            "children": [
+              {
+                "text": "Phosphorylation oxydative",
+                "children": [
+                  {
+                    "text": "24 non codants (22 ARNt et 2 ARNr)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Code génétique universel mais",
+        "children": []
+      },
+      {
+        "text": "utilisation différente (cf chapitre 9):",
+        "children": [
+          {
+            "text": "60 codons codants pour des AA,",
+            "children": [
+              {
+                "text": "4 codons STOP",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 32,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Génome mitochondrial",
+        "children": []
+      },
+      {
+        "text": "Très proche d’un génome de bactérie",
+        "children": []
+      },
+      {
+        "text": "Origine endosymbiotique (alpha-protéobactérie)",
+        "children": []
+      },
+      {
+        "text": "Héritage maternel",
+        "children": []
+      },
+      {
+        "text": ">1000 copies/cellule",
+        "children": []
+      },
+      {
+        "text": "Hétéroplasmie: présence de copies différentes du génome mitochondrial",
+        "children": []
+      },
+      {
+        "text": "au sein de la même cellule:",
+        "children": [
+          {
+            "text": "Selon le tissu",
+            "children": []
+          },
+          {
+            "text": "Selon l’âge",
+            "children": [
+              {
+                "text": "Stewart, J., Larsson, N. PLOS Genetics2014",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 33,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Comparaison des génomes mitochondriaux",
+        "children": [
+          {
+            "text": "Drosophila Saccharomyces Arabidopsis",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Génome Homo sapiens",
+        "children": [
+          {
+            "text": "melanogaster cerevisiae thaliana",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Taille 16,6 kb 19,5 kb 86 kb 367 kb",
+        "children": []
+      },
+      {
+        "text": "Organisation circulaire linéaire/circulaire",
+        "children": []
+      },
+      {
+        "text": "Nombre de copies >1000 20-200",
+        "children": []
+      },
+      {
+        "text": "Total gènes 37 37 55 60",
+        "children": []
+      },
+      {
+        "text": "Gènes codants 13 13 28",
+        "children": []
+      },
+      {
+        "text": "Gènes ARN 24 24 27 25",
+        "children": [
+          {
+            "text": "https://www.yeastgenome.org/contig/Chromosome_Mito#feature",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 34,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Génome nucléaire",
+            "children": [
+              {
+                "text": "Taille: 3,1 Gb (haploïde)",
+                "children": [
+                  {
+                    "text": "Séquencé et disponible en 2001 (brouillon)",
+                    "children": []
+                  },
+                  {
+                    "text": "Complète en 2022",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Hétérochromatine constitutive",
+                "children": [
+                  {
+                    "text": "0,2 Gb: partie condensée du génome, transcription inactive",
+                    "children": [
+                      {
+                        "text": "(zones hautement répétées)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Euchromatine",
+                "children": [
+                  {
+                    "text": "2,9 Gb: partie riche en gènes et dont la transcription est active",
+                    "children": [
+                      {
+                        "text": "Cf cours Didier Devys",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 35,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Génome nucléaire",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 36,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Les éléments constitutifs du",
+            "children": [
+              {
+                "text": "génome humain",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 37,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Gène",
+            "children": [
+              {
+                "text": "Définition:",
+                "children": [
+                  {
+                    "text": "Segment d’ADN génomique utilisé comme matrice pour",
+                    "children": [
+                      {
+                        "text": "synthétiser un ARN simple brin (transcription).",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "ARN codants, ARNm:",
+                    "children": [
+                      {
+                        "text": "contiennent l’information pour la synthèse protéique",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "ARN non-codants:",
+                    "children": [
+                      {
+                        "text": "11 classes majeures",
+                        "children": [
+                          {
+                            "text": "ARNt, ARNr: utilisés pour la traduction",
+                            "children": []
+                          },
+                          {
+                            "text": "miARN (microARN): régulation de l’expression",
+                            "children": []
+                          },
+                          {
+                            "text": "snARN, snoARN, lncARN…",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 38,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définition - Gène",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 39,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définition - Gène",
+            "children": [
+              {
+                "text": "Définition:",
+                "children": [
+                  {
+                    "text": "Segment d’ADN génomique utilisé comme matrice pour",
+                    "children": [
+                      {
+                        "text": "synthétiser un ARN simple brin (transcription).",
+                        "children": []
+                      },
+                      {
+                        "text": "ARN codants: ~20 000 gènes pour ~35 Mb (~1,1% du génome)*",
+                        "children": []
+                      },
+                      {
+                        "text": "ARN non-codants: > 40 000",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Le nombre définitif de gènes (codants + non codants) est proche des",
+                    "children": []
+                  },
+                  {
+                    "text": "60 000 mais demeure encore incertain (besoin de validation) mais se",
+                    "children": []
+                  },
+                  {
+                    "text": "stabilise avec le temps et l’amélioration des annotations.",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "*En ne tenant compte que les régions codantes (exclusion des régions régulatrices)",
+        "children": [
+          {
+            "text": "Nurk et al., Science 2022",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 40,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Evolution du compte total: gènes codants",
+        "children": [
+          {
+            "text": "19,969",
+            "children": [
+              {
+                "text": "2022",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 41,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Ordres de grandeurs",
+            "children": []
+          },
+          {
+            "text": "Taille des gènes: Taille des protéines:",
+            "children": [
+              {
+                "text": "Moyenne: 54 kb",
+                "children": []
+              },
+              {
+                "text": "Plus petite: ~10 AA",
+                "children": [
+                  {
+                    "text": "100aines",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Plus petit: quelques pb",
+                "children": []
+              },
+              {
+                "text": "Plus grande: 34 350 AA (Titin)",
+                "children": [
+                  {
+                    "text": "(DMD,",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Plus grand: 2,5 Mb dystrophine)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Nombre / taille d’exons Taille des introns",
+            "children": [
+              {
+                "text": "Moyenne: 10 / 280 pb",
+                "children": []
+              },
+              {
+                "text": "Plus petit: <30 pb",
+                "children": []
+              },
+              {
+                "text": "Plus petit: 1 (pas d’intron) / <10 pb",
+                "children": []
+              },
+              {
+                "text": "Plus grand: 1 Mb",
+                "children": []
+              },
+              {
+                "text": "Plus grand: 363 (titin) / 18 kb",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Le valeurs sont arrondies au plus proche",
+        "children": []
+      },
+      {
+        "text": "AA:AcideAminé",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 42,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Quelques exemples de structures de gènes codants",
+            "children": [
+              {
+                "text": "Gène CDS AA Nombre d’exons",
+                "children": [
+                  {
+                    "text": "ALMS1 13 kb 4169 23 exons",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Bleu: exons numérotés",
+                "children": [
+                  {
+                    "text": "CEP290 7,4 kb 2403 54 exons",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Jaune: intron",
+                "children": [
+                  {
+                    "text": "MKKS 1,7 kb 571 6 exons (3 codants)",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "CDS: séquence codante",
+                "children": [
+                  {
+                    "text": "BBS10 2,1 kb 724 2 exons (2 codants)",
+                    "children": [
+                      {
+                        "text": "BBS12 2,1 kb 711 3 exons (1 codant)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "ALMS1",
+        "children": []
+      },
+      {
+        "text": "CEP290",
+        "children": []
+      },
+      {
+        "text": "MKKS",
+        "children": []
+      },
+      {
+        "text": "BBS10",
+        "children": []
+      },
+      {
+        "text": "BBS12",
+        "children": [
+          {
+            "text": "Visualisation avecAlamut Visual (InteractiveBiosoftware)",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 43,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Organisation des gènes sur le génome",
+            "children": [
+              {
+                "text": "2 organisation possibles",
+                "children": []
+              },
+              {
+                "text": "Non regroupée:",
+                "children": [
+                  {
+                    "text": "Territoire génique indépendant et bien défini",
+                    "children": []
+                  },
+                  {
+                    "text": "Gènes avec des fonctions différentes",
+                    "children": []
+                  },
+                  {
+                    "text": "Pas de similarité de séquence particulière",
+                    "children": []
+                  },
+                  {
+                    "text": "Sens de transcription variable",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 44,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Organisation des gènes sur le génome",
+            "children": [
+              {
+                "text": "Non regroupée:",
+                "children": [
+                  {
+                    "text": "Situation bien souvent plus complexe",
+                    "children": []
+                  },
+                  {
+                    "text": "Territoires chevauchants",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 45,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Organisation des gènes sur le génome",
+            "children": [
+              {
+                "text": "Groupée ou dite en « cluster »:",
+                "children": [
+                  {
+                    "text": "Origine: liée à une duplication en tandem",
+                    "children": []
+                  },
+                  {
+                    "text": "Les gènes partagent souvent:",
+                    "children": [
+                      {
+                        "text": "Sens de transcription identique",
+                        "children": []
+                      },
+                      {
+                        "text": "Séquences homologues",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Présence de pseudogènes",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "1 cluster sur 1 chromosome",
+        "children": []
+      },
+      {
+        "text": "2 clusters sur 2 chromosomes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 46,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Exemples d’organisations remarquables",
+        "children": [
+          {
+            "text": "Famille des gènes d’histones (>60 gènes)",
+            "children": [
+              {
+                "text": "3 clusters principaux",
+                "children": [
+                  {
+                    "text": "2 sur le chromosome 6",
+                    "children": [
+                      {
+                        "text": "1 sur le chromosome 1",
+                        "children": []
+                      },
+                      {
+                        "text": "Plusieurs pseudogènes",
+                        "children": [
+                          {
+                            "text": "Visualisation avecensemblgenomebrowser",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 47,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Exemples d’organisations remarquables",
+        "children": [
+          {
+            "text": "Famille de gènes des récepteurs olfactifs",
+            "children": [
+              {
+                "text": "Répertoire définissant notre capacité à détecter des",
+                "children": [
+                  {
+                    "text": "odeurs différentes",
+                    "children": []
+                  },
+                  {
+                    "text": ">900 gènes",
+                    "children": []
+                  },
+                  {
+                    "text": "25 grands clusters",
+                    "children": [
+                      {
+                        "text": "Visualisation avecensemblgenomebrowser",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 48,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Gènes non codants",
+            "children": [
+              {
+                "text": "ARN de transfert (ARNt):",
+                "children": [
+                  {
+                    "text": "Fonction lors de la traduction",
+                    "children": []
+                  },
+                  {
+                    "text": "~500 gènes et ~300 pseudogènes",
+                    "children": []
+                  },
+                  {
+                    "text": "Plusieurs clusters répartis un peu partout sur le génome",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "ARN ribosomaux (ARNr):",
+                "children": [
+                  {
+                    "text": "Fonction lors de la traduction (composants du ribosome)",
+                    "children": []
+                  },
+                  {
+                    "text": "5S: plusieurs copies dans de petits clusters (le plus grands",
+                    "children": [
+                      {
+                        "text": "contient 16 gènes sur le chromosome 1)",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "45S incluant 28S/5,8S/18S: 30-40 répétitions",
+                    "children": []
+                  },
+                  {
+                    "text": "Le nombre total est mal connu (exclu du projet initial du",
+                    "children": [
+                      {
+                        "text": "génome humain)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 49,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Pseudogène",
+            "children": [
+              {
+                "text": "Définition:",
+                "children": [
+                  {
+                    "text": "Copie généralement défectueuse d’un gène fonctionnel avec lequel le",
+                    "children": [
+                      {
+                        "text": "pseudogène partage une similarité de séquence significative.",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Concerne 10% des gènes codants, avec un nombre plus important",
+                "children": []
+              },
+              {
+                "text": "pour des gènes activement transcrits",
+                "children": []
+              },
+              {
+                "text": ">14000 décrits pour 3 catégories principales:",
+                "children": [
+                  {
+                    "text": "Pseudogène processé (~72%, ~10 000 copies)",
+                    "children": []
+                  },
+                  {
+                    "text": "Pseudogène non processé (~23%, ~3 500 copies)",
+                    "children": []
+                  },
+                  {
+                    "text": "Pseudogène unitaire (~1,4%, ~200 copies)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 50,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Origine des pseudogènes",
+            "children": [
+              {
+                "text": "Pseudogène dit non processé",
+                "children": [
+                  {
+                    "text": "Mécanisme lié à la duplication d’une partie du génome",
+                    "children": []
+                  },
+                  {
+                    "text": "Conservation de la structure intron/exon*",
+                    "children": []
+                  },
+                  {
+                    "text": "Conservation de la région de régulation",
+                    "children": [
+                      {
+                        "text": "* divergence par accumulation de variations",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 51,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Origine des pseudogènes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Pseudogène dit processé",
+        "children": [
+          {
+            "text": "Mécanisme lié à la rétrotransposition",
+            "children": [
+              {
+                "text": "d’un ARNm",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Perte de la structure intron/exon",
+            "children": [
+              {
+                "text": "(le pseudogène ne contient que de",
+                "children": [
+                  {
+                    "text": "l’exon)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Perte de la région de régulation",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 52,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Origine des pseudogènes",
+            "children": [
+              {
+                "text": "Pseudogène dit unitaire",
+                "children": [
+                  {
+                    "text": "Mécanisme de fin de vie du gène (pression de sélection diminuée",
+                    "children": [
+                      {
+                        "text": "-> accumulation de mutations)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 53,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Pseudogènes - remarques",
+            "children": [
+              {
+                "text": "Remarques:",
+                "children": [
+                  {
+                    "text": "Longtemps catégorisés comme des gènes « fossiles », leur",
+                    "children": [
+                      {
+                        "text": "fonction est encore mal connue",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Pourtant, 15% des pseudogènes sont transcrits",
+                    "children": []
+                  },
+                  {
+                    "text": "Un des mécanismes de l’évolution des génomes",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "En règle générale:",
+                "children": [
+                  {
+                    "text": "Les gènes les plus fortement exprimés ont plus de pseudogènes,",
+                    "children": [
+                      {
+                        "text": "et en particulier de type « processé »",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Les pseudogènes non processés sont souvent physiquement",
+                    "children": [
+                      {
+                        "text": "proches des gènes dont ils sont dérivés",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 54,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": [
+              {
+                "text": "Eléments répétés en tandem",
+                "children": [
+                  {
+                    "text": "6,5% du génome",
+                    "children": []
+                  },
+                  {
+                    "text": "ADN satellite",
+                    "children": []
+                  },
+                  {
+                    "text": "ADN minisatellite",
+                    "children": []
+                  },
+                  {
+                    "text": "ADN microsatellite",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Eléments répétés dispersés (« interspersed »)",
+                "children": [
+                  {
+                    "text": "40-45% du génome",
+                    "children": []
+                  },
+                  {
+                    "text": "Rétrotransposons",
+                    "children": [
+                      {
+                        "text": "LINE, SINE (Long/Short Interspersed Elements), rétrovirus",
+                        "children": []
+                      },
+                      {
+                        "text": "Autonomes, non autonomes",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Transposons",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 55,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés en tandem",
+        "children": [
+          {
+            "text": "6,5% du génome",
+            "children": [
+              {
+                "text": "Hétérochromatine constitutive",
+                "children": []
+              },
+              {
+                "text": "3 classes d’éléments selon la taille totale de la zone répétée",
+                "children": []
+              },
+              {
+                "text": "Chaque élément est constitué d’unités plus petites hautement répétées",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 56,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés en tandem",
+        "children": [
+          {
+            "text": "6,5% du génome",
+            "children": [
+              {
+                "text": "Hétérochromatine constitutive",
+                "children": []
+              },
+              {
+                "text": "3 classes d’éléments selon la taille totale de la zone répétée",
+                "children": []
+              },
+              {
+                "text": "Chaque élément est constitué d’unités plus petites hautement répétées",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 57,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés en tandem",
+        "children": [
+          {
+            "text": "6,5% du génome",
+            "children": [
+              {
+                "text": "Hétérochromatine constitutive",
+                "children": []
+              },
+              {
+                "text": "3 classes d’éléments selon la taille totale de la zone répétée",
+                "children": []
+              },
+              {
+                "text": "Chaque élément est constitué d’unités plus petites hautement répétées",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 58,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés en tandem",
+        "children": [
+          {
+            "text": "6,5% du génome",
+            "children": [
+              {
+                "text": "Hétérochromatine constitutive",
+                "children": []
+              },
+              {
+                "text": "3 classes d’éléments selon la taille totale de la zone répétée",
+                "children": []
+              },
+              {
+                "text": "Chaque élément est constitué d’unités plus petites hautement répétées",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 59,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés en tandem",
+        "children": [
+          {
+            "text": "Microsatellites",
+            "children": [
+              {
+                "text": "Disposés en moyenne tous les 30 kb sur le génome humain",
+                "children": [
+                  {
+                    "text": "Polymorphiques (séquences et/ou nombre de répétitions variables d'un",
+                    "children": [
+                      {
+                        "text": "génome/individu à l'autre)",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Application génotypage",
+                    "children": [
+                      {
+                        "text": "Carte génétique pour le génome humain",
+                        "children": [
+                          {
+                            "text": "Empreintes génétiques et médecine légale",
+                            "children": [
+                              {
+                                "text": "Individu 2",
+                                "children": []
+                              },
+                              {
+                                "text": "Individu 1",
+                                "children": [
+                                  {
+                                    "text": "(CA)20 (CA)10",
+                                    "children": []
+                                  },
+                                  {
+                                    "text": "(CA)35 (CA)40",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 60,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés dispersés (« interspersed »)",
+        "children": [
+          {
+            "text": "40-45% du génome",
+            "children": [
+              {
+                "text": "Eléments dérivés des transposons. Ce sont des éléments mobiles",
+                "children": [
+                  {
+                    "text": "capables de migrer d’une région du génome à une autre",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "2 grandes catégories:",
+                "children": [
+                  {
+                    "text": "Rétrotransposons",
+                    "children": [
+                      {
+                        "text": "LINE, SINE, rétrovirus",
+                        "children": [
+                          {
+                            "text": "Autonomes, non autonomes",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Transposons",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 61,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          },
+          {
+            "text": "Eléments répétés dispersés (« interspersed »)",
+            "children": [
+              {
+                "text": "Rétrotransposons (« Copié/Collé »): Passage par une étape de",
+                "children": [
+                  {
+                    "text": "transcription (ARN), transcription inverse (ADN) puis intégration",
+                    "children": []
+                  },
+                  {
+                    "text": "LINE: « Long Interspersed Nuclear Elements »",
+                    "children": [
+                      {
+                        "text": "1ère",
+                        "children": [
+                          {
+                            "text": "3 sous-familles (Line-1, Line-2, Line-3), seule la est encore active",
+                            "children": []
+                          },
+                          {
+                            "text": "1 000 000 de copies dont <1% sont complètes",
+                            "children": []
+                          },
+                          {
+                            "text": "~100 éléments encore actifs (Line-1)",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "ORF1: protéine de fixation à l’ARN",
+        "children": []
+      },
+      {
+        "text": "ORF2: endonucléase, transcriptase inverse",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 62,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés dispersés (« interspersed »)",
+        "children": [
+          {
+            "text": "Rétrotransposons (« Copié/Collé »)",
+            "children": [
+              {
+                "text": "SINE: « Short Interspersed Nuclear Elements » répartis en 3 sous-",
+                "children": [
+                  {
+                    "text": "familles dont principalement:",
+                    "children": [
+                      {
+                        "text": "Alu: spécifique des primates (élément le plus abondant du génome)",
+                        "children": []
+                      },
+                      {
+                        "text": "MIR: présent chez les mammifères",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Non autonomes, ils utilisent la machinerie des LINEs",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 63,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés dispersés (« interspersed »)",
+        "children": [
+          {
+            "text": "Rétrotransposons (« Copié/Collé »):",
+            "children": [
+              {
+                "text": "LTR transposons ou rétrovirus",
+                "children": [
+                  {
+                    "text": "LTR (Long Terminal Repeat) contiennent la machinerie utile à la",
+                    "children": [
+                      {
+                        "text": "transcription",
+                        "children": [
+                          {
+                            "text": "2-3 gènes typiques de rétrovirus (gag/pol/env) codent pour une protéase,",
+                            "children": []
+                          },
+                          {
+                            "text": "transcriptase inverse, RNAseH et une intégrase",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 64,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Eléments répétés",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Eléments répétés dispersés (« interspersed »)",
+        "children": [
+          {
+            "text": "Transposons (« Coupé/Collé »)",
+            "children": [
+              {
+                "text": "Déplacement par une transposase qui va exciser l’élément et le",
+                "children": [
+                  {
+                    "text": "réinsérer à une autre localisation du génome",
+                    "children": []
+                  },
+                  {
+                    "text": "De nombreuses sous-familles",
+                    "children": []
+                  },
+                  {
+                    "text": "Durée de vie limitée dans un génome",
+                    "children": []
+                  },
+                  {
+                    "text": "Eléments considérés comme inactifs ou « fossiles » du génome",
+                    "children": [
+                      {
+                        "text": "humain",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 65,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Conclusion: éléments répétés",
+            "children": [
+              {
+                "text": "Une part importante de notre génome",
+                "children": []
+              },
+              {
+                "text": "La plupart de ces éléments sont inactifs",
+                "children": []
+              },
+              {
+                "text": "Un des mécanismes de l’évolution des génomes",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 66,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Exemples: visualisation des éléments répétés",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 67,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Comparaison de nos 2 génomes",
+            "children": [
+              {
+                "text": "Génome Nucléaire Mitochondrial",
+                "children": [
+                  {
+                    "text": "Taille 3,1Gb 16,6 kb",
+                    "children": []
+                  },
+                  {
+                    "text": "Nombre de molécules 23/24 1 circulaire",
+                    "children": []
+                  },
+                  {
+                    "text": "Nombre de copies 23/46 >1000",
+                    "children": []
+                  },
+                  {
+                    "text": "Gène codant ~20 000 13",
+                    "children": []
+                  },
+                  {
+                    "text": "Gène non codant >40 000 (incertitude) 24",
+                    "children": []
+                  },
+                  {
+                    "text": "Densité en gène ~1/120 kb 1/0,45 kb",
+                    "children": []
+                  },
+                  {
+                    "text": "Zones répétées >50% peu",
+                    "children": []
+                  },
+                  {
+                    "text": "Introns Oui Non",
+                    "children": []
+                  },
+                  {
+                    "text": "% codant ~1,1% ~66%",
+                    "children": []
+                  },
+                  {
+                    "text": "% G+C 41% [38-49] 44%",
+                    "children": []
+                  },
+                  {
+                    "text": "Hérédité Mendélienne* Maternelle",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "* 1 allèle d'origine paternelle et 1 d'origine maternelle",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 68,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Comparaison aux autres génomes",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 69,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Comparaison des génomes",
+        "children": [
+          {
+            "text": "La capacité codante d'une espèce n’est pas proportionnelle à la taille du génome en",
+            "children": [
+              {
+                "text": "paires de bases ni au nombre de chromosomes.",
+                "children": [
+                  {
+                    "text": "Protozoaires: eucaryotes unicellulaires, métazoaires: animaux (eucaryotes multicellulaires)",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 70,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Comparaison des génomes",
+            "children": []
+          },
+          {
+            "text": "Distribution du nombre de gènes dans les 3",
+            "children": []
+          },
+          {
+            "text": "domaines du vivant:",
+            "children": [
+              {
+                "text": "Le nombre de gènes est variable selon les groupes",
+                "children": [
+                  {
+                    "text": "d’organismes",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Le nombre de gènes n’est pas le reflet de la complexité",
+                "children": [
+                  {
+                    "text": "d’un organisme",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 71,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Comparaison des génomes",
+        "children": [
+          {
+            "text": "Relation linéaire, génomes compacts et denses en gènes",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 72,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Comparaison des génomes",
+        "children": [
+          {
+            "text": "Pas de lien entre la taille d’un génome eucaryote et le nombre de gènes",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 73,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Comparaison des génomes nucléaires",
+            "children": [
+              {
+                "text": "Drosophila Saccharomyces Oryza Paris",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Génome Homme",
+            "children": [
+              {
+                "text": "melanogaster cerevisiae sativa japonica",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Taille 3,1 Gb 122,6 Mb 12,2 Mb 430 Mb ~150 Gb",
+            "children": []
+          },
+          {
+            "text": "Total",
+            "children": [
+              {
+                "text": "~21 000 ~14 000 ~5 800 ~40 000 ?",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "gènes",
+            "children": [
+              {
+                "text": "Le plus grand génome connu (40 chromosomes)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 74,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Les types de variations du génome",
+            "children": [
+              {
+                "text": "humain et leurs conséquences",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 75,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "Une mutation?",
+                "children": [
+                  {
+                    "text": "En biologie: une modification héritée de l'information contenue",
+                    "children": [
+                      {
+                        "text": "dans le génome d’une espèce.",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "En génétique/santé: modification de la séquence du génome",
+                    "children": [
+                      {
+                        "text": "responsable d’un phénotype (modification d’un caractère",
+                        "children": []
+                      },
+                      {
+                        "text": "pathologique) pour cette espèce.",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Un polymorphisme?",
+                "children": [
+                  {
+                    "text": "Une mutation bénigne/non pathologique",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Mutation pathogène ou délétère?",
+                "children": []
+              },
+              {
+                "text": "Possible confusion, besoin d’un vocabulaire contrôlé",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 76,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "Vocabulaire et nomenclature contrôlée et non ambiguë",
+                "children": []
+              },
+              {
+                "text": "Une variation: mutation",
+                "children": [
+                  {
+                    "text": "Différence entre la séquence d’un génome de référence et la",
+                    "children": [
+                      {
+                        "text": "séquence d’un individu de la même espère",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Une ou quelques bases (1-50 bases)",
+                    "children": [
+                      {
+                        "text": "SNV: Single Nucleotide Variation",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Un grande nombre de bases (>50 bases ou >1 kb)",
+                    "children": [
+                      {
+                        "text": "Variation de structure équilibrée ou non",
+                        "children": [
+                          {
+                            "text": "CNV: Copy Number Variation",
+                            "children": [
+                              {
+                                "text": "Référence GTAAAAGC",
+                                "children": [
+                                  {
+                                    "text": "ex1 GTATAAGC",
+                                    "children": []
+                                  },
+                                  {
+                                    "text": "ex2 GTA--AGC",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 77,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "Nomenclature",
+                "children": [
+                  {
+                    "text": "Mémorisable, éloquente, stable, non équivoque",
+                    "children": []
+                  },
+                  {
+                    "text": "Plusieurs référentiels:",
+                    "children": [
+                      {
+                        "text": "Nom de gène, référence ARNm/protéine",
+                        "children": [
+                          {
+                            "text": "Position (génomique, ARNm, protéique)",
+                            "children": [
+                              {
+                                "text": "g. génomique",
+                                "children": []
+                              },
+                              {
+                                "text": "c. ARN messager/cDNA",
+                                "children": [
+                                  {
+                                    "text": "Référence GTAAAAGC",
+                                    "children": []
+                                  }
+                                ]
+                              },
+                              {
+                                "text": "p. protéique",
+                                "children": [
+                                  {
+                                    "text": "ex1 GTATAAGC",
+                                    "children": [
+                                      {
+                                        "text": "ex2 GTA--AGC",
+                                        "children": []
+                                      },
+                                      {
+                                        "text": "c.76A>T",
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Référentiel Base mutée",
+                        "children": [
+                          {
+                            "text": "Position(s) Type de changement",
+                            "children": [
+                              {
+                                "text": "Base de référence",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 78,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Nomenclature des protéines",
+            "children": [
+              {
+                "text": "Uniquement en plus des informations ADN et ARN",
+                "children": [
+                  {
+                    "text": "(1ère",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Acides aminés décrit sous la forme \"Trp26\" ou \"W26“",
+                "children": []
+              },
+              {
+                "text": "lettre majuscule)",
+                "children": [
+                  {
+                    "text": "p.Arg22fs*5",
+                    "children": [
+                      {
+                        "text": "p.Arg22*",
+                        "children": [
+                          {
+                            "text": "p.Arg22Ser",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Référentiel AA muté",
+                    "children": [
+                      {
+                        "text": "AA de référence Position(s)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 79,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Des variations multiples dans un individu",
+            "children": [
+              {
+                "text": "Génotype",
+                "children": [
+                  {
+                    "text": "2 variations sur des allèles différents",
+                    "children": [
+                      {
+                        "text": "c.[76A>C];[87delG]",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "2 variations sur le même allèle",
+                    "children": [
+                      {
+                        "text": "c.[76A>C;83G>C]",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "2 variations avec aucune appréciation",
+                    "children": [
+                      {
+                        "text": "?",
+                        "children": [
+                          {
+                            "text": "?",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "c.[76A>C(;)83G>C]",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 80,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "Un polymorphisme:",
+                "children": [
+                  {
+                    "text": "Variation présente à une fréquence élevée (≥1%) dans une",
+                    "children": [
+                      {
+                        "text": "population donnée",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "SNP: Single Nucleotide Polymorphism",
+                    "children": []
+                  },
+                  {
+                    "text": "Exemples:",
+                    "children": [
+                      {
+                        "text": "NM_024649.4(BBS1):c.1413C>T, p.Leu471=",
+                        "children": [
+                          {
+                            "text": "EU 38%, AFR 3,77%",
+                            "children": []
+                          },
+                          {
+                            "text": "NM_024649.4(BBS1):c.1169T>G, p.Met390Arg",
+                            "children": [
+                              {
+                                "text": "EU 0,27%, AFR 0,09%",
+                                "children": []
+                              },
+                              {
+                                "text": "NM_000492.4(CFTR):c.1521_1523del, p.Phe508del",
+                                "children": [
+                                  {
+                                    "text": "EU 1,24%, AFR 0,26%, SAS 0,0019%",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 81,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Variant pathogène ou délétère?",
+        "children": [
+          {
+            "text": "Affecte la fonction de la protéine",
+            "children": [
+              {
+                "text": "Selon le contexte la variation est responsable de la pathologie",
+                "children": [
+                  {
+                    "text": "(causale)",
+                    "children": [
+                      {
+                        "text": "RPGR",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Ex. 1: Rétinopathie pigmentaire, gène (chromosome X)",
+                "children": [
+                  {
+                    "text": "Mode de transmission lié à l’X",
+                    "children": [
+                      {
+                        "text": "Variation affectant la fonction de la protéine RPGR",
+                        "children": []
+                      },
+                      {
+                        "text": "Homme: rétinopathie pigmentaire",
+                        "children": []
+                      },
+                      {
+                        "text": "Femme: asymptomatique ou apparition très tardive",
+                        "children": [
+                          {
+                            "text": "BBS1",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Ex. 2: Syndrome de Bardet-Biedl, gène (chromosome 11)",
+                "children": [
+                  {
+                    "text": "Mode de transmission autosomique récessif",
+                    "children": [
+                      {
+                        "text": "Causale d’un syndrome de Bardet-Biedl, si homozygote ou en",
+                        "children": [
+                          {
+                            "text": "présence d’un second allèle affectant la fonction de la protéine",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 82,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "Notions complémentaires",
+                "children": [
+                  {
+                    "text": "Variation rare / fréquente",
+                    "children": []
+                  },
+                  {
+                    "text": "Variation bénigne vs pathogène/délétère",
+                    "children": []
+                  },
+                  {
+                    "text": "Variation causale d’un phénotype",
+                    "children": []
+                  },
+                  {
+                    "text": "Ex: Couleur des cheveux…",
+                    "children": []
+                  },
+                  {
+                    "text": "Une des plus grandes variabilités du génome humain",
+                    "children": []
+                  },
+                  {
+                    "text": "Responsables de la plupart des pathologies humaines liées à",
+                    "children": [
+                      {
+                        "text": "l’ADN (cancer et maladies rares génétiques)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 83,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Conséquences - Gène",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 84,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Conséquences - Gène",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 85,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "quelles variations?",
+                "children": [
+                  {
+                    "text": "Référence GTAAAAGC",
+                    "children": [
+                      {
+                        "text": "ex1 GTATAAGC",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Substitution:",
+                "children": [
+                  {
+                    "text": "Modification d’une base par une autre",
+                    "children": [
+                      {
+                        "text": "Transition: Pu<->Pu ou Py<->Py",
+                        "children": []
+                      },
+                      {
+                        "text": "Transversion: Pu<->Py",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Purine",
+                "children": []
+              },
+              {
+                "text": "Pyrimidine",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 86,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "quelles variations?",
+                "children": [
+                  {
+                    "text": ":",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Insertion/délétion (indel)",
+                "children": [
+                  {
+                    "text": "Indel ou petites insertion/délétions (<50pb)",
+                    "children": []
+                  },
+                  {
+                    "text": "Ajout ou délétion d’une ou plusieurs bases",
+                    "children": [
+                      {
+                        "text": "Référence GTAAAAGC",
+                        "children": [
+                          {
+                            "text": "Référence GTAAAA-GC",
+                            "children": []
+                          },
+                          {
+                            "text": "ex1 GTAA--GC",
+                            "children": [
+                              {
+                                "text": "ex2 GTAAAAAGC",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 87,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Substitutions/indels",
+            "children": [
+              {
+                "text": ":",
+                "children": []
+              },
+              {
+                "text": "Localisation",
+                "children": [
+                  {
+                    "text": "Partout sur le génome (exon, intron et intergénique)",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Fréquence:",
+                "children": [
+                  {
+                    "text": "3-5 millions entre 2 génomes (même sexe)",
+                    "children": []
+                  },
+                  {
+                    "text": "La plus grande source de variation du génome en",
+                    "children": [
+                      {
+                        "text": "nombre d’évènements",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 88,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Séquence de référence/normale/Sauvage",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 89,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Substitution dans le gène",
+            "children": [
+              {
+                "text": "Modification d’une base de l’ADN/ARN",
+                "children": [
+                  {
+                    "text": "Variation faux-sens Variation silencieuse",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 90,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Variation du gène",
+            "children": [
+              {
+                "text": "Variation non-sens",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Rappel: 3 codons STOP du génome nucléaire humain: UAA, UAG, UGA",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 91,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "1ère",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Variation de la base",
+        "children": [
+          {
+            "text": "95% de chance d’avoir un faux sens",
+            "children": [
+              {
+                "text": "2ème",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Variation de la base",
+        "children": [
+          {
+            "text": "100% de chance d’avoir un impact (faux",
+            "children": [
+              {
+                "text": "sens ou non-sens)",
+                "children": [
+                  {
+                    "text": "3ème",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Variation de la base",
+        "children": [
+          {
+            "text": "28% de chance d’avoir un faux sens",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 92,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Insertion/délétion d’un nombre de bases non multiple de 3",
+            "children": [
+              {
+                "text": "insertion 1 base délétion 1 base",
+                "children": [
+                  {
+                    "text": "...",
+                    "children": [
+                      {
+                        "text": "...",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "text": "Décalage du cadre de lecture Décalage du cadre de lecture",
+            "children": [
+              {
+                "text": "protéine erronée protéine erronée",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 93,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Insertion/délétion d’un nombre de bases multiple de 3",
+            "children": [
+              {
+                "text": "délétion 3 bases insertion 3 bases",
+                "children": []
+              },
+              {
+                "text": "Cadre de lecture conservé Cadre de lecture conservé",
+                "children": [
+                  {
+                    "text": "perte d’un acide aminé gain d’un acide aminé",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 94,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Variation du gène",
+            "children": [
+              {
+                "text": "Site de branchement",
+                "children": [
+                  {
+                    "text": "60",
+                    "children": [
+                      {
+                        "text": "100",
+                        "children": [
+                          {
+                            "text": "100",
+                            "children": [
+                              {
+                                "text": "70",
+                                "children": [
+                                  {
+                                    "text": "100",
+                                    "children": [
+                                      {
+                                        "text": "100",
+                                        "children": []
+                                      }
+                                    ]
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "text": "T T T",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "ADN",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "protéine",
+        "children": [
+          {
+            "text": "Exon n Intron n",
+            "children": [
+              {
+                "text": "Exon n+1",
+                "children": [
+                  {
+                    "text": "Site donneur (5’) Site accepteur (3’)",
+                    "children": [
+                      {
+                        "text": "Variation d’épissage",
+                        "children": [
+                          {
+                            "text": "GT-AG: >98% site d’épissage canonique",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 95,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Conséquences sur l’épissage:",
+            "children": [
+              {
+                "text": "Rétention complète de l’intron",
+                "children": [
+                  {
+                    "text": "Rétention partielle de l’intron (5’)",
+                    "children": [
+                      {
+                        "text": "Rétention partielle de l’intron (3’)",
+                        "children": []
+                      },
+                      {
+                        "text": "Saut complet d’un exon",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Très probable décalage du cadre de lecture",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 96,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Variation du gène",
+        "children": [
+          {
+            "text": "Insertion / délétion dans le gène Substitution dans le gène",
+            "children": [
+              {
+                "text": "variation faux-sens",
+                "children": []
+              },
+              {
+                "text": "protéine erronée",
+                "children": []
+              },
+              {
+                "text": "protéine erronée",
+                "children": [
+                  {
+                    "text": "variation non-sens",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Insertion/délétion d’un multiple",
+                "children": []
+              },
+              {
+                "text": "de 3 bases",
+                "children": [
+                  {
+                    "text": "mutation épissage",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 97,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "quelles variations?",
+                "children": [
+                  {
+                    "text": "Expansion de triplet",
+                    "children": [
+                      {
+                        "text": "Les répétitions (n) de trinucléotides et aussi tétra, penta,",
+                        "children": [
+                          {
+                            "text": "hexanucléotides",
+                            "children": [
+                              {
+                                "text": "X-Fragile: (CGG)",
+                                "children": [
+                                  {
+                                    "text": "n",
+                                    "children": []
+                                  }
+                                ]
+                              },
+                              {
+                                "text": "Huntington: (CAG)",
+                                "children": [
+                                  {
+                                    "text": "n",
+                                    "children": []
+                                  }
+                                ]
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Localisation: 5’UTR, exon, intron ou 3’UTR",
+                        "children": []
+                      },
+                      {
+                        "text": "Zones instables lors de la réplication",
+                        "children": [
+                          {
+                            "text": "Expansion du nombre de répétitions",
+                            "children": [
+                              {
+                                "text": "Mutation dite dynamique",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "text": "~ 50 pathologies causées par expansion dans un gène",
+                        "children": [
+                          {
+                            "text": "Depienne& Mandel AJHG 2021",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 98,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Définitions",
+            "children": [
+              {
+                "text": "quelles variations?",
+                "children": []
+              },
+              {
+                "text": "Variations de structures:",
+                "children": [
+                  {
+                    "text": "Modification de la localisation d’un « morceau » du génome",
+                    "children": []
+                  },
+                  {
+                    "text": "Affecte un nombre important de bases (>50 pb à plusieurs Mb)",
+                    "children": []
+                  },
+                  {
+                    "text": "Origine: remaniements chromosomiques ou autres mécanismes",
+                    "children": [
+                      {
+                        "text": "spécifiques",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "2 classes:",
+                    "children": [
+                      {
+                        "text": "Equilibrées",
+                        "children": [
+                          {
+                            "text": "Déséquilibrées (variation du nombre de copies ou CNV",
+                            "children": [
+                              {
+                                "text": "pour Copy Number Variant)",
+                                "children": []
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 99,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Variations de structure",
+            "children": [
+              {
+                "text": "Déséquilibrées",
+                "children": [
+                  {
+                    "text": "Equilibrées",
+                    "children": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 100,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Variations de structure",
+            "children": [
+              {
+                "text": ":",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Localisation",
+            "children": [
+              {
+                "text": "Partout dans le génome (exon, intron et intergénique)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": "Fréquence:",
+            "children": [
+              {
+                "text": "2 000 à 10 000 entre 2 génomes (même sexe)",
+                "children": [
+                  {
+                    "text": "~1000 grandes délétions",
+                    "children": [
+                      {
+                        "text": "~160 CNV",
+                        "children": []
+                      },
+                      {
+                        "text": "~1000 insertions éléments mobiles",
+                        "children": []
+                      },
+                      {
+                        "text": "~10 inversions",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "La plus grande source de variation du génome en nombre de",
+                "children": [
+                  {
+                    "text": "bases affectées (20 millions)",
+                    "children": [
+                      {
+                        "text": "Sudmant et al 2015",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 101,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Autres mécanismes rares et commentaires",
+        "children": [
+          {
+            "text": "Conversion génique",
+            "children": [
+              {
+                "text": "Séquences très homologues entres elles",
+                "children": []
+              },
+              {
+                "text": "Empreinte parentale",
+                "children": [
+                  {
+                    "text": "Modification spécifique de la méthylation du génome",
+                    "children": []
+                  }
+                ]
+              },
+              {
+                "text": "Selon le gène (pathologie)",
+                "children": [
+                  {
+                    "text": "Chaque type de variations doit être évalué et potentiellement identifié",
+                    "children": [
+                      {
+                        "text": "comme causal",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Type de mutations spécifiques",
+                    "children": [
+                      {
+                        "text": "Que des mutations faux sens",
+                        "children": [
+                          {
+                            "text": "Grandes délétions du gène",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 102,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Les différents effets des variations",
+        "children": [
+          {
+            "text": "Perte de fonction (totale ou partielle):",
+            "children": [
+              {
+                "text": "Non sens, décalage du cadre de lecture",
+                "children": [
+                  {
+                    "text": "Faux sens si il y a un effet drastique sur la fonction, la localisation ou",
+                    "children": [
+                      {
+                        "text": "la stabilité de la protéine",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Gain de fonction:",
+                "children": [
+                  {
+                    "text": "Protéine plus active ou avec une action différente ou alors il y a un",
+                    "children": [
+                      {
+                        "text": "gain de propriété toxique",
+                        "children": []
+                      }
+                    ]
+                  },
+                  {
+                    "text": "Variations très spécifiques (ex: activation site catalytique d’une",
+                    "children": [
+                      {
+                        "text": "enzyme)",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "text": "Dominant négatif:",
+                "children": [
+                  {
+                    "text": "La protéine mutée perd sa fonction et interfère avec la fonction de la",
+                    "children": [
+                      {
+                        "text": "protéine codée par l’allèle normal",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 103,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Variabilité du génome humain",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 104,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Bilan sur la variabilité du génome humain",
+        "children": [
+          {
+            "text": "De nombreuses sources de variabilité",
+            "children": []
+          },
+          {
+            "text": "Variations qui sont rares et d’autres plus fréquentes (effet fondateur ou",
+            "children": [
+              {
+                "text": "mécanique)",
+                "children": []
+              }
+            ]
+          },
+          {
+            "text": ">1,1 milliard de variations déjà décrites dans dbSNP soit ~34% du génome",
+            "children": []
+          },
+          {
+            "text": ">7 millions de variations structurales décrites dans DGV soit ~79% du génome",
+            "children": [
+              {
+                "text": "http://www.ncbi.nlm.nih.gov/snp http://dgv.tcag.ca/dgv/app/statistics",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 105,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Evolution des génomes:",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "notions essentielles et mécanismes",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 106,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Evolution des génomes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Notions essentielles:",
+        "children": [
+          {
+            "text": "Evolution, Temps, Adaptation, Sélection",
+            "children": [
+              {
+                "text": "Les génomes des espèces se modifient au cours du temps",
+                "children": [
+                  {
+                    "text": "Processus dynamique qui permet l’ajout, la perte et/ou un",
+                    "children": [
+                      {
+                        "text": "remaniement du matériel génétique (ADN)",
+                        "children": []
+                      },
+                      {
+                        "text": "Adaptation aux conditions environnementales ou non: les",
+                        "children": []
+                      },
+                      {
+                        "text": "variations du génome peuvent permettre un avantage sélectif",
+                        "children": [
+                          {
+                            "text": "Espèces plus performantes au regard des conditions de vie",
+                            "children": []
+                          },
+                          {
+                            "text": "Nouvelles espèces",
+                            "children": []
+                          }
+                        ]
+                      },
+                      {
+                        "text": "Comment?",
+                        "children": [
+                          {
+                            "text": "Variations ponctuelles (substitutions et indels)",
+                            "children": []
+                          },
+                          {
+                            "text": "Variations structurales",
+                            "children": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 107,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Duplication d’exons",
+            "children": [
+              {
+                "text": "Duplication en tandem des exons d’un gène",
+                "children": []
+              },
+              {
+                "text": "~10% des gènes chez l’Homme",
+                "children": []
+              },
+              {
+                "text": "Responsable de domaines répétés dans une protéine",
+                "children": []
+              },
+              {
+                "text": "Recombinaison illégitime avec une résolution inégale d’un",
+                "children": []
+              },
+              {
+                "text": "« crossing-over » (cf autre cours)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 108,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Brassage d’exon ou exon « shuffling »",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Plusieurs mécanismes possibles:",
+        "children": [
+          {
+            "text": "Recombinaison non-allélique",
+            "children": [
+              {
+                "text": "Rétransposons (LINEs)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 109,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Duplication des gènes",
+            "children": []
+          }
+        ]
+      },
+      {
+        "text": "Scénarios possibles:",
+        "children": []
+      }
+    ]
+  },
+  {
+    "page": 110,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": [
+          {
+            "text": "Duplication complète du génome",
+            "children": []
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "page": 111,
+    "bullets": [
+      {
+        "text": "UE 2 Les molécules du vivant",
+        "children": []
+      },
+      {
+        "text": "Certains schémas de ce cours ont été adaptés à partir d'illustrations provenant des ouvrages",
+        "children": []
+      },
+      {
+        "text": "suivants:",
+        "children": [
+          {
+            "text": "-Biologie moléculaire de la cellule, B. Alberts et al. 6ième ed. (Garland science)",
+            "children": [
+              {
+                "text": "-Human Molecular Genetics, Strachan and Reed, 4ième ed., (Garland science)",
+                "children": []
+              },
+              {
+                "text": "-Génétique médicale, Enseignement thématique, Collège National des Enseignants et Praticiens",
+                "children": []
+              },
+              {
+                "text": "de Génétique Médicale (Elsevier Masson)",
+                "children": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "text": "Certaines illustrations sont tirées d'articles scientifiques (références sur les diapos) ou de l'espace",
+        "children": []
+      },
+      {
+        "text": "numérique (creative commons licensing)",
+        "children": []
+      },
+      {
+        "text": "Courtesy: National Human Genome Research Institute and the Smithsonian National Museum of",
+        "children": []
+      },
+      {
+        "text": "Natural History“ ou du DataBase Center for Life Science (DBCLS)",
+        "children": []
+      },
+      {
+        "text": "Mentions légales :",
+        "children": []
+      },
+      {
+        "text": "L'utilisation des documents de cours est strictement réservée à l'usage privé des étudiants inscrits à",
+        "children": []
+      },
+      {
+        "text": "l'université de Strasbourg. Leur diffusion et/ou mise en réseau est strictement réservée à l'université",
+        "children": []
+      },
+      {
+        "text": "de Strasbourg, et à une association agréée (association amicale des étudiants en médecine de",
+        "children": []
+      },
+      {
+        "text": "Strasbourg). Toute autre utilisation, diffusion ou mise en réseau est interdite. Ces documents sont",
+        "children": []
+      },
+      {
+        "text": "interdits à la vente ou à la location, et à tout usage par des organismes privés (préparations, etc).",
+        "children": []
+      },
+      {
+        "text": "L'ensemble de ces documents relève des législations française et internationale sur le droit d'auteur",
+        "children": []
+      },
+      {
+        "text": "et la propriété intellectuelle.",
+        "children": []
+      }
+    ]
+  }
+]
