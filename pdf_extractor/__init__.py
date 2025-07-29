@@ -1,6 +1,5 @@
-"""PDF Extractor module for extracting and parsing slides from PDF files."""
+from .processor import PDFProcessor
+from .generator import ContentGenerator
+from .pipeline import CoursePipeline
 
-from .pdf_processor import PDFProcessor
-from .slide_parser import SlideParser
-
-__all__ = ['PDFProcessor', 'SlideParser'] 
+__all__ = ['PDFProcessor', 'ContentGenerator', 'CoursePipeline'] 
