@@ -6,7 +6,7 @@ import os
 from typing import Optional
 from .processor import PDFProcessor
 from .generator import ContentGenerator
-from course import Course
+from .course import Course
 
 
 class CoursePipeline:
