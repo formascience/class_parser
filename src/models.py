@@ -7,7 +7,6 @@ from pydantic import BaseModel, Field
 
 class Slides(BaseModel):
     """Represents a slide with its content"""
-
     id: str
     title: str
     content: str
@@ -291,74 +290,8 @@ class Content(BaseModel):
 Content.model_rebuild()
 
 
-# Keep CourseWithSlides for backward compatibility, but mark as deprecated
-class CourseWithSlides(BaseModel):
-    """
-    DEPRECATED: Use Content with slides and mapping parameters instead.
-    
-    Combines course content with slides using section-slide mappings
-    """
+class OutlineAndMapping(BaseModel):
+    outline: Content
+    mapping: List[MappingItem]
 
-    content: Content
-    slides: List[Slides]
-    mapping: SectionSlideMapping
 
-    def __init__(
-        self,
-        content: Content,
-        slides: List[Slides],
-        mapping: SectionSlideMapping,
-        **data,
-    ):
-        super().__init__(content=content, slides=slides, mapping=mapping, **data)
-        self._enrich_content_with_slides()
-
-    def _enrich_content_with_slides(self):
-        """Add slides content directly to the content field of each ContentSection based on the mapping"""
-        # Create a lookup dictionary for slides by ID
-        slides_lookup = {slide.id: slide for slide in self.slides}
-
-        # Create a mapping from section_id to slide_ids
-        section_to_slides = {}
-        for mapping_item in self.mapping.mapping:
-            section_to_slides[mapping_item.section_id] = mapping_item.slide_ids
-
-        # Recursively enrich all sections
-        def enrich_sections(sections: List[ContentSection]):
-            for section in sections:
-                # Get slide IDs mapped to this section
-                slide_ids = section_to_slides.get(section.id, [])
-
-                # Get raw content from slides
-                raw_slides_content = []
-                for slide_id in slide_ids:
-                    if slide_id in slides_lookup:
-                        raw_slides_content.append(slides_lookup[slide_id].content)
-
-                # Update the section with slides content as a list
-                section.content = (
-                    raw_slides_content  # Assign the list of strings directly
-                )
-
-                # Recursively process subsections
-                enrich_sections(section.subsections)
-
-        enrich_sections(self.content.sections)
-
-    def print_enriched_content(self) -> str:
-        """Print the enriched content with slides information"""
-        return self.content.print_content()
-
-    def get_slides_summary(self) -> Dict[str, int]:
-        """Get a summary of content length per section"""
-        summary = {}
-
-        def collect_section_slides(sections: List[ContentSection]):
-            for section in sections:
-                # Count total characters across all content items
-                total_chars = sum(len(content_item) for content_item in section.content)
-                summary[section.id] = total_chars
-                collect_section_slides(section.subsections)
-
-        collect_section_slides(self.content.sections)
-        return summary

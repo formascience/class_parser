@@ -1,0 +1,52 @@
+flowchart TD
+  %% Classes
+  classDef det fill:#1e3a8a,stroke:#60a5fa,stroke-width:2px,color:#ffffff
+  classDef llm fill:#92400e,stroke:#fbbf24,stroke-width:2px,color:#ffffff
+  classDef io  fill:#374151,stroke:#d1d5db,stroke-width:2px,color:#ffffff
+
+  %% Inputs
+  course_pdf[Course PDF]:::io
+  plan_src["Plan source (separate PDF or page id)"]:::io
+
+  %% Slide extraction
+  slides_extractor[slides_extractor.extract_slides]:::det
+  course_pdf -->|pdf_path| slides_extractor
+  slides_extractor --> slides[Slides List]:::io
+
+  %% Branch A: plan provided
+  subgraph A[Branch A - plan provided]
+    plan_text[plan_text]:::io
+    plan_src -->|extract page/full text| plan_text
+
+    outline_two[llm/outline_two_pass.build_outline]:::llm
+    mapping_two[llm/mapping_two_pass.build_mapping]:::llm
+
+    plan_text --> outline_two
+    outline_two --> outline_A[Content outline]:::io
+
+    outline_A -->|outline JSON| mapping_two
+    mapping_two --> mapping_A[SectionSlideMapping]:::io
+  end
+
+  %% Branch B: no plan
+  subgraph B[Branch B - no plan]
+    one_shot[llm/outline_one_shot.build_outline_and_mapping]:::llm
+    one_shot --> outline_B[Content outline]:::io
+    one_shot --> mapping_B[SectionSlideMapping]:::io
+  end
+
+  %% Connect slides to both branches
+  slides --> mapping_two
+  slides --> one_shot
+
+  %% Enrichment
+  enrich[Content.enrich_with_slides]:::det
+  outline_A --> enrich
+  mapping_A --> enrich
+  outline_B --> enrich
+  mapping_B --> enrich
+  enrich --> enriched[Content enriched - sections content = raw slides]:::io
+
+  %% Writer
+  writer[llm/writer.write_course]:::llm
+  enriched --> writer --> final[Final Content]:::io
