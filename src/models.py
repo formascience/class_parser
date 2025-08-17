@@ -1,7 +1,10 @@
+import json
 import textwrap
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import tiktoken
+import yaml
 from pydantic import BaseModel, Field
 
 
@@ -29,6 +32,61 @@ class CourseMetadata(BaseModel):
     # Additional optional metadata
     year: Optional[int] = None
     professor: Optional[str] = None
+
+
+class PipelineConfig(BaseModel):
+    """Configuration file schema for CLI/pipeline.
+
+    Example YAML/JSON structure:
+      metadata:
+        name: "Biology 101"
+        course_title: "Intro Biology"
+        level: L1
+        block: SANTE
+        semester: S1
+        subject: Biology
+        chapter: null
+        year: 2024
+        professor: "Dr. Smith"
+      inputs:
+        slides_pdf: "path/to/slides.pdf"
+        plan_pdf: null
+        plan_page: null
+      outputs:
+        save_json: true
+        save_docx: true
+        template_path: "volume/fs_template.docx"
+        output_dir: "volume/artifacts"
+    """
+
+    metadata: CourseMetadata
+    inputs: Dict[str, Optional[Any]]
+    outputs: Dict[str, Optional[Any]] = {}
+
+    @classmethod
+    def load(cls, path: Any) -> "PipelineConfig":
+        path = Path(path)
+        if not path.exists():
+            raise FileNotFoundError(f"Config file not found: {path}")
+        text = path.read_text(encoding="utf-8")
+        data: Dict[str, Any]
+        if path.suffix.lower() in {".yaml", ".yml"}:
+            if yaml is None:
+                raise RuntimeError("PyYAML is required to read YAML configs. Install pyyaml.")
+            data = yaml.safe_load(text)  # type: ignore
+        else:
+            data = json.loads(text)
+
+        # Basic normalization
+        data = data or {}
+        data.setdefault("metadata", {})
+        data.setdefault("inputs", {})
+        data.setdefault("outputs", {})
+        return cls(
+            metadata=CourseMetadata(**data["metadata"]),
+            inputs=data["inputs"],
+            outputs=data["outputs"],
+        )
 
 class MappingItem(BaseModel):
     section_id: str

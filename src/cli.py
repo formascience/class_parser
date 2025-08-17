@@ -156,11 +156,18 @@ Examples:
         """
     )
     
+    parser.add_argument(
+        "--config",
+        type=Path,
+        help="Path to YAML/JSON config. If provided, CLI will use it and ignore most flags.",
+    )
+
     # Required arguments
     parser.add_argument(
         "slides_pdf",
         type=Path,
-        help="Path to PDF file containing slides"
+        nargs="?",  # Make it optional
+        help="Path to PDF file containing slides (required unless using --config)"
     )
     
     # Plan options (mutually exclusive)
@@ -242,7 +249,11 @@ Examples:
     setup_logging(args.verbose)
     
     # Validate inputs
-    if not args.slides_pdf.exists():
+    if not args.config and not args.slides_pdf:
+        logger.error("❌ Either --config or slides_pdf argument is required")
+        sys.exit(1)
+
+    if args.slides_pdf and not args.slides_pdf.exists():
         logger.error("❌ Slides PDF not found: %s", args.slides_pdf)
         sys.exit(1)
     
@@ -251,28 +262,33 @@ Examples:
         sys.exit(1)
     
     try:
-        metadata = CourseMetadata(
-            name=args.course,
-            course_title=args.course_title or None,
-            subject=args.subject or None,
-            level=args.level or None,
-            block=args.block or None,
-            semester=args.semester or None,
-            chapter=args.chapter or None,
-            year=args.year or None,
-            professor=args.professor or None,
-        )
+        if args.config:
+            # Config-driven run
+            pipeline = CoursePipeline(model=args.model)
+            course = pipeline.process_from_config(str(args.config))
+        else:
+            metadata = CourseMetadata(
+                name=args.course,
+                course_title=args.course_title or None,
+                subject=args.subject or None,
+                level=args.level or None,
+                block=args.block or None,
+                semester=args.semester or None,
+                chapter=args.chapter or None,
+                year=args.year or None,
+                professor=args.professor or None,
+            )
 
-        detect_branch_and_process(
-            slides_pdf=args.slides_pdf,
-            plan_pdf=args.plan_pdf,
-            plan_page=args.plan_page,
-            metadata=metadata,
-            save_json=args.save_json,
-            save_docx=args.save_docx,
-            template_path=args.template_path,
-            model=args.model,
-        )
+            detect_branch_and_process(
+                slides_pdf=args.slides_pdf,
+                plan_pdf=args.plan_pdf,
+                plan_page=args.plan_page,
+                metadata=metadata,
+                save_json=args.save_json,
+                save_docx=args.save_docx,
+                template_path=args.template_path,
+                model=args.model,
+            )
         
     except KeyboardInterrupt:
         logger.info("🛑 Processing interrupted by user")

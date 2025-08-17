@@ -4,9 +4,13 @@ Main orchestrator for the complete course processing workflow
 
 import logging
 import os
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
+import yaml  # type: ignore
+
 from .course import Course
+from .data_extraction import PlanExtractor, SlidesExtractor
 from .llm import MappingTwoPass, OutlineOneShot, OutlineTwoPass, Writer
 from .models import Content, CourseMetadata, SectionSlideMapping, Slides
 
@@ -37,6 +41,7 @@ class CoursePipeline:
         save_json: bool = False,
         save_docx: bool = False,
         template_path: str = "volume/fs_template.docx",
+        output_dir: Optional[str] = None,
     ) -> Course:
         """
         Process course using Branch B (no plan provided) - one-shot approach
@@ -84,9 +89,15 @@ class CoursePipeline:
 
         # Optional saves
         if save_json:
-            course.save_to_json()
+            if output_dir:
+                course.save_to_json(output_dir=output_dir+"/json/")
+            else:
+                course.save_to_json()
         if save_docx:
-            course.to_docx(template_path=template_path)
+            if output_dir:
+                course.to_docx(template_path=template_path, output_dir=output_dir+"/docx/")
+            else:
+                course.to_docx(template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
         return course
@@ -99,6 +110,7 @@ class CoursePipeline:
         save_json: bool = False,
         save_docx: bool = False,
         template_path: str = "volume/fs_template.docx",
+        output_dir: Optional[str] = None,
     ) -> Course:
         """
         Process course using Branch A (plan provided) - two-pass approach
@@ -152,9 +164,15 @@ class CoursePipeline:
 
         # Optional saves
         if save_json:
-            course.save_to_json()
+            if output_dir:
+                course.save_to_json(output_dir=output_dir+"/json/")
+            else:
+                course.save_to_json()
         if save_docx:
-            course.to_docx(template_path=template_path)
+            if output_dir:
+                course.to_docx(template_path=template_path, output_dir=output_dir+"/docx/")
+            else:
+                course.to_docx(template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
         return course
@@ -195,3 +213,107 @@ class CoursePipeline:
         
         count_sections(course.content.sections)
         return stats
+
+    # Simple config-driven entry point
+    def process_from_config(self, config_path: str) -> Course:
+        """Read a YAML/JSON file and run the pipeline accordingly.
+
+        Expected keys:
+          metadata: { name, course_title?, level?, block?, semester?, subject?, year?, professor? }
+          inputs:   { slides_pdf (required), plan_pdf?, plan_page? }
+          outputs:  { save_json?, save_docx?, template_path?, output_dir? }
+        """
+        cfg_file = Path(config_path)
+        if not cfg_file.exists():
+            raise FileNotFoundError(f"Config file not found: {cfg_file}")
+        raw = cfg_file.read_text(encoding="utf-8")
+        if cfg_file.suffix.lower() in {".yaml", ".yml"}:
+            if yaml is None:
+                raise RuntimeError("PyYAML is required to read YAML configs. Install pyyaml.")
+            data = yaml.safe_load(raw)  # type: ignore
+        else:
+            import json
+
+            data = json.loads(raw)
+
+        data = data or {}
+        # Allow only the explicit minimal schema; warn on extras
+        allowed_top = {"metadata", "inputs", "outputs"}
+        for k in list(data.keys()):
+            if k not in allowed_top:
+                logger.warning("Ignoring unknown top-level key in config: %s", k)
+
+        meta = data.get("metadata", {}) or {}
+        inputs = data.get("inputs", {}) or {}
+        outputs = data.get("outputs", {}) or {}
+
+        allowed_meta = {
+            "name",
+            "course_title",
+            "level",
+            "block",
+            "semester",
+            "subject",
+            "year",
+            "professor",
+        }
+        for k in list(meta.keys()):
+            if k not in allowed_meta:
+                logger.warning("Ignoring unknown metadata key in config: %s", k)
+
+        allowed_inputs = {"slides_pdf", "plan_pdf", "plan_page"}
+        for k in list(inputs.keys()):
+            if k not in allowed_inputs:
+                logger.warning("Ignoring unknown inputs key in config: %s", k)
+
+        allowed_outputs = {"save_json", "save_docx", "template_path", "output_dir"}
+        for k in list(outputs.keys()):
+            if k not in allowed_outputs:
+                logger.warning("Ignoring unknown outputs key in config: %s", k)
+
+        # Validate minimal fields
+        if "name" not in meta:
+            raise ValueError("Config.metadata.name is required")
+        if not inputs.get("slides_pdf"):
+            raise ValueError("Config.inputs.slides_pdf is required")
+
+        metadata = CourseMetadata(**meta)
+
+        slides_pdf = str(inputs.get("slides_pdf"))
+        plan_pdf = inputs.get("plan_pdf")
+        plan_page = inputs.get("plan_page")
+
+        save_json = bool(outputs.get("save_json", False))
+        save_docx = bool(outputs.get("save_docx", False))
+        template_path = str(outputs.get("template_path", "volume/fs_template.docx"))
+        output_dir = outputs.get("output_dir")
+
+        # Extract inputs
+        slides_extractor = SlidesExtractor()
+        slides = slides_extractor.extract_slides(slides_pdf)
+
+        plan_text: Optional[str] = None
+        if plan_pdf:
+            plan_text = PlanExtractor().extract_plan_from_pdf(str(plan_pdf))
+        elif plan_page:
+            plan_text = PlanExtractor().extract_plan_from_page(slides_pdf, int(plan_page))
+
+        if plan_text:
+            return self.process_course_with_plan(
+                slides=slides,
+                plan_text=plan_text,
+                metadata=metadata,
+                save_json=save_json,
+                save_docx=save_docx,
+                template_path=template_path,
+                output_dir=output_dir,
+            )
+        else:
+            return self.process_course_no_plan(
+                slides=slides,
+                metadata=metadata,
+                save_json=save_json,
+                save_docx=save_docx,
+                template_path=template_path,
+                output_dir=output_dir,
+            )

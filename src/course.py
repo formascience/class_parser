@@ -60,10 +60,12 @@ class Course(BaseModel):
         return f"Course: {self.name} (No content available)"
 
         # Add these to your Course class
-    def save_to_json(self, file_path: Optional[str] = None) -> str:
+    def save_to_json(self, file_path: Optional[str] = None, output_dir: Optional[str] = None) -> str:
         """Save course to JSON file"""
         if not file_path:
-            file_path = f"volume/artifacts/{self.name.lower().replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+            base_dir = Path(output_dir or "volume/artifacts")
+            base_dir.mkdir(parents=True, exist_ok=True)
+            file_path = str(base_dir / f"{self.name.lower().replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
         
         # Ensure directory exists
         Path(file_path).parent.mkdir(parents=True, exist_ok=True)
@@ -92,6 +94,7 @@ class Course(BaseModel):
         self,
         output_path: Optional[str] = None,
         template_path: str = "volume/fs_template.docx",
+        output_dir: Optional[str] = None,
     ) -> str:
         """Render this course to a Word document and return the output path.
 
@@ -101,6 +104,12 @@ class Course(BaseModel):
             template_path: Path to the Word template to use.
         """
         writer = DocxWriter(template_path=template_path)
-        dest = writer.fill_template(self, output_path=output_path)
+        # If only output_dir is provided, build a default path
+        final_output = output_path
+        if final_output is None and output_dir is not None:
+            base_dir = Path(output_dir)
+            base_dir.mkdir(parents=True, exist_ok=True)
+            final_output = str(base_dir / f"{self.name.lower().replace(' ', '_')}_filled.docx")
+        dest = writer.fill_template(self, output_path=final_output)
         print(f"📄 Course exported to DOCX: {dest}")
         return dest
