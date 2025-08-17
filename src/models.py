@@ -12,6 +12,24 @@ class Slides(BaseModel):
     content: str
 
 
+class CourseMetadata(BaseModel):
+    """Minimal input metadata used to initialize a Course in the pipeline."""
+
+    # Core identifiers
+    name: str
+    course_title: Optional[str] = None
+
+    # Academic hierarchy
+    level: Optional[str] = None  # e.g., L1, L2, L3, M1, M2
+    block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
+    semester: Optional[str] = None  # e.g., S1, S2
+    subject: Optional[str] = None
+    chapter: Optional[str] = None
+
+    # Additional optional metadata
+    year: Optional[int] = None
+    professor: Optional[str] = None
+
 class MappingItem(BaseModel):
     section_id: str
     slide_ids: List[str]

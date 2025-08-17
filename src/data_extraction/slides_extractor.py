@@ -49,37 +49,37 @@ class SlidesExtractor:
         try:
             with pdfplumber.open(pdf_path) as pdf:
                 logger.debug("PDF opened, found %d pages", len(pdf.pages))
-            for page in pdf.pages:
-                txt = page.extract_text() or ""
-                lines = [l for l in txt.splitlines() if l.strip()]
-                if not lines:                      # page vide
-                    continue
-                if mean(map(len, lines)) < self.min_avg_len or len(lines) > self.max_lines:
-                    continue
+                for page in pdf.pages:
+                    txt = page.extract_text() or ""
+                    lines = [l for l in txt.splitlines() if l.strip()]
+                    if not lines:                      # page vide
+                        continue
+                    if mean(map(len, lines)) < self.min_avg_len or len(lines) > self.max_lines:
+                        continue
 
-                words = page.extract_words(extra_attrs=["size"], use_text_flow=True)
-                # regroupe en lignes
-                rows, cur, cur_top = [], [], None
-                for w in sorted(words, key=lambda w: w["top"]):
-                    if cur_top is None or abs(w["top"] - cur_top) <= self.merge_tol:
-                        cur.append(w); cur_top = cur_top or w["top"]
-                    else:
-                        rows.append(cur); cur, cur_top = [w], w["top"]
-                if cur: rows.append(cur)
+                    words = page.extract_words(extra_attrs=["size"], use_text_flow=True)
+                    # regroupe en lignes
+                    rows, cur, cur_top = [], [], None
+                    for w in sorted(words, key=lambda w: w["top"]):
+                        if cur_top is None or abs(w["top"] - cur_top) <= self.merge_tol:
+                            cur.append(w); cur_top = cur_top or w["top"]
+                        else:
+                            rows.append(cur); cur, cur_top = [w], w["top"]
+                    if cur: rows.append(cur)
 
-                first5 = rows[:5]
-                title = (
-                    " ".join(w["text"] for w in max(first5,
-                                                    key=lambda r: mean(w["size"] for w in r)))
-                    if first5 else f"Slide {page.page_number}"
-                )
+                    first5 = rows[:5]
+                    title = (
+                        " ".join(w["text"] for w in max(first5,
+                                                        key=lambda r: mean(w["size"] for w in r)))
+                        if first5 else f"Slide {page.page_number}"
+                    )
 
-                slide = Slides(
-                    id=f"SL_{page.page_number:03}",   # <─ identifiant slide
-                    title=title,
-                    content=txt.strip()
-                )
-                slides.append(slide)
+                    slide = Slides(
+                        id=f"SL_{page.page_number:03}",   # <─ identifiant slide
+                        title=title,
+                        content=txt.strip()
+                    )
+                    slides.append(slide)
         
             logger.debug("Successfully extracted %d slides", len(slides))
             return slides

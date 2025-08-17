@@ -8,7 +8,7 @@ from typing import Any, Dict, List, Optional
 
 from .course import Course
 from .llm import MappingTwoPass, OutlineOneShot, OutlineTwoPass, Writer
-from .models import Content, SectionSlideMapping, Slides
+from .models import Content, CourseMetadata, SectionSlideMapping, Slides
 
 logger = logging.getLogger(__name__)
 
@@ -30,12 +30,14 @@ class CoursePipeline:
         self.mapping_two_pass = MappingTwoPass(api_key=openai_api_key, model=model)
         self.writer = Writer(api_key=openai_api_key, model=model)
     
-    def process_course_no_plan(self,
-                              slides: List[Slides],
-                              course_name: str,
-                              subject: str = "Biology",
-                              year: Optional[int] = None,
-                              professor: Optional[str] = None) -> Course:
+    def process_course_no_plan(
+        self,
+        slides: List[Slides],
+        metadata: CourseMetadata,
+        save_json: bool = False,
+        save_docx: bool = False,
+        template_path: str = "volume/fs_template.docx",
+    ) -> Course:
         """
         Process course using Branch B (no plan provided) - one-shot approach
         
@@ -49,7 +51,7 @@ class CoursePipeline:
         Returns:
             Course object with generated content
         """
-        logger.info("🚀 Processing course '%s' (Branch B - No Plan)", course_name)
+        logger.info("🚀 Processing course '%s' (Branch B - No Plan)", metadata.name)
         logger.debug("📊 Total slides: %d", len(slides))
         
         # Step 1: Generate outline and mapping in one shot
@@ -69,24 +71,35 @@ class CoursePipeline:
         
         # Step 4: Create Course object
         course = Course(
-            name=course_name,
-            subject=subject,
-            year=year,
-            professor=professor,
+            name=metadata.name,
+            course_title=metadata.course_title,
+            level=metadata.level,
+            block=metadata.block,
+            semester=metadata.semester,
+            subject=metadata.subject or "Biology",
+            chapter=metadata.chapter,
             content=final_content,
-            total_slides=len(slides)
+            total_slides=len(slides),
         )
+
+        # Optional saves
+        if save_json:
+            course.save_to_json()
+        if save_docx:
+            course.to_docx(template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
         return course
     
-    def process_course_with_plan(self,
-                                slides: List[Slides],
-                                plan_text: str,
-                                course_name: str,
-                                subject: str = "Biology",
-                                year: Optional[int] = None,
-                                professor: Optional[str] = None) -> Course:
+    def process_course_with_plan(
+        self,
+        slides: List[Slides],
+        plan_text: str,
+        metadata: CourseMetadata,
+        save_json: bool = False,
+        save_docx: bool = False,
+        template_path: str = "volume/fs_template.docx",
+    ) -> Course:
         """
         Process course using Branch A (plan provided) - two-pass approach
         
@@ -101,7 +114,7 @@ class CoursePipeline:
         Returns:
             Course object with generated content
         """
-        logger.info("🚀 Processing course '%s' (Branch A - Plan Provided)", course_name)
+        logger.info("🚀 Processing course '%s' (Branch A - Plan Provided)", metadata.name)
         logger.debug("📊 Total slides: %d", len(slides))
         
         # Step 1: Generate outline from plan
@@ -126,13 +139,22 @@ class CoursePipeline:
         
         # Step 5: Create Course object
         course = Course(
-            name=course_name,
-            subject=subject,
-            year=year,
-            professor=professor,
+            name=metadata.name,
+            course_title=metadata.course_title,
+            level=metadata.level,
+            block=metadata.block,
+            semester=metadata.semester,
+            subject=metadata.subject or "Biology",
+            chapter=metadata.chapter,
             content=final_content,
-            total_slides=len(slides)
+            total_slides=len(slides),
         )
+
+        # Optional saves
+        if save_json:
+            course.save_to_json()
+        if save_docx:
+            course.to_docx(template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
         return course

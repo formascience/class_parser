@@ -53,6 +53,7 @@ CONTRAINTES OUTLINE
 - L'ordre du plan suit la progression implicite des SLIDES.
 - Les titres sont générés à partir du contenu des slides. Traiter "title" comme indice faible seulement.
 - Le champ "content" de chaque section doit être [].
+- Jamais de sections: Crédits ou références ou mentions légales du cours. Uniquement le contenu du cours.
 
 CONTRAINTES MAPPING
 - Chaque section du plan apparaît exactement une fois dans "mapping" via son "section_id".

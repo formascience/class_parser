@@ -63,6 +63,7 @@ class PlanExtractor:
         except Exception as e:
             logger.error("Failed to extract plan from %s: %s", pdf_path, str(e))
             raise
+        
     def extract_plan_from_pdf(self, pdf_path: str) -> str:
         """
         Extract plan text from full PDF
