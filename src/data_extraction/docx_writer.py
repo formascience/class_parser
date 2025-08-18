@@ -53,12 +53,12 @@ class DocxWriter:
         doc = Document(self.template_path)
 
         # Page-level spacing: ensure a consistent gap after page header on all pages
-        for section in doc.sections:
-            section.header_distance = Pt(24)  # distance from page top to header
-            section.top_margin = Pt(108)  # 1.5 inches to keep body below header
-            section.left_margin = Pt(72)
-            section.right_margin = Pt(72)
-            section.bottom_margin = Pt(72)
+        #for section in doc.sections:
+            # section.header_distance = Pt(24)  # distance from page top to header
+            # section.top_margin = Pt(108)  # 1.5 inches to keep body below header
+            # section.left_margin = Pt(72)
+            # section.right_margin = Pt(72)
+            # section.bottom_margin = Pt(72)
 
         self._fill_title(doc, course)
         self._fill_table(doc, course)
@@ -78,7 +78,8 @@ class DocxWriter:
     def _fill_title(self, doc: Any, course: Any) -> None:
         for paragraph in doc.paragraphs:
             if "TITRE DU COURS" in paragraph.text:
-                paragraph.text = getattr(course, "course_title", None) or course.name
+                course_title = f"Chapitre {course.chapter} : {course.course_title}"
+                paragraph.text = course_title
                 for run in paragraph.runs:
                     run.font.name = self.title_font
                     run.font.size = Pt(self.title_size)

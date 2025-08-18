@@ -4,9 +4,9 @@ metadata:
   level: L1
   block: SANTE
   semester: S1
-  subject: UE-1 - Les bases de la biologie
-  year: 2024
-  professor: "Youssef Janjar"
+  subject: UE-1
+  chapter: 1
+
 
 inputs:
   slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
@@ -18,3 +18,4 @@ outputs:
   save_docx: true
   template_path: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/templates/fs_template.docx"
   output_dir: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/artifacts"
+  test_mode: false  # Process only first 10 slides for quick testing

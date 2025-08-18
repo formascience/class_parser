@@ -4,7 +4,7 @@ from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import tiktoken
-import yaml
+import yaml  # type: ignore
 from pydantic import BaseModel, Field
 
 
@@ -27,11 +27,7 @@ class CourseMetadata(BaseModel):
     block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
     semester: Optional[str] = None  # e.g., S1, S2
     subject: Optional[str] = None
-    chapter: Optional[str] = None
-
-    # Additional optional metadata
-    year: Optional[int] = None
-    professor: Optional[str] = None
+    chapter: Optional[int] = None
 
 
 class PipelineConfig(BaseModel):
@@ -57,6 +53,7 @@ class PipelineConfig(BaseModel):
         save_docx: true
         template_path: "volume/fs_template.docx"
         output_dir: "volume/artifacts"
+        test_mode: true
     """
 
     metadata: CourseMetadata

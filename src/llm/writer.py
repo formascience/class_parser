@@ -32,7 +32,8 @@ class Writer:
     def write_course(self, 
                     enriched_content: Content,
                     course_metadata: Optional[Dict[str, Any]] = None,
-                    enhancement_config: Optional[Dict[str, Any]] = None) -> Content:
+                    enhancement_config: Optional[Dict[str, Any]] = None,
+                    verbosity: str = "high") -> Content:
         """
         Enhance and finalize course content that has been enriched with slide data
         Based on the exact implementation from poc.ipynb
@@ -41,6 +42,7 @@ class Writer:
             enriched_content: Content object with sections filled with raw slide content
             course_metadata: Course information (not used in current implementation)
             enhancement_config: Custom enhancement parameters (not used in current implementation)
+            verbosity: Controls model text verbosity ("low", "medium", "high")
             
         Returns:
             Content object with enhanced, polished content
@@ -68,7 +70,7 @@ class Writer:
                 ],
                 text_format=Content,
                 reasoning={"effort": "high"},  # for deep synthesis
-                text={"verbosity": "high"},  # type: ignore
+                text={"verbosity": verbosity},  # type: ignore
             )
             
             result = response.output_parsed

@@ -24,7 +24,7 @@ class Course(BaseModel):
     block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
     semester: Optional[str] = None  # e.g., S1, S2
     subject: str = "UE-1 Constitution et transformation de la matière"  # Matière
-    chapter: Optional[str] = None  # e.g., CHAPITRE_9
+    chapter: Optional[int] = None  # e.g., 1
 
     # Content
     content: Optional[Content] = None
@@ -60,14 +60,16 @@ class Course(BaseModel):
         return f"Course: {self.name} (No content available)"
 
         # Add these to your Course class
-    def save_to_json(self, file_path: Optional[str] = None, output_dir: Optional[str] = None) -> str:
+    def save_to_json(self,  output_path: Optional[str] = None) -> str:
         """Save course to JSON file"""
-        if not file_path:
-            base_dir = Path(output_dir or "volume/artifacts")
-            base_dir.mkdir(parents=True, exist_ok=True)
-            file_path = str(base_dir / f"{self.name.lower().replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json")
+        if not output_path:
+            raise ValueError("file_path is required")
         
-        # Ensure directory exists
+        file_name = f"{self.name.lower().replace(' ', '_')}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
+
+        file_path = f"{output_path}/{file_name}"
+
+        # make the parent directory of the file_path
         Path(file_path).parent.mkdir(parents=True, exist_ok=True)
         
         # Use Pydantic's built-in JSON serialization
@@ -92,9 +94,8 @@ class Course(BaseModel):
     # New: export to .docx using the production DocxWriter
     def to_docx(
         self,
-        output_path: Optional[str] = None,
+        output_path: str,
         template_path: str = "volume/fs_template.docx",
-        output_dir: Optional[str] = None,
     ) -> str:
         """Render this course to a Word document and return the output path.
 
@@ -103,13 +104,18 @@ class Course(BaseModel):
                 provided, a path under ``volume/artifacts`` is generated.
             template_path: Path to the Word template to use.
         """
+        if not output_path:
+            raise ValueError("output_path is required")
+
+        if not template_path:
+            raise ValueError("template_path is required")
+
         writer = DocxWriter(template_path=template_path)
-        # If only output_dir is provided, build a default path
+        # If no output_path is provided, build a default path
+        file_name = self.name.lower().replace(' ', '_')
         final_output = output_path
-        if final_output is None and output_dir is not None:
-            base_dir = Path(output_dir)
-            base_dir.mkdir(parents=True, exist_ok=True)
-            final_output = str(base_dir / f"{self.name.lower().replace(' ', '_')}_filled.docx")
+
+        final_output = f"{output_path}/{file_name}.docx"
         dest = writer.fill_template(self, output_path=final_output)
         print(f"📄 Course exported to DOCX: {dest}")
         return dest

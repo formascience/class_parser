@@ -7,12 +7,10 @@ import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
 
-import yaml  # type: ignore
-
 from .course import Course
 from .data_extraction import PlanExtractor, SlidesExtractor
 from .llm import MappingTwoPass, OutlineOneShot, OutlineTwoPass, Writer
-from .models import Content, CourseMetadata, SectionSlideMapping, Slides
+from .models import Content, CourseMetadata, PipelineConfig, SectionSlideMapping, Slides
 
 logger = logging.getLogger(__name__)
 
@@ -41,23 +39,31 @@ class CoursePipeline:
         save_json: bool = False,
         save_docx: bool = False,
         template_path: str = "volume/fs_template.docx",
-        output_dir: Optional[str] = None,
+        output_path: Optional[str] = None,
+        test_mode: bool = True,
     ) -> Course:
         """
         Process course using Branch B (no plan provided) - one-shot approach
         
         Args:
             slides: List of Slides objects
-            course_name: Name of the course
-            subject: Subject area
-            year: Academic year
-            professor: Professor name
+            metadata: Course metadata
+            save_json: Whether to save the course as JSON
+            save_docx: Whether to save the course as DOCX
+            template_path: Path to the template DOCX file
+            output_path: Path to the output directory
+            test_mode: If True, only process first 10 slides for quick testing
             
         Returns:
             Course object with generated content
         """
         logger.info("🚀 Processing course '%s' (Branch B - No Plan)", metadata.name)
         logger.debug("📊 Total slides: %d", len(slides))
+        
+        # Apply test mode if enabled
+        if test_mode and len(slides) > 10:
+            slides = slides[:10]
+            logger.warning("🧪 Test mode enabled: Processing only first 10 slides (%d total available)", len(slides))
         
         # Step 1: Generate outline and mapping in one shot
         logger.info("🤖 Generating outline and mapping...")
@@ -71,7 +77,9 @@ class CoursePipeline:
         
         # Step 3: Final content writing
         logger.info("✍️ Enhancing content with AI...")
-        final_content = self.writer.write_course(enriched_content)
+        # Lower verbosity in test mode to speed up and reduce output size
+        writer_verbosity = "low" if test_mode else "high"
+        final_content = self.writer.write_course(enriched_content, verbosity=writer_verbosity)
         logger.info("✅ Content enhanced and finalized")
         
         # Step 4: Create Course object
@@ -89,15 +97,15 @@ class CoursePipeline:
 
         # Optional saves
         if save_json:
-            if output_dir:
-                course.save_to_json(output_dir=output_dir+"/json/")
+            if output_path:
+                course.save_to_json(output_path=output_path+"/json")
             else:
-                course.save_to_json()
+                course.save_to_json(output_path="volume/artifacts/json")
         if save_docx:
-            if output_dir:
-                course.to_docx(template_path=template_path, output_dir=output_dir+"/docx/")
+            if output_path:
+                course.to_docx(output_path=output_path+"/docx", template_path=template_path)
             else:
-                course.to_docx(template_path=template_path)
+                course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
         return course
@@ -110,7 +118,8 @@ class CoursePipeline:
         save_json: bool = False,
         save_docx: bool = False,
         template_path: str = "volume/fs_template.docx",
-        output_dir: Optional[str] = None,
+        output_path: Optional[str] = None,
+        test_mode: bool = True,
     ) -> Course:
         """
         Process course using Branch A (plan provided) - two-pass approach
@@ -118,16 +127,23 @@ class CoursePipeline:
         Args:
             slides: List of Slides objects
             plan_text: Course plan text extracted from PDF
-            course_name: Name of the course
-            subject: Subject area
-            year: Academic year
-            professor: Professor name
+            metadata: Course metadata
+            save_json: Whether to save the course as JSON
+            save_docx: Whether to save the course as DOCX
+            template_path: Path to the template DOCX file
+            output_path: Path to the output directory
+            test_mode: If True, only process first 10 slides for quick testing
             
         Returns:
             Course object with generated content
         """
         logger.info("🚀 Processing course '%s' (Branch A - Plan Provided)", metadata.name)
         logger.debug("📊 Total slides: %d", len(slides))
+        
+        # Apply test mode if enabled
+        if test_mode and len(slides) > 10:
+            slides = slides[:10]
+            logger.warning("🧪 Test mode enabled: Processing only first 10 slides (%d total available)", len(slides))
         
         # Step 1: Generate outline from plan
         logger.info("📝 Generating outline from plan...")
@@ -146,7 +162,9 @@ class CoursePipeline:
         
         # Step 4: Final content writing
         logger.info("✍️ Enhancing content with AI...")
-        final_content = self.writer.write_course(enriched_content)
+        # Lower verbosity in test mode to speed up and reduce output size
+        writer_verbosity = "low" if test_mode else "high"
+        final_content = self.writer.write_course(enriched_content, verbosity=writer_verbosity)
         logger.info("✅ Content enhanced and finalized")
         
         # Step 5: Create Course object
@@ -164,16 +182,17 @@ class CoursePipeline:
 
         # Optional saves
         if save_json:
-            if output_dir:
-                course.save_to_json(output_dir=output_dir+"/json/")
+            if output_path:
+                course.save_to_json(output_path=output_path+"/json")
             else:
-                course.save_to_json()
+                course.save_to_json(output_path="volume/artifacts/json")
+            logger.info("💾 Course saved to JSON")
         if save_docx:
-            if output_dir:
-                course.to_docx(template_path=template_path, output_dir=output_dir+"/docx/")
+            if output_path:
+                course.to_docx(output_path=output_path+"/docx", template_path=template_path)
             else:
-                course.to_docx(template_path=template_path)
-        
+                course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
+            logger.info("💾 Course saved to DOCX")
         logger.info("🎉 Course processing complete!")
         return course
     
@@ -221,72 +240,25 @@ class CoursePipeline:
         Expected keys:
           metadata: { name, course_title?, level?, block?, semester?, subject?, year?, professor? }
           inputs:   { slides_pdf (required), plan_pdf?, plan_page? }
-          outputs:  { save_json?, save_docx?, template_path?, output_dir? }
+          outputs:  { save_json?, save_docx?, template_path?, output_dir?, test_mode? }
         """
-        cfg_file = Path(config_path)
-        if not cfg_file.exists():
-            raise FileNotFoundError(f"Config file not found: {cfg_file}")
-        raw = cfg_file.read_text(encoding="utf-8")
-        if cfg_file.suffix.lower() in {".yaml", ".yml"}:
-            if yaml is None:
-                raise RuntimeError("PyYAML is required to read YAML configs. Install pyyaml.")
-            data = yaml.safe_load(raw)  # type: ignore
-        else:
-            import json
-
-            data = json.loads(raw)
-
-        data = data or {}
-        # Allow only the explicit minimal schema; warn on extras
-        allowed_top = {"metadata", "inputs", "outputs"}
-        for k in list(data.keys()):
-            if k not in allowed_top:
-                logger.warning("Ignoring unknown top-level key in config: %s", k)
-
-        meta = data.get("metadata", {}) or {}
-        inputs = data.get("inputs", {}) or {}
-        outputs = data.get("outputs", {}) or {}
-
-        allowed_meta = {
-            "name",
-            "course_title",
-            "level",
-            "block",
-            "semester",
-            "subject",
-            "year",
-            "professor",
-        }
-        for k in list(meta.keys()):
-            if k not in allowed_meta:
-                logger.warning("Ignoring unknown metadata key in config: %s", k)
-
-        allowed_inputs = {"slides_pdf", "plan_pdf", "plan_page"}
-        for k in list(inputs.keys()):
-            if k not in allowed_inputs:
-                logger.warning("Ignoring unknown inputs key in config: %s", k)
-
-        allowed_outputs = {"save_json", "save_docx", "template_path", "output_dir"}
-        for k in list(outputs.keys()):
-            if k not in allowed_outputs:
-                logger.warning("Ignoring unknown outputs key in config: %s", k)
-
-        # Validate minimal fields
-        if "name" not in meta:
-            raise ValueError("Config.metadata.name is required")
-        if not inputs.get("slides_pdf"):
+        # Load and validate config using PipelineConfig
+        config = PipelineConfig.load(config_path)
+        
+        # Validate minimal required fields
+        if not config.inputs.get("slides_pdf"):
             raise ValueError("Config.inputs.slides_pdf is required")
 
-        metadata = CourseMetadata(**meta)
+        # Extract configuration values
+        slides_pdf = str(config.inputs.get("slides_pdf"))
+        plan_pdf = config.inputs.get("plan_pdf")
+        plan_page = config.inputs.get("plan_page")
 
-        slides_pdf = str(inputs.get("slides_pdf"))
-        plan_pdf = inputs.get("plan_pdf")
-        plan_page = inputs.get("plan_page")
-
-        save_json = bool(outputs.get("save_json", False))
-        save_docx = bool(outputs.get("save_docx", False))
-        template_path = str(outputs.get("template_path", "volume/fs_template.docx"))
-        output_dir = outputs.get("output_dir")
+        save_json = bool(config.outputs.get("save_json", False))
+        save_docx = bool(config.outputs.get("save_docx", False))
+        template_path = str(config.outputs.get("template_path", "volume/fs_template.docx"))
+        output_path = config.outputs.get("output_dir")
+        test_mode = bool(config.outputs.get("test_mode", True))
 
         # Extract inputs
         slides_extractor = SlidesExtractor()
@@ -302,18 +274,20 @@ class CoursePipeline:
             return self.process_course_with_plan(
                 slides=slides,
                 plan_text=plan_text,
-                metadata=metadata,
+                metadata=config.metadata,
                 save_json=save_json,
                 save_docx=save_docx,
                 template_path=template_path,
-                output_dir=output_dir,
+                output_path=output_path,
+                test_mode=test_mode,
             )
         else:
             return self.process_course_no_plan(
                 slides=slides,
-                metadata=metadata,
+                metadata=config.metadata,
                 save_json=save_json,
                 save_docx=save_docx,
                 template_path=template_path,
-                output_dir=output_dir,
+                output_path=output_path,
+                test_mode=test_mode,
             )
