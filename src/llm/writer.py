@@ -33,7 +33,8 @@ class Writer:
                     enriched_content: Content,
                     course_metadata: Optional[Dict[str, Any]] = None,
                     enhancement_config: Optional[Dict[str, Any]] = None,
-                    verbosity: str = "high") -> Content:
+                    verbosity: str = "high",
+                    use_structured_format: bool = True) -> Content:
         """
         Enhance and finalize course content that has been enriched with slide data
         Based on the exact implementation from poc.ipynb
@@ -43,6 +44,7 @@ class Writer:
             course_metadata: Course information (not used in current implementation)
             enhancement_config: Custom enhancement parameters (not used in current implementation)
             verbosity: Controls model text verbosity ("low", "medium", "high")
+            use_structured_format: Whether to use structured formatting (bullet points, numbered lists)
             
         Returns:
             Content object with enhanced, polished content
@@ -51,10 +53,12 @@ class Writer:
         content_json_str = enriched_content.model_dump_json()
         
         # Build the complete prompt (following poc.ipynb approach)
-        prompt_to_send = self.prompt_manager.get_complete_writer_prompt(content_json_str)
-        
-        # Get system prompt
-        system_prompt = self.prompt_manager.get_writer_role_prompt()
+        if use_structured_format:
+            prompt_to_send = self.prompt_manager.get_complete_writer_prompt_structured(content_json_str)
+            system_prompt = self.prompt_manager.get_writer_system_prompt_structured()
+        else:
+            prompt_to_send = self.prompt_manager.get_complete_writer_prompt(content_json_str)
+            system_prompt = self.prompt_manager.get_writer_role_prompt()
         
         try:
             logger.debug("Starting content enhancement for %d sections", len(enriched_content.sections))

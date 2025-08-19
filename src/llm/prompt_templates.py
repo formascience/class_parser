@@ -116,6 +116,97 @@ SORTIE
 
 
 # =============================================================================
+# ONE SHOT TEMPLATE (Filtered) - Exclude admin/cursus slides from outline+mapping
+# =============================================================================
+
+
+def build_outline_and_mapping_prompt_no_admin(slides: List[Slides]) -> str:
+    """Generate one-shot prompt that EXCLUDES administrative/cursus slides
+
+    - Do not create outline sections from admin/cursus/organizational slides
+    - Do not map admin/cursus slides; it's allowed that some slide_ids are omitted
+    """
+    slides_json = json.dumps(
+        [s.model_dump() for s in slides], ensure_ascii=False, indent=2
+    )
+    return f"""
+OBJECTIF (FILTRÉ)
+À partir de la liste ordonnée de diapositives, produire UNIQUEMENT:
+1) Un plan de cours hiérarchique cohérent (OUTLINE) de profondeur maximale 3 basé sur le CONTENU PÉDAGOGIQUE.
+2) Un MAPPING qui associe chaque section aux identifiants des slides PÉDAGOGIQUES pertinents.
+
+DONNÉES
+SLIDES: liste d'objets {{id, title, content}} dans l'ordre d'apparition. Attention: le champ "title" n'est PAS fiable. Il peut être un artefact de mise en forme. Déduire les titres à partir du contenu.
+{slides_json}
+
+EXCLUSIONS (À FILTRER ABSOLUMENT)
+- Ne PAS créer de section et NE PAS mapper les slides de type administratif / cursus / logistique:
+  * informations de cursus, organisation du semestre, calendrier, planning, ECTS, crédits, coefficients
+  * modalités/critères d'évaluation, examens, barème, présence/assiduité, consignes de contrôle
+  * informations d'enseignant (nom, email, bureau), logos, remerciements, contact, page de garde
+  * objectifs du module (généraux), approche pédagogique, consignes de TD/TP, règles de classe
+  * bibliographie générique, références institutionnelles, disclaimers, pages vides ou séparateurs
+- Ne PAS inclure les diapositives d'introduction/aperçu qui ne portent pas sur le contenu disciplinaire:
+  * titres généraux, sommaires/plan du cours, objectifs d'apprentissage, contexte, enjeux, motivation
+  * "Introduction", "Contexte", "Objectifs", "Plan", "Sommaire", "Pourquoi ce cours?", "Agenda"
+  * historiques/chronologies générales, rappels organisationnels
+- Indices forts d'exclusion (liste non exhaustive): "ECTS", "coefficient", "évaluation", "examen",
+  "barème", "modalités", "enseignant", "contact", "planning", "calendrier", "organisation",
+  "TD", "TP", "administratif", "règlement", "bibliographie", "pré-requis", "prérequis", "campus",
+  "introduction", "contexte", "objectifs", "plan du cours", "sommaire", "agenda".
+- La position en début/fin de deck est fréquente mais non suffisante. Décider à partir du contenu.
+
+POINT DE DÉMARRAGE
+- Démarrer l'OUTLINE directement à la première diapositive qui contient du contenu pédagogique réel
+  (définitions disciplinaires, mécanismes, structures, équations, listes scientifiques, etc.).
+- Ne pas créer de section d'en-tête nommée "Introduction"/"Objectifs"/"Plan" à moins qu'elle contienne
+  des définitions ou concepts scientifiques essentiels; dans ce cas, la renommer avec un titre descriptif
+  du domaine traité (ex.: "Principes de la catalyse enzymatique").
+
+SCHÉMA DE SORTIE - STRICTEMENT OBLIGATOIRE
+Un JSON valide avec exactement deux clés de premier niveau: "outline" et "mapping".
+
+class ContentSection(BaseModel):
+    id: str
+    title: str
+    content: List[str]
+    subsections: List["ContentSection"]
+
+class Content(BaseModel):
+    sections: List[ContentSection]
+
+class MappingItem(BaseModel):
+    section_id: str
+    slide_ids: List[str]
+
+class OutlineAndMapping(BaseModel):
+    outline: Content
+    mapping: List[MappingItem]
+
+CONTRAINTES OUTLINE
+- Profondeur maximale: 3 niveaux (SEC_1, SEC_1.1, SEC_1.1.1)
+- Les titres sont générés à partir du CONTENU PÉDAGOGIQUE réel (définitions, mécanismes, concepts, listes à puces disciplinaires, etc.)
+- Ne créer AUCUNE section à partir de slides filtrées (admin/cursus/logistique)
+- Le champ "content" de chaque section doit être [] à ce stade
+
+CONTRAINTES MAPPING (AVEC FILTRAGE)
+- Mapper UNIQUEMENT des slide_ids correspondant à du contenu pédagogique.
+- Ignorer systématiquement les slides d'introduction/aperçu et administratives dans le mapping.
+- Il est NORMAL que certaines slides n'apparaissent PAS dans le mapping si elles ont été filtrées.
+- N'utiliser que des identifiants existants; ne pas inventer de slides ni de sections.
+
+HEURISTIQUES DE STRUCTURATION
+- Regrouper par thèmes disciplinaires (définitions, mécanismes, exemples, listes scientifiques, équations)
+- Détecter et ignorer les slides d'intro/outro non pédagogiques même si elles contiennent des listes
+- En cas d'ambiguïté, privilégier l'exclusion des slides manifestement non pédagogiques
+
+SORTIE
+- Retourner uniquement le JSON valide conforme à OutlineAndMapping.
+- Aucune explication ni commentaire hors du JSON.
+""".strip()
+
+
+# =============================================================================
 # OUTLINE FROM PLAN TEMPLATE - Two-pass outline generation (Branch A)
 # =============================================================================
 
@@ -327,6 +418,118 @@ OUTPUT EXEMPLE:
 ```
 
 Maintenant traite le JSON fourni en suivant ce modèle :"""
+
+
+# =============================================================================
+# STRUCTURED WRITER TEMPLATE - Enhanced with formatting support
+# =============================================================================
+
+
+def build_system_prompt_structured() -> str:
+    """
+    Enhanced system prompt that encourages structured formatting
+    """
+    return """Tu es un expert en rédaction pédagogique. Ta tâche est de transformer du contenu brut de slides en contenu de cours structuré et aéré.
+
+Règles de contenu :
+- Ne mentionne jamais la source des slides, l'université, le professeur, l'institut, etc.
+- Traite TOUTES les sections du JSON (ne t'arrête pas à la première)
+- Pour chaque section, synthétise tous les éléments content[] en contenu cohérent
+- Conserve la structure JSON exacte (mêmes IDs, titres, ordre)
+- Style académique fluide
+
+Règles de formatage - UTILISE LA STRUCTURE :
+- Privilégie les listes à puces (•) pour les énumérations, caractéristiques, étapes
+- Utilise les listes numérotées (1., 2., 3.) pour les processus séquentiels
+- Alterne entre paragraphes et listes pour aérer le texte
+- Maximum 3-4 phrases par paragraphe
+- Une liste = 2-6 éléments maximum
+
+Syntaxe pour les listes dans le JSON :
+- Liste à puces : commence par "• " (bullet + espace)
+- Liste numérotée : commence par "1. ", "2. ", etc.
+- Paragraphe normal : pas de préfixe spécial
+
+Exemple de bon formatage :
+"La représentation de Fischer respecte trois règles fondamentales :
+
+• La chaîne carbonée la plus longue est disposée verticalement
+• Le carbone le plus oxydé est placé en haut  
+• L'orientation des substituants est indiquée par des liaisons horizontales (devant) et verticales (derrière)
+
+Cette convention permet une lecture standardisée des molécules organiques."""
+
+
+def build_assistant_prompt_structured() -> str:
+    """
+    Enhanced assistant prompt with structured formatting example
+    """
+    return """Voici un exemple de transformation attendue avec formatage structuré :
+
+INPUT EXEMPLE:
+```json
+{
+  "sections": [
+    {
+      "id": "SEC_1",
+      "title": "Représentation de Fischer",
+      "content": [
+        "Biochimie\\nReprésentation Fischer\\n• Chaîne carbonée verticale\\n• Carbone oxydé en haut\\n• Substituants horizontaux/verticaux\\n• Convention standardisée\\n1",
+        "Biochimie\\nRègles application\\n• Liaison horizontale = devant\\n• Liaison verticale = derrière\\n• Rotation interdite\\n• Projection plane obligatoire\\n2"
+      ],
+      "subsections": []
+    }
+  ]
+}
+```
+
+OUTPUT EXEMPLE:
+```json
+{
+  "sections": [
+    {
+      "id": "SEC_1",
+      "title": "Représentation de Fischer",
+      "content": [
+        "La représentation de Fischer constitue une méthode standardisée pour projeter les molécules organiques tridimensionnelles sur un plan bidimensionnel.",
+        
+        "Cette convention respecte trois règles fondamentales :",
+        
+        "• La chaîne carbonée la plus longue est disposée verticalement",
+        "• Le carbone le plus oxydé est placé en haut",
+        "• L'orientation des substituants est indiquée par des liaisons horizontales (devant) et verticales (derrière)",
+        
+        "L'application rigoureuse de ces règles nécessite le respect de contraintes spécifiques :",
+        
+        "1. Les liaisons horizontales représentent les substituants orientés vers l'observateur",
+        "2. Les liaisons verticales indiquent les substituants orientés vers l'arrière",
+        "3. Aucune rotation de la molécule n'est autorisée une fois la projection établie",
+        
+        "Cette méthode permet une lecture uniforme et non ambiguë des structures moléculaires complexes."
+      ],
+      "subsections": []
+    }
+  ]
+}
+```
+
+Maintenant traite le JSON fourni en suivant ce modèle :"""
+
+
+def build_prompt_fill_content_structured(content_json: str) -> str:
+    """
+    Enhanced version with structured formatting support
+    """
+    return f"""
+**SYSTEM:**
+{build_system_prompt_structured()}
+
+**USER:**
+{build_user_prompt(content_json)}
+
+**ASSISTANT:**
+{build_assistant_prompt_structured()}
+""".strip()
 
 
 def build_prompt_fill_content(content_json: str) -> str:

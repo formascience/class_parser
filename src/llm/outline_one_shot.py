@@ -46,7 +46,7 @@ class OutlineOneShot:
             Tuple of (Content outline, SectionSlideMapping)
         """
         # Get the one-shot prompt
-        user_prompt = self.prompt_manager.get_one_shot_prompt(slides)
+        user_prompt = self.prompt_manager.get_one_shot_prompt_no_admin(slides)
         system_prompt = self.prompt_manager.get_one_shot_system_prompt()
         
         try:

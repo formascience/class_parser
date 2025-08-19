@@ -6,6 +6,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from docx import Document
+from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt, RGBColor
 
 
@@ -79,7 +80,7 @@ class DocxWriter:
     def _fill_title(self, doc: Any, course: Any) -> None:
         for paragraph in doc.paragraphs:
             if "TITRE DU COURS" in paragraph.text:
-                course_title = f"Chapitre {course.chapter} : {course.course_title}"
+                course_title = f"Chapitre {course.chapter} : {course.course_title}".upper()
                 paragraph.text = course_title
                 for run in paragraph.runs:
                     run.font.name = self.title_font
@@ -121,29 +122,23 @@ class DocxWriter:
     def _write_content(self, doc: Any, content: Any) -> None:
         for i, section in enumerate(content.sections, start=1):
             clean_title = self._strip_existing_numbering(section.title)
-            roman_title = f"{self._to_roman(i)}. {clean_title}"
+            roman_title = f"{self._to_roman(i)}. {clean_title}".upper()
             heading1 = doc.add_paragraph(roman_title, style="Heading 1")
 
             heading1_format = heading1.paragraph_format
-            heading1_format.space_before = Pt(36)
+            heading1_format.space_before = Pt(12)
             heading1_format.space_after = Pt(12)
 
             for run in heading1.runs:
                 run.font.name = self.title_font  # Level 0 uses title font
                 run.font.size = Pt(12)  # Level 0 sections font size 14
                 run.font.bold = False
+                
                 # Leaf green
                 run.font.color.rgb = RGBColor(143, 150, 78)
 
             if section.content:
-                for content_item in section.content:
-                    if content_item and content_item.strip():
-                        p = doc.add_paragraph(content_item.strip())
-                        p.paragraph_format.space_after = Pt(6)
-                        p.paragraph_format.line_spacing = 1.15
-                        for run in p.runs:
-                            run.font.name = self.content_font
-                            run.font.size = Pt(self.content_size)
+                self._write_content_items(doc, section.content)
 
             self._write_subsections(doc, section.subsections, i)
 
@@ -184,19 +179,150 @@ class DocxWriter:
                     run.font.color.rgb = RGBColor(0, 0, 0)
 
             if getattr(subsection, "content", None):
-                for content_item in subsection.content:
-                    if content_item and content_item.strip():
-                        p = doc.add_paragraph(content_item.strip())
-                        p.paragraph_format.space_after = Pt(6)
-                        p.paragraph_format.line_spacing = 1.15
-                        for run in p.runs:
-                            run.font.name = self.content_font
-                            run.font.size = Pt(self.content_size)
+                self._write_content_items(doc, subsection.content)
 
             if getattr(subsection, "subsections", None):
                 self._write_subsections(
                     doc, subsection.subsections, f"{parent_num}.{j}", level + 1
                 )
+
+    def _write_content_items(self, doc: Any, content_items: list[str]) -> None:
+        """Process content items with structured formatting support"""
+        for content_item in content_items:
+            if not content_item or not content_item.strip():
+                continue
+                
+            content_item = content_item.strip()
+
+            # If a bullet marker appears anywhere, treat the entire string as a list
+            if '•' in content_item:
+                bullet_items = self._split_bullet_items(content_item)
+                if bullet_items:
+                    for bi in bullet_items:
+                        p = doc.add_paragraph()
+                        self._add_bullet_content(p, bi)
+                        self._format_list_paragraph(p)
+                    continue  # handled
+
+            # If a numbered-marker pattern appears anywhere, split into items
+            if re.search(r'(?<!\S)\d+\.\s', content_item):
+                numbered_items = self._split_numbered_items(content_item)
+                if numbered_items:
+                    for number, text in numbered_items:
+                        p = doc.add_paragraph()
+                        self._add_numbered_content(p, number, text)
+                        self._format_list_paragraph(p)
+                    continue  # handled
+
+            # Fallback single-line handlers
+            if content_item.startswith('• '):
+                text = content_item[2:].strip()
+                p = doc.add_paragraph()
+                self._add_bullet_content(p, text)
+                self._format_list_paragraph(p)
+            elif re.match(r'^\d+\.\s', content_item):
+                match = re.match(r'^(\d+)\.\s(.+)', content_item, re.DOTALL)
+                if match:
+                    p = doc.add_paragraph()
+                    self._add_numbered_content(p, match.group(1), match.group(2).strip())
+                    self._format_list_paragraph(p)
+                else:
+                    p = doc.add_paragraph(content_item)
+                    self._format_regular_paragraph(p)
+            elif content_item.startswith('- ') or content_item.startswith('* '):
+                text = content_item[2:].strip()
+                p = doc.add_paragraph()
+                self._add_bullet_content(p, text)
+                self._format_list_paragraph(p)
+            else:
+                p = doc.add_paragraph(content_item)
+                self._format_regular_paragraph(p)
+
+    def _split_bullet_items(self, text: str) -> list[str]:
+        """Split a paragraph containing multiple '•' into separate bullet items.
+
+        Example: "• A • B • C" -> ["A", "B", "C"]
+        """
+        if not text:
+            return []
+        # Normalize spaces around bullets and split
+        parts = re.split(r"\s*•\s+", text.strip())
+        # If the text started with a bullet, the first item will be empty; drop empties
+        items = [p.strip() for p in parts if p.strip()]
+        return items
+
+    def _split_numbered_items(self, text: str) -> list[tuple[str, str]]:
+        """Split a paragraph containing multiple 'n. ' patterns into numbered items.
+
+        Returns list of tuples (number, text).
+        """
+        items: list[tuple[str, str]] = []
+        if not text:
+            return items
+
+        pattern = re.compile(r"(?<!\S)(\d+)\.\s")  # number dot space at start or after whitespace
+        pos = 0
+        last_num: Optional[str] = None
+        for m in pattern.finditer(text):
+            if last_num is not None:
+                items.append((last_num, text[pos:m.start()].strip()))
+            last_num = m.group(1)
+            pos = m.end()
+        if last_num is not None:
+            items.append((last_num, text[pos:].strip()))
+        return [(n, t) for (n, t) in items if t]
+
+    def _add_bullet_content(self, paragraph, text: str) -> None:
+        """Add bullet point content to a paragraph with manual formatting"""
+        # Add bullet symbol as first run
+        bullet_run = paragraph.add_run("• ")
+        bullet_run.font.name = self.content_font
+        bullet_run.font.size = Pt(self.content_size)
+        bullet_run.font.bold = False
+        
+        # Add the text content as second run
+        text_run = paragraph.add_run(text)
+        text_run.font.name = self.content_font
+        text_run.font.size = Pt(self.content_size)
+        text_run.font.bold = False
+        
+        # Set paragraph indentation for bullet points - consistent for all bullets
+        paragraph.paragraph_format.left_indent = Pt(36)  # Indent entire bullet point
+        paragraph.paragraph_format.first_line_indent = Pt(-18)  # Hanging indent for bullet symbol
+
+    def _add_numbered_content(self, paragraph, number: str, text: str) -> None:
+        """Add numbered list content to a paragraph with manual formatting"""
+        # Add number as first run
+        number_run = paragraph.add_run(f"{number}. ")
+        number_run.font.name = self.content_font
+        number_run.font.size = Pt(self.content_size)
+        number_run.font.bold = False
+        
+        # Add the text content as second run
+        text_run = paragraph.add_run(text)
+        text_run.font.name = self.content_font
+        text_run.font.size = Pt(self.content_size)
+        text_run.font.bold = False
+        
+        # Set paragraph indentation for numbered lists - consistent for all numbers
+        paragraph.paragraph_format.left_indent = Pt(36)  # Indent entire numbered list
+        paragraph.paragraph_format.first_line_indent = Pt(-18)  # Hanging indent for number
+
+    def _format_list_paragraph(self, paragraph) -> None:
+        """Apply consistent formatting to list paragraphs"""
+        # Lists typically have tighter spacing
+        paragraph.paragraph_format.space_after = Pt(3)
+        paragraph.paragraph_format.line_spacing = 1.0
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+
+    def _format_regular_paragraph(self, paragraph) -> None:
+        """Apply formatting to regular paragraphs"""
+        paragraph.paragraph_format.space_after = Pt(6)
+        paragraph.paragraph_format.line_spacing = 1.15
+        paragraph.alignment = WD_ALIGN_PARAGRAPH.JUSTIFY
+        for run in paragraph.runs:
+            run.font.name = self.content_font
+            run.font.size = Pt(self.content_size)
 
     def _strip_existing_numbering(self, title: str) -> str:
         """Strip common numbering patterns from section titles.
