@@ -1,16 +1,16 @@
 metadata:
-  name: "Architecture du génome humain"
-  course_title: "Architecture du génome humain"
+  name: "Code génétique et traduction"
+  course_title: "Code génétique et traduction"
   level: L1
   block: SANTE
   semester: S1
   subject: UE-2
-  chapter: 7.1
+  chapter: 6
 
 
 inputs:
-  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
-  plan_page: 2
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/Ch6-Code génétique et traduction.pdf"
+  #plan_page: 2
   # plan_pdf: "volume/plan.pdf"
 
 outputs:
@@ -19,3 +19,4 @@ outputs:
   template_path: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/templates/fs_template.docx"
   output_dir: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/artifacts"
   test_mode: false  # Process only first 10 slides for quick testing
+

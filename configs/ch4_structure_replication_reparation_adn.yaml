@@ -1,0 +1,22 @@
+metadata:
+  name: "Structure, réplication et réparation de l'ADN"
+  course_title: "Structure, réplication et réparation de l'ADN"
+  level: L1
+  block: SANTE
+  semester: S1
+  subject: UE-2
+  chapter: 4
+
+
+inputs:
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/Ch4-Structure, réplication et réparation de l_ADN.pdf"
+  #plan_page: 2
+  # plan_pdf: "volume/plan.pdf"
+
+outputs:
+  save_json: true
+  save_docx: true
+  template_path: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/templates/fs_template.docx"
+  output_dir: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/artifacts"
+  test_mode: false  # Process only first 10 slides for quick testing
+

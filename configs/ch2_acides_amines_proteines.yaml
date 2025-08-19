@@ -1,16 +1,16 @@
 metadata:
-  name: "Architecture du génome humain"
-  course_title: "Architecture du génome humain"
+  name: "Acides aminés et protéines"
+  course_title: "Acides aminés et protéines"
   level: L1
   block: SANTE
   semester: S1
   subject: UE-2
-  chapter: 7.1
+  chapter: 2
 
 
 inputs:
-  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
-  plan_page: 2
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/Ch2-Acides aminés et protéines.pdf"
+  #plan_page: 2
   # plan_pdf: "volume/plan.pdf"
 
 outputs:

@@ -1,6 +1,6 @@
 metadata:
-  name: "Architecture du génome humain"
-  course_title: "Architecture du génome humain"
+  name: "Génome humain"
+  course_title: "Génome humain"
   level: L1
   block: SANTE
   semester: S1
@@ -9,8 +9,8 @@ metadata:
 
 
 inputs:
-  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
-  plan_page: 2
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/Ch7.1-Génome humain.pdf"
+  #plan_page: 2
   # plan_pdf: "volume/plan.pdf"
 
 outputs:
@@ -19,3 +19,4 @@ outputs:
   template_path: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/templates/fs_template.docx"
   output_dir: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/artifacts"
   test_mode: false  # Process only first 10 slides for quick testing
+

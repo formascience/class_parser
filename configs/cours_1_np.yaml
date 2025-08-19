@@ -1,17 +1,17 @@
 metadata:
-  name: "Réplication et réparation de l’ADN"
-  course_title: "Réplication et réparation de l’ADN"
+  name: "Architecture du génome humain"
+  course_title: "Architecture du génome humain"
   level: L1
   block: SANTE
   semester: S1
-  subject: UE-2
-  chapter: 4
+  subject: UE-1
+  chapter: 1
 
 
 inputs:
-  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_4.pdf"
-  plan_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_4_plan.pdf"
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
   #plan_page: 2
+  # plan_pdf: "volume/plan.pdf"
 
 outputs:
   save_json: true

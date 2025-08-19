@@ -1,16 +1,16 @@
 metadata:
-  name: "Architecture du génome humain"
-  course_title: "Architecture du génome humain"
+  name: "Sucres et Lipides"
+  course_title: "Sucres et Lipides"
   level: L1
   block: SANTE
   semester: S1
   subject: UE-2
-  chapter: 7.1
+  chapter: 1
 
 
 inputs:
-  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/cours_1.pdf"
-  plan_page: 2
+  slides_pdf: "/Users/youssefjanjar/Documents/formascience/class_parser/volume/slides/Ch1-Sucres et Lipides.pdf"
+  #plan_page: 2
   # plan_pdf: "volume/plan.pdf"
 
 outputs:

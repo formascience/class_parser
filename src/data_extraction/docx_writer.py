@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Any, Optional
@@ -21,7 +22,7 @@ class DocxWriter:
         self,
         template_path: str = "volume/fs_template.docx",
         title_font: str = "Manrope",
-        title_size: int = 16,
+        title_size: int = 14,
         title_color: tuple[int, int, int] = (0, 0, 0),
         content_font: str = "Arial",
         content_size: int = 10,
@@ -82,8 +83,8 @@ class DocxWriter:
                 paragraph.text = course_title
                 for run in paragraph.runs:
                     run.font.name = self.title_font
-                    run.font.size = Pt(self.title_size)
-                    run.font.bold = True
+                    run.font.size = Pt(14)  # Course title font size 14
+                    run.font.bold = False
                     r, g, b = self.title_color
                     run.font.color.rgb = RGBColor(r, g, b)
                 break
@@ -119,7 +120,8 @@ class DocxWriter:
 
     def _write_content(self, doc: Any, content: Any) -> None:
         for i, section in enumerate(content.sections, start=1):
-            roman_title = f"{self._to_roman(i)}. {section.title}"
+            clean_title = self._strip_existing_numbering(section.title)
+            roman_title = f"{self._to_roman(i)}. {clean_title}"
             heading1 = doc.add_paragraph(roman_title, style="Heading 1")
 
             heading1_format = heading1.paragraph_format
@@ -128,10 +130,10 @@ class DocxWriter:
 
             for run in heading1.runs:
                 run.font.name = self.title_font  # Level 0 uses title font
-                run.font.size = Pt(self.title_size)
-                run.font.bold = True
+                run.font.size = Pt(12)  # Level 0 sections font size 14
+                run.font.bold = False
                 # Leaf green
-                run.font.color.rgb = RGBColor(34, 139, 34)
+                run.font.color.rgb = RGBColor(143, 150, 78)
 
             if section.content:
                 for content_item in section.content:
@@ -149,34 +151,35 @@ class DocxWriter:
         self, doc: Any, subsections: list[Any], parent_num: int | str, level: int = 1
     ) -> None:
         for j, subsection in enumerate(subsections, start=1):
+            clean_title = self._strip_existing_numbering(subsection.title)
             if level == 1:
-                subtitle = f"{j}. {subsection.title}"
+                subtitle = f"{j}. {clean_title}"
                 heading = doc.add_paragraph(subtitle, style="Heading 2")
                 heading.paragraph_format.space_before = Pt(12)
                 heading.paragraph_format.space_after = Pt(6)
                 for run in heading.runs:
                     run.font.name = self.table_font
-                    run.font.size = Pt(self.title_size - 2)
+                    run.font.size = Pt(11)  # Other section titles font size 12
                     run.font.bold = True
                     run.font.color.rgb = RGBColor(0, 0, 0)
             elif level == 2:
-                subtitle = f"{parent_num}.{j} {subsection.title}"
+                subtitle = f"{parent_num}.{j} {clean_title}"
                 heading = doc.add_paragraph(subtitle, style="Heading 3")
                 heading.paragraph_format.space_before = Pt(10)
                 heading.paragraph_format.space_after = Pt(6)
                 for run in heading.runs:
                     run.font.name = self.table_font
-                    run.font.size = Pt(self.title_size - 3)
+                    run.font.size = Pt(11)  # Other section titles font size 12
                     run.font.bold = True
                     run.font.color.rgb = RGBColor(0, 0, 0)
             else:
-                subtitle = f"{parent_num}.{j} {subsection.title}"
+                subtitle = f"{parent_num}.{j} {clean_title}"
                 heading = doc.add_paragraph(subtitle)
                 heading.paragraph_format.space_before = Pt(8)
                 heading.paragraph_format.space_after = Pt(4)
                 for run in heading.runs:
                     run.font.name = self.table_font
-                    run.font.size = Pt(self.title_size - 4)
+                    run.font.size = Pt(11)  # Other section titles font size 12
                     run.font.bold = True
                     run.font.color.rgb = RGBColor(0, 0, 0)
 
@@ -194,6 +197,44 @@ class DocxWriter:
                 self._write_subsections(
                     doc, subsection.subsections, f"{parent_num}.{j}", level + 1
                 )
+
+    def _strip_existing_numbering(self, title: str) -> str:
+        """Strip common numbering patterns from section titles.
+        
+        Handles patterns like:
+        - "1. Title" -> "Title"
+        - "1.1 Title" -> "Title" 
+        - "1.1.1 Title" -> "Title"
+        - "1.2.4.4.4. Title" -> "Title"
+        - "I. Title" -> "Title"
+        - "A. Title" -> "Title"
+        - "a) Title" -> "Title"
+        - "(1) Title" -> "Title"
+        """
+        # Remove leading/trailing whitespace
+        title = title.strip()
+        
+        # Pattern for various numbering formats at the start of the title
+        patterns = [
+            r'^\d+(?:\.\d+)*\.?\s*',  # "1.", "1.1", "1.1.1", "1.2.4.4.4.", etc. (any length decimal numbering)
+            r'^[IVX]+\.\s*',          # "I. ", "IV. ", "XII. " (Roman numerals)
+            r'^[A-Z]\.\s*',           # "A. ", "B. "
+            r'^[a-z]\)\s*',           # "a) ", "b) "
+            r'^\([0-9]+\)\s*',        # "(1) ", "(123) "
+            r'^\([a-z]\)\s*',         # "(a) ", "(b) "
+            r'^\([A-Z]\)\s*',         # "(A) ", "(B) "
+            r'^-\s*',                 # "- " (bullet point)
+            r'^\*\s*',                # "* " (asterisk bullet)
+        ]
+        
+        # Apply each pattern and return the first match that strips something
+        for pattern in patterns:
+            stripped = re.sub(pattern, '', title)
+            if stripped != title:
+                return stripped.strip()
+        
+        # If no pattern matched, return original title
+        return title
 
     def _to_roman(self, num: int) -> str:
         vals = [10, 9, 5, 4, 1]

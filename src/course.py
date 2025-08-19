@@ -24,7 +24,7 @@ class Course(BaseModel):
     block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
     semester: Optional[str] = None  # e.g., S1, S2
     subject: str = "UE-1 Constitution et transformation de la matière"  # Matière
-    chapter: Optional[int] = None  # e.g., 1
+    chapter: Optional[str] = None  # e.g., 1
 
     # Content
     content: Optional[Content] = None
@@ -112,7 +112,7 @@ class Course(BaseModel):
 
         writer = DocxWriter(template_path=template_path)
         # If no output_path is provided, build a default path
-        file_name = self.name.lower().replace(' ', '_')
+        file_name = f"Chapitre_{self.chapter}_{self.name.lower().replace(' ', '_')}"
         final_output = output_path
 
         final_output = f"{output_path}/{file_name}.docx"

@@ -12,6 +12,7 @@ from ..models import Slides
 # ONE SHOT TEMPLATE - Outline and Mapping Generation (Branch B - No Plan)
 # =============================================================================
 
+
 def build_outline_and_mapping_prompt(slides: List[Slides]) -> str:
     """Generate the one-shot prompt for outline and mapping when no plan is provided"""
     slides_json = json.dumps(
@@ -54,6 +55,8 @@ CONTRAINTES OUTLINE
 - Les titres sont générés à partir du contenu des slides. Traiter "title" comme indice faible seulement.
 - Le champ "content" de chaque section doit être [].
 - Jamais de sections: Crédits ou références ou mentions légales du cours. Uniquement le contenu du cours.
+- Ignore le contenu sur l'administratrif, le cursus, organisation des modules, etc.
+- Capture uniquement le contenu du cours de medecine contenu dans les slides.
 
 CONTRAINTES MAPPING
 - Chaque section du plan apparaît exactement une fois dans "mapping" via son "section_id".
@@ -111,6 +114,7 @@ SORTIE
 - Aucune explication ni commentaire hors du JSON.
 """.strip()
 
+
 # =============================================================================
 # OUTLINE FROM PLAN TEMPLATE - Two-pass outline generation (Branch A)
 # =============================================================================
@@ -142,6 +146,7 @@ Requirements:
 # =============================================================================
 # MAPPING FROM OUTLINE TEMPLATE - Two-pass mapping (Branch A)
 # =============================================================================
+
 
 def build_mapping_prompt(outline_json: str, slides: List[dict]) -> str:
     """
@@ -213,9 +218,11 @@ CONTRAINTES À RESPECTER IMPÉRATIVEMENT
 - AUCUNE explication, commentaire ou clé supplémentaire : la sortie doit être **uniquement** le JSON demandé.
 """.strip()
 
+
 # =============================================================================
 # WRITER TEMPLATE - Final content enhancement
 # =============================================================================
+
 
 def build_system_prompt() -> str:
     """
@@ -337,10 +344,17 @@ def build_prompt_fill_content(content_json: str) -> str:
 {build_assistant_prompt()}
 """.strip()
 
+
 # =============================================================================
 # SYSTEM PROMPTS FOR DIFFERENT ROLES
 # =============================================================================
 
-ONE_SHOT_SYSTEM_PROMPT = "Tu es un expert en structuration pédagogique. Tu infères un plan hiérarchique fiable et un mapping de slides à partir d'un deck bruité."
+ONE_SHOT_SYSTEM_PROMPT = """Vous êtes un expert en structuration pédagogique. À partir d'un deck non structuré ou bruité, 
+                            commencez par établir une checklist concise (3-7 points) des étapes clés à effectuer avant de traiter la structuration.
+                            Générez un plan hiérarchique fiable ainsi qu'un mapping précis des slides. Après avoir structuré le contenu, vérifiez en 1-2 phrases la cohérence et  l’exhaustivité du plan, et ajustez si nécessaire.
+                            Produisez une structuration claire, logique et adaptée à l'enseignement, en vous assurant de l’exhaustivité du plan et de la pertinence de l’agencement des contenus.
+                            Ne mentionnez jamais la source des slides, l'université, le professeur, l'institut, etc.
+                            Ignorez le contenu sur l'administratrif, le cursus, organisation des modules, etc.
+                            Capturez uniquement le contenu du cours de medecine contenu dans les slides."""
 
 WRITER_SYSTEM_PROMPT = "Tu es un Professeur qui remplit le contenu des sections du plan de cours à partir du contenu des slides."

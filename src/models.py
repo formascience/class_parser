@@ -27,7 +27,7 @@ class CourseMetadata(BaseModel):
     block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
     semester: Optional[str] = None  # e.g., S1, S2
     subject: Optional[str] = None
-    chapter: Optional[int] = None
+    chapter: Optional[str] = None
 
 
 class PipelineConfig(BaseModel):
