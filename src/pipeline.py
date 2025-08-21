@@ -41,7 +41,7 @@ class CoursePipeline:
         template_path: str = "volume/fs_template.docx",
         output_path: Optional[str] = None,
         test_mode: bool = True,
-    ) -> Course:
+    ) -> [Course, str]:
         """
         Process course using Branch B (no plan provided) - one-shot approach
         
@@ -103,12 +103,12 @@ class CoursePipeline:
                 course.save_to_json(output_path="volume/artifacts/json")
         if save_docx:
             if output_path:
-                course.to_docx(output_path=output_path+"/docx", template_path=template_path)
+                docx_path, docx_filename = course.to_docx(output_path=output_path+"/docx", template_path=template_path)
             else:
-                course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
+                docx_path, docx_filename = course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
         
         logger.info("🎉 Course processing complete!")
-        return course
+        return course, docx_path, docx_filename
     
     def process_course_with_plan(
         self,

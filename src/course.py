@@ -116,6 +116,8 @@ class Course(BaseModel):
         final_output = output_path
 
         final_output = f"{output_path}/{file_name}.docx"
+        docx_filename = f"{file_name}.docx"
+        docx_path = output_path
         dest = writer.fill_template(self, output_path=final_output)
         print(f"📄 Course exported to DOCX: {dest}")
-        return dest
+        return docx_path, docx_filename
