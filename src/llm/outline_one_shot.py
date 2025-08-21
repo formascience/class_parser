@@ -8,10 +8,34 @@ from typing import Any, Dict, List, Optional, Tuple
 
 from openai import OpenAI
 
-from ..models import Content, OutlineAndMapping, SectionSlideMapping, Slides
+from ..models import (
+    Content,
+    CourseMetadata,
+    OutlineAndMapping,
+    SectionSlideMapping,
+    Slides,
+)
 from .prompt_manager import PromptManager
 
 logger = logging.getLogger(__name__)
+
+
+def _format_course_metadata_header(course_metadata: CourseMetadata) -> str:
+    """Format a compact metadata header for the model context"""
+    
+    # Extract required fields from CourseMetadata model
+    block = course_metadata.block  # Required field
+    chapter = course_metadata.chapter  # Required field
+    course_title = course_metadata.course_title  # Required field
+    
+    header = f"""CONTEXTE COURS
+- Université de Strasbourg, Faculté de Médecine, première année
+- Bloc: {block}
+- Chapitre {chapter}: {course_title}
+- Deck de diapositives d'un cours magistral de médecine
+
+"""
+    return header
 
 
 class OutlineOneShot:
@@ -31,7 +55,7 @@ class OutlineOneShot:
     
     def build_outline_and_mapping(self, 
                                  slides: List[Slides],
-                                 course_metadata: Optional[Dict[str, Any]] = None,
+                                 course_metadata: CourseMetadata,
                                  custom_config: Optional[Dict[str, Any]] = None) -> Tuple[Content, SectionSlideMapping]:
         """
         Generate both outline and section-slide mapping in one shot (Branch B)
@@ -39,14 +63,19 @@ class OutlineOneShot:
         
         Args:
             slides: List of Slides objects containing slide content
-            course_metadata: Course information (not used in current implementation)
+            course_metadata: CourseMetadata object (required - block, chapter, course_title/name)
             custom_config: Custom generation parameters (not used in current implementation)
             
         Returns:
             Tuple of (Content outline, SectionSlideMapping)
         """
         # Get the one-shot prompt
-        user_prompt = self.prompt_manager.get_one_shot_prompt_no_admin(slides)
+        base_prompt = self.prompt_manager.get_one_shot_prompt_no_admin(slides)
+        
+        # Add metadata header if provided
+        metadata_header = _format_course_metadata_header(course_metadata)
+        user_prompt = metadata_header + base_prompt
+        
         system_prompt = self.prompt_manager.get_one_shot_system_prompt()
         
         try:

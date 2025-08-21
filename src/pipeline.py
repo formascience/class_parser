@@ -67,7 +67,7 @@ class CoursePipeline:
         
         # Step 1: Generate outline and mapping in one shot
         logger.info("🤖 Generating outline and mapping...")
-        outline, mapping = self.outline_one_shot.build_outline_and_mapping(slides)
+        outline, mapping = self.outline_one_shot.build_outline_and_mapping(slides, metadata)
         logger.info("✅ Generated outline with %d sections", len(outline.sections))
         
         # Step 2: Enrich content with slides
@@ -84,12 +84,12 @@ class CoursePipeline:
         
         # Step 4: Create Course object
         course = Course(
-            name=metadata.name,
+            name=metadata.name or metadata.course_title,  # Use course_title as fallback
             course_title=metadata.course_title,
             level=metadata.level,
             block=metadata.block,
             semester=metadata.semester,
-            subject=metadata.subject or "Biology",
+            subject=metadata.subject,
             chapter=metadata.chapter,
             content=final_content,
             total_slides=len(slides),
@@ -147,7 +147,7 @@ class CoursePipeline:
         
         # Step 1: Generate outline from plan
         logger.info("📝 Generating outline from plan...")
-        outline = self.outline_two_pass.build_outline(plan_text)
+        outline = self.outline_two_pass.build_outline(plan_text, metadata)
         logger.info("✅ Generated outline with %d sections", len(outline.sections))
         
         # Step 2: Generate section-slide mapping
@@ -169,12 +169,12 @@ class CoursePipeline:
         
         # Step 5: Create Course object
         course = Course(
-            name=metadata.name,
+            name=metadata.name or metadata.course_title,  # Use course_title as fallback
             course_title=metadata.course_title,
             level=metadata.level,
             block=metadata.block,
             semester=metadata.semester,
-            subject=metadata.subject or "Biology",
+            subject=metadata.subject,
             chapter=metadata.chapter,
             content=final_content,
             total_slides=len(slides),

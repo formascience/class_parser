@@ -10,8 +10,26 @@ from openai import OpenAI
 
 logger = logging.getLogger(__name__)
 
-from ..models import Content
+from ..models import Content, CourseMetadata
 from .prompt_manager import PromptManager
+
+
+def _format_course_metadata_header(course_metadata: CourseMetadata) -> str:
+    """Format a compact metadata header for the model context"""
+    
+    # Extract required fields from CourseMetadata model
+    block = course_metadata.block  # Required field
+    chapter = course_metadata.chapter  # Required field
+    course_title = course_metadata.course_title  # Required field
+    
+    header = f"""CONTEXTE COURS
+- Université de Strasbourg, Faculté de Médecine, première année
+- Bloc: {block}
+- Chapitre {chapter}: {course_title}
+- Plan de cours d'un cours magistral de médecine
+
+"""
+    return header
 
 
 class OutlineTwoPass:
@@ -31,7 +49,7 @@ class OutlineTwoPass:
     
     def build_outline(self, 
                      plan_text: str,
-                     course_metadata: Optional[Dict[str, Any]] = None,
+                     course_metadata: CourseMetadata,
                      custom_config: Optional[Dict[str, Any]] = None) -> Content:
         """
         Generate hierarchical outline from plan text (Branch A)
@@ -39,7 +57,7 @@ class OutlineTwoPass:
         
         Args:
             plan_text: Extracted plan text from PDF or separate source
-            course_metadata: Course information (level, subject, etc.) - not used in current implementation
+            course_metadata: CourseMetadata object (required - block, chapter, course_title/name)
             custom_config: Custom generation parameters - not used in current implementation
             
         Returns:
@@ -48,6 +66,10 @@ class OutlineTwoPass:
         # Get system prompt for outline generation from plan
         system_prompt = self.prompt_manager.get_outline_from_plan_system_prompt()
         
+        # Add metadata header if provided
+        metadata_header = _format_course_metadata_header(course_metadata)
+        user_content = metadata_header + plan_text
+        
         try:
             logger.debug("Starting outline generation from plan text (%d chars)", len(plan_text))
             # Use the exact API call from poc.ipynb
@@ -55,7 +77,7 @@ class OutlineTwoPass:
                 model=self.model,
                 input=[
                     {"role": "system", "content": system_prompt},
-                    {"role": "user", "content": plan_text}
+                    {"role": "user", "content": user_content}
                 ],
                 reasoning={
                     "effort": "low",

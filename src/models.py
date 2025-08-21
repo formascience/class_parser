@@ -19,15 +19,15 @@ class CourseMetadata(BaseModel):
     """Minimal input metadata used to initialize a Course in the pipeline."""
 
     # Core identifiers
-    name: str
-    course_title: Optional[str] = None
+    name: Optional[str] = None
+    course_title: str
 
     # Academic hierarchy
-    level: Optional[str] = None  # e.g., L1, L2, L3, M1, M2
-    block: Optional[str] = None  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
+    level: Optional[str] = None  # e.g., L1
+    block: str  # e.g., BLOC_SANTE, TRANSVERSAL, DISCIPLINAIRE
     semester: Optional[str] = None  # e.g., S1, S2
-    subject: Optional[str] = None
-    chapter: Optional[str] = None
+    subject: str
+    chapter: str   
 
 
 class PipelineConfig(BaseModel):

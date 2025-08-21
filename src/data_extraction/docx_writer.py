@@ -286,9 +286,9 @@ class DocxWriter:
         text_run.font.size = Pt(self.content_size)
         text_run.font.bold = False
         
-        # Set paragraph indentation for bullet points - consistent for all bullets
-        paragraph.paragraph_format.left_indent = Pt(36)  # Indent entire bullet point
-        paragraph.paragraph_format.first_line_indent = Pt(-18)  # Hanging indent for bullet symbol
+        # No indentation - bullet points aligned with regular text
+        paragraph.paragraph_format.left_indent = Pt(0)
+        paragraph.paragraph_format.first_line_indent = Pt(0)
 
     def _add_numbered_content(self, paragraph, number: str, text: str) -> None:
         """Add numbered list content to a paragraph with manual formatting"""
@@ -304,9 +304,9 @@ class DocxWriter:
         text_run.font.size = Pt(self.content_size)
         text_run.font.bold = False
         
-        # Set paragraph indentation for numbered lists - consistent for all numbers
-        paragraph.paragraph_format.left_indent = Pt(36)  # Indent entire numbered list
-        paragraph.paragraph_format.first_line_indent = Pt(-18)  # Hanging indent for number
+        # No indentation - numbered lists aligned with regular text
+        paragraph.paragraph_format.left_indent = Pt(0)
+        paragraph.paragraph_format.first_line_indent = Pt(0)
 
     def _format_list_paragraph(self, paragraph) -> None:
         """Apply consistent formatting to list paragraphs"""
