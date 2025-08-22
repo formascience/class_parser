@@ -177,10 +177,6 @@ async def process_course_no_plan(
 
         logger.info(f"Returning generated docx file: {full_path}")
 
-        # Debug logging for headers
-        headers_to_set = {"Content-Disposition": f"attachment; filename={docx_filename}"}
-        logger.info(f"🔴 NO-PLAN ENDPOINT - Setting headers: {headers_to_set}")
-        
         # Return the generated docx file for download
         response = FileResponse(
             path=full_path,
@@ -191,7 +187,6 @@ async def process_course_no_plan(
         # Set the header explicitly after creating the response
         response.headers["Content-Disposition"] = f"attachment; filename={docx_filename}"
         
-        logger.info(f"🔴 NO-PLAN ENDPOINT - FileResponse headers: {dict(response.headers)}")
         return response
         
     except HTTPException:
@@ -222,42 +217,32 @@ async def process_course_test(
     temp_slides_path = None
     
     try:
-        logger.info(f"🔵 TEST ENDPOINT HIT - Course: {metadata.course_title}")
-        logger.info(f"🔵 TEST ENDPOINT - Request received at test route")
+        logger.info(f"Test route called with course: {metadata.course_title}")
         
         # Save uploaded file to temp (just to validate it's a PDF)
         temp_slides_path = await save_upload_to_temp(slides_file)
-        logger.info(f"🔵 TEST ENDPOINT - Temp file saved: {temp_slides_path}")
         
         # Path to the existing docx file in class_parser root
-        docx_path = "/Users/youssefjanjar/Documents/formascience/class_parser/Chapitre_5_transcription,_maturation_et_régulation_de_l'adn.docx"
-        
-        logger.info(f"🔵 TEST ENDPOINT - Looking for docx at: {docx_path}")
+        docx_path = "./Chapitre_5_transcription,_maturation_et_régulation_de_l'adn.docx"
         
         if not os.path.exists(docx_path):
-            logger.error(f"🔵 TEST ENDPOINT - File not found: {docx_path}")
             raise HTTPException(
                 status_code=404,
                 detail="Test docx file not found"
             )
         
-        logger.info(f"🔵 TEST ENDPOINT - File found, creating response")
-        
-        # Debug logging for headers
-        headers_to_set = {"Content-Disposition": "attachment; filename=test_output.docx"}
-        logger.info(f"🔵 TEST ENDPOINT - Setting headers: {headers_to_set}")
+        logger.info(f"Test route completed successfully, returning docx file")
         
         # Return the docx file for download
         response = FileResponse(
             path=docx_path,
-            filename="test_output.docx",
+            filename="Chap_5.docx",
             media_type="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
         )
         
         # Set the header explicitly after creating the response
-        response.headers["Content-Disposition"] = "attachment; filename=test_output.docx"
+        response.headers["Content-Disposition"] = "attachment; filename=Chap_5.docx"
         
-        logger.info(f"🔵 TEST ENDPOINT - FileResponse headers: {dict(response.headers)}")
         return response
         
     except HTTPException:
