@@ -4,15 +4,23 @@ Based on the actual implementation from poc.ipynb
 """
 
 import logging
+import os
 from typing import Any, Dict, Optional
 
 from openai import OpenAI
+from dotenv import load_dotenv
+
 
 logger = logging.getLogger(__name__)
 
 from ..models import Content
 from .prompt_manager import PromptManager
 
+load_dotenv()
+
+# Get configuration from environment variables
+REASONING_EFFORT = os.getenv("WRITER_REASONING_EFFORT", "medium")
+ENV_VERBOSITY = os.getenv("WRITER_TEXT_VERBOSITY", "low")
 
 class Writer:
     """Handles final content enhancement and writing after enrichment with slides"""
@@ -33,8 +41,9 @@ class Writer:
                     enriched_content: Content,
                     course_metadata: Optional[Dict[str, Any]] = None,
                     enhancement_config: Optional[Dict[str, Any]] = None,
-                    verbosity: str = "high",
-                    use_structured_format: bool = True) -> Content:
+                    verbosity: Optional[str] = None,
+                    reasoning_effort: Optional[str] = None,
+        ) -> Content:
         """
         Enhance and finalize course content that has been enriched with slide data
         Based on the exact implementation from poc.ipynb
@@ -44,7 +53,6 @@ class Writer:
             course_metadata: Course information (not used in current implementation)
             enhancement_config: Custom enhancement parameters (not used in current implementation)
             verbosity: Controls model text verbosity ("low", "medium", "high")
-            use_structured_format: Whether to use structured formatting (bullet points, numbered lists)
             
         Returns:
             Content object with enhanced, polished content
@@ -53,15 +61,19 @@ class Writer:
         content_json_str = enriched_content.model_dump_json()
         
         # Build the complete prompt (following poc.ipynb approach)
-        if use_structured_format:
-            prompt_to_send = self.prompt_manager.get_complete_writer_prompt_structured(content_json_str)
-            system_prompt = self.prompt_manager.get_writer_system_prompt_structured()
-        else:
-            prompt_to_send = self.prompt_manager.get_complete_writer_prompt(content_json_str)
-            system_prompt = self.prompt_manager.get_writer_role_prompt()
+        prompt_to_send = self.prompt_manager.get_complete_writer_prompt_structured(content_json_str)
+        system_prompt = self.prompt_manager.get_writer_system_prompt_structured()
+
+        logger.info(f"Initializing writer with model: {self.model}")
         
         try:
             logger.debug("Starting content enhancement for %d sections", len(enriched_content.sections))
+            # Use parameter verbosity if provided, otherwise use env variable
+            final_verbosity = verbosity if verbosity else ENV_VERBOSITY
+            final_reasoning_effort = reasoning_effort if reasoning_effort else REASONING_EFFORT
+
+            logger.info(f"Writing content with verbosity: {final_verbosity} and reasoning effort: {final_reasoning_effort}")
+            
             # Use the exact API call from poc.ipynb
             response = self.client.responses.parse(
                 model=self.model,
@@ -73,8 +85,8 @@ class Writer:
                     {"role": "user", "content": prompt_to_send},
                 ],
                 text_format=Content,
-                reasoning={"effort": "high"},  # for deep synthesis
-                text={"verbosity": verbosity},  # type: ignore
+                reasoning={"effort": final_reasoning_effort},
+                text={"verbosity": final_verbosity},  # type: ignore
             )
             
             result = response.output_parsed

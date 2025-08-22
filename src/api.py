@@ -137,7 +137,7 @@ async def process_course_no_plan(
         
         # Step 3: Process with pipeline (now save docx for download)
         logger.info("Processing course with pipeline...")
-        pipeline = CoursePipeline()
+        pipeline = CoursePipeline(model="gpt-5-nano")
         course, docx_path, docx_filename = pipeline.process_course_no_plan(
             slides=slides,
             metadata=metadata,
@@ -145,7 +145,7 @@ async def process_course_no_plan(
             save_docx=True,   # Now save docx for download
             template_path="volume/templates/fs_template.docx",  # Static options
             output_path="volume/artifacts",  # Will save to volume/artifacts/json/ and docx/
-            test_mode=False,   # Static options
+            test_mode=True,   # Static options
         )
         
         # Step 4: Get processing statistics

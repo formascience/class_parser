@@ -3,36 +3,8 @@ from __future__ import annotations
 WRITER_SYSTEM_PROMPT = "Tu es un Professeur qui remplit le contenu des sections du plan de cours à partir du contenu des slides."
 
 
-def build_system_prompt() -> str:
-    return """Tu es un expert en rédaction pédagogique. Ta tâche est de transformer du contenu brut de slides en paragraphes de cours structurés.
-
-Règles :
-- Ne Mentione jamais la source des slides, l'université, le professeur, l'institut, etc.
-- Traite TOUTES les sections du JSON (ne t'arrête pas à la première)
-- Pour chaque section, synthétise tous les éléments content[] en 2-10 paragraphes cohérents
-- Chaque paragraphe = maximum 10 phrases liées au titre de la section
-- Conserve la structure JSON exacte (mêmes IDs, titres, ordre)
-- Style académique fluide"""
-
-
 def build_user_prompt(content_json: str) -> str:
     return content_json
-
-
-def build_assistant_prompt() -> str:
-    return """Voici un exemple de transformation attendue :
-
-INPUT EXEMPLE:
-```json
-{...}
-```
-
-OUTPUT EXEMPLE:
-```json
-{...}
-```
-
-Maintenant traite le JSON fourni en suivant ce modèle :"""
 
 
 def build_system_prompt_structured() -> str:
@@ -56,16 +28,56 @@ def build_assistant_prompt_structured() -> str:
 
 INPUT EXEMPLE:
 ```json
-{...}
+{
+  "sections": [
+    {
+      "id": "SEC_2",
+      "title": "Glycolyse : étapes et régulation",
+      "content": [
+        "Phase préparatoire\n- Glucose → G6P (hexokinase)\n- G6P → F6P (phosphoglucose isomérase)\n- F6P → F1,6BP (phosphofructokinase)\nConsomme 2 ATP",
+        "Phase de gain énergétique\nG3P → 1,3BPG → 3PG → 2PG → PEP → Pyruvate\nProduction nette : 2 ATP + 2 NADH",
+        "Régulation allostérique\nPFK = enzyme clé\nInhibition : ATP, citrate\nActivation : AMP, ADP, Pi"
+      ],
+      "subsections": []
+    }
+  ]
+}
 ```
 
 OUTPUT EXEMPLE:
 ```json
-{...}
+{
+  "sections": [
+    {
+      "id": "SEC_2",
+      "title": "Glycolyse : étapes et régulation", 
+      "content": [
+        "La glycolyse se déroule en deux phases distinctes aux rôles complémentaires. La phase préparatoire transforme le glucose en intermédiaires phosphorylés par une série de réactions enzymatiques spécialisées :",
+        
+        "• Phosphorylation du glucose en glucose-6-phosphate par l'hexokinase",
+        "• Isomérisation en fructose-6-phosphate par la phosphoglucose isomérase", 
+        "• Phosphorylation en fructose-1,6-bisphosphate par la phosphofructokinase",
+        
+        "Cette phase initiale consomme 2 molécules d'ATP par glucose métabolisé, constituant un investissement énergétique nécessaire.",
+        
+        "La phase de gain énergétique génère les bénéfices énergétiques de la voie glycolytique. Les transformations successives du glycéraldéhyde-3-phosphate conduisent à la formation de pyruvate selon la séquence suivante :",
+        
+        "1. Oxydation et phosphorylation en 1,3-bisphosphoglycérate",
+        "2. Transfert du phosphate vers l'ADP (formation d'ATP)", 
+        "3. Isomérisation et déshydratation jusqu'au phosphoénolpyruvate",
+        "4. Seconde phosphorylation au niveau du substrat (formation d'ATP)",
+        
+        "Le bilan net de cette phase est la production de 2 ATP et 2 NADH par molécule de glucose.",
+        
+        "La régulation de la glycolyse s'exerce principalement au niveau de la phosphofructokinase, enzyme limitante de la voie. Cette régulation allostérique répond aux besoins énergétiques cellulaires : l'ATP et le citrate exercent une inhibition négative tandis que l'AMP, l'ADP et le phosphate inorganique activent l'enzyme."
+      ],
+      "subsections": []
+    }
+  ]
+}
 ```
 
 Maintenant traite le JSON fourni en suivant ce modèle :"""
-
 
 def build_prompt_fill_content_structured(content_json: str) -> str:
     return f"""
@@ -78,28 +90,4 @@ def build_prompt_fill_content_structured(content_json: str) -> str:
 **ASSISTANT:**
 {build_assistant_prompt_structured()}
 """.strip()
-
-
-def build_prompt_fill_content(content_json: str) -> str:
-    return f"""
-**SYSTEM:**
-{build_system_prompt()}
-
-**USER:**
-{build_user_prompt(content_json)}
-
-**ASSISTANT:**
-{build_assistant_prompt()}
-""".strip()
-
-
-# Optional role prompt kept for compatibility (one-shot system)
-ONE_SHOT_SYSTEM_PROMPT = """Vous êtes un expert en structuration pédagogique. À partir d'un deck non structuré ou bruité, 
-                            commencez par établir une checklist concise (3-7 points) des étapes clés à effectuer avant de traiter la structuration.
-                            Générez un plan hiérarchique fiable ainsi qu'un mapping précis des slides. Après avoir structuré le contenu, vérifiez en 1-2 phrases la cohérence et  l’exhaustivité du plan, et ajustez si nécessaire.
-                            Produisez une structuration claire, logique et adaptée à l'enseignement, en vous assurant de l’exhaustivité du plan et de la pertinence de l’agencement des contenus.
-                            Ne mentionnez jamais la source des slides, l'université, le professeur, l'institut, etc.
-                            Ignorez le contenu sur l'administratrif, le cursus, organisation des modules, etc.
-                            Capturez uniquement le contenu du cours de medecine contenu dans les slides."""
-
 

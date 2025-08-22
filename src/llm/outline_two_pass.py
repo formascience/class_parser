@@ -4,14 +4,17 @@ Based on the actual implementation from poc.ipynb
 """
 
 import logging
+import os
 from typing import Any, Dict, Optional
-
+from dotenv import load_dotenv
 from openai import OpenAI
 
 logger = logging.getLogger(__name__)
 
 from ..models import Content, CourseMetadata
 from .prompt_manager import PromptManager
+
+load_dotenv()
 
 
 def _format_course_metadata_header(course_metadata: CourseMetadata) -> str:
@@ -72,6 +75,13 @@ class OutlineTwoPass:
         
         try:
             logger.debug("Starting outline generation from plan text (%d chars)", len(plan_text))
+            
+            # Get configuration from environment variables
+            reasoning_effort = os.getenv("OUTLINE_TWOPASS_REASONING_EFFORT", "medium")
+            text_verbosity = os.getenv("OUTLINE_TWOPASS_TEXT_VERBOSITY", "low")
+
+            logger.debug(f"Outline with verbosity: {text_verbosity} and reasoning effort: {reasoning_effort}")
+            
             # Use the exact API call from poc.ipynb
             response = self.client.responses.parse(
                 model=self.model,
@@ -79,10 +89,8 @@ class OutlineTwoPass:
                     {"role": "system", "content": system_prompt},
                     {"role": "user", "content": user_content}
                 ],
-                reasoning={
-                    "effort": "low",
-                },
-                text={"verbosity": "low"},  # type: ignore
+                reasoning={"effort": reasoning_effort},
+                text={"verbosity": text_verbosity},  # type: ignore
                 text_format=Content
             )
             

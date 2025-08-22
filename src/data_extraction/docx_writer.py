@@ -274,39 +274,53 @@ class DocxWriter:
 
     def _add_bullet_content(self, paragraph, text: str) -> None:
         """Add bullet point content to a paragraph with manual formatting"""
-        # Add bullet symbol as first run
-        bullet_run = paragraph.add_run("• ")
+        # Add bullet symbol
+        bullet_run = paragraph.add_run("•")
         bullet_run.font.name = self.content_font
         bullet_run.font.size = Pt(self.content_size)
         bullet_run.font.bold = False
-        
-        # Add the text content as second run
+
+        # Insert a tab so text starts at the left margin (no visible indent)
+        tab_run = paragraph.add_run()
+        tab_run.add_tab()
+
+        # Add the text content
         text_run = paragraph.add_run(text)
         text_run.font.name = self.content_font
         text_run.font.size = Pt(self.content_size)
         text_run.font.bold = False
-        
-        # No indentation - bullet points aligned with regular text
-        paragraph.paragraph_format.left_indent = Pt(0)
-        paragraph.paragraph_format.first_line_indent = Pt(0)
+
+        # Align wrapped lines with the start of text at a small indent
+        text_indent_pt = 18
+        paragraph.paragraph_format.left_indent = Pt(text_indent_pt)
+        paragraph.paragraph_format.first_line_indent = Pt(-14)
+        paragraph.paragraph_format.tab_stops.add_tab_stop(Pt(text_indent_pt))
 
     def _add_numbered_content(self, paragraph, number: str, text: str) -> None:
         """Add numbered list content to a paragraph with manual formatting"""
         # Add number as first run
-        number_run = paragraph.add_run(f"{number}. ")
+        number_run = paragraph.add_run(f"{number}.")
         number_run.font.name = self.content_font
         number_run.font.size = Pt(self.content_size)
         number_run.font.bold = False
-        
-        # Add the text content as second run
+
+        # Insert a tab so text starts at the left margin (no visible indent)
+        tab_run = paragraph.add_run()
+        tab_run.add_tab()
+
+        # Add the text content
         text_run = paragraph.add_run(text)
         text_run.font.name = self.content_font
         text_run.font.size = Pt(self.content_size)
         text_run.font.bold = False
-        
-        # No indentation - numbered lists aligned with regular text
-        paragraph.paragraph_format.left_indent = Pt(0)
-        paragraph.paragraph_format.first_line_indent = Pt(0)
+
+        # Place number in the margin; keep wrapped lines aligned with text indent
+        number_width = len(number) * 7 + 7  # Rough estimate for marker width
+        marker_indent_pt = max(14, number_width)
+        text_indent_pt = 18
+        paragraph.paragraph_format.left_indent = Pt(text_indent_pt)
+        paragraph.paragraph_format.first_line_indent = Pt(-marker_indent_pt)
+        paragraph.paragraph_format.tab_stops.add_tab_stop(Pt(text_indent_pt))
 
     def _format_list_paragraph(self, paragraph) -> None:
         """Apply consistent formatting to list paragraphs"""

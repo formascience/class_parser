@@ -93,55 +93,7 @@ class MappingItem(BaseModel):
 class SectionSlideMapping(BaseModel):
     mapping: List[MappingItem]
 
-    def visualize_mapping(self, outline: "Content") -> str:
-        """
-        Visualize the section-to-slides mapping with titles, counts, and slide IDs.
 
-        Args:
-            outline: The Content object containing the course structure with section titles
-
-        Returns:
-            A formatted string showing the mapping visualization
-        """
-        if not self.mapping:
-            return "No mapping available"
-
-        # Create a lookup dictionary for section IDs to titles
-        section_lookup: Dict[str, Dict[str, Any]] = {}
-
-        def collect_sections(sections: List["ContentSection"], depth: int = 0):
-            for section in sections:
-                section_lookup[section.id] = {"title": section.title, "depth": depth}
-                collect_sections(section.subsections, depth + 1)
-
-        collect_sections(outline.sections)
-
-        result = "Section-to-Slides Mapping:\n"
-        result += "=" * 60 + "\n\n"
-
-        # Sort mapping by section_id for consistent output
-        sorted_mapping = sorted(self.mapping, key=lambda x: x.section_id)
-
-        for item in sorted_mapping:
-            section_info = section_lookup.get(
-                item.section_id,
-                {"title": f"Unknown Section ({item.section_id})", "depth": 0},
-            )
-
-            indent = "  " * int(section_info["depth"])
-            level_indicator = (
-                f"[Level {section_info['depth']}]"
-                if int(section_info["depth"]) > 0
-                else "[Root]"
-            )
-
-            result += f"{indent}{level_indicator} {item.section_id}\n"
-            result += f"{indent}Title: {section_info['title']}\n"
-            result += f"{indent}Slides: {len(item.slide_ids)} slide(s)\n"
-            result += f"{indent}Slide IDs: {', '.join(item.slide_ids)}\n"
-            result += "\n"
-
-        return result.rstrip()
 
     def get_section_summary(self, outline: "Content") -> Dict[str, Dict]:
         """
@@ -264,13 +216,17 @@ class Content(BaseModel):
     slides: Optional[List[Slides]] = None
     mapping: Optional[SectionSlideMapping] = None
 
-    def enrich_with_slides(self, slides: List[Slides], mapping: SectionSlideMapping) -> "Content":
+    def enrich_with_slides(self, slides: List[Slides], mapping: Optional[SectionSlideMapping] = None) -> "Content":
         """
-        Enrich this Content object with slides data based on the mapping.
+        Enrich this Content object with slides data.
+        
+        If sections already contain slide IDs in their content field (≤ 10 chars),
+        uses those IDs directly. Otherwise, uses the provided mapping.
         
         Args:
             slides: List of Slides objects containing the slide content
-            mapping: SectionSlideMapping object that maps sections to slides
+            mapping: Optional SectionSlideMapping object that maps sections to slides
+                    (only needed if content doesn't already contain slide IDs)
             
         Returns:
             Self for method chaining
@@ -281,32 +237,54 @@ class Content(BaseModel):
         return self
 
     def _enrich_content_with_slides(self):
-        """Add slides content directly to the content field of each ContentSection based on the mapping"""
-        if not self.slides or not self.mapping:
+        """Add slides content directly to the content field of each ContentSection.
+        
+        First checks if content field already contains slide IDs (short strings ≤ 10 chars).
+        If yes, uses those IDs directly. If no, uses the mapping approach.
+        If content already contains actual slide content (long strings), does nothing.
+        """
+        if not self.slides:
             return
             
         # Create a lookup dictionary for slides by ID
         slides_lookup = {slide.id: slide for slide in self.slides}
 
-        # Create a mapping from section_id to slide_ids
-        section_to_slides = {}
-        for mapping_item in self.mapping.mapping:
-            section_to_slides[mapping_item.section_id] = mapping_item.slide_ids
-
         # Recursively enrich all sections
         def enrich_sections(sections: List[ContentSection]):
             for section in sections:
-                # Get slide IDs mapped to this section
-                slide_ids = section_to_slides.get(section.id, [])
-
-                # Get raw content from slides
-                raw_slides_content = []
-                for slide_id in slide_ids:
-                    if slide_id in slides_lookup:
-                        raw_slides_content.append(slides_lookup[slide_id].content)
-
-                # Update the section with slides content as a list
-                section.content = raw_slides_content
+                # Check if section already has content and what type it is
+                if section.content:
+                    # Check if first content item looks like a slide ID (≤ 10 chars)
+                    if len(section.content[0]) <= 10:
+                        # Content contains slide IDs - map them to actual content
+                        slide_ids = section.content
+                        raw_slides_content = []
+                        for slide_id in slide_ids:
+                            if slide_id in slides_lookup:
+                                raw_slides_content.append(slides_lookup[slide_id].content)
+                        
+                        # Update section with actual slide content
+                        section.content = raw_slides_content
+                    # If content is long (> 10 chars), assume it's already actual content - do nothing
+                
+                else:
+                    # No content in section, try to use mapping if available
+                    if self.mapping:
+                        section_to_slides = {}
+                        for mapping_item in self.mapping.mapping:
+                            section_to_slides[mapping_item.section_id] = mapping_item.slide_ids
+                        
+                        # Get slide IDs from mapping
+                        slide_ids = section_to_slides.get(section.id, [])
+                        
+                        # Get raw content from slides
+                        raw_slides_content = []
+                        for slide_id in slide_ids:
+                            if slide_id in slides_lookup:
+                                raw_slides_content.append(slides_lookup[slide_id].content)
+                        
+                        # Update section with slides content
+                        section.content = raw_slides_content
 
                 # Recursively process subsections
                 enrich_sections(section.subsections)
@@ -354,10 +332,101 @@ class Content(BaseModel):
         return summary
 
     def visualize_mapping(self) -> str:
-        """Visualize the section-to-slides mapping if available"""
-        if self.mapping:
-            return self.mapping.visualize_mapping(self)
-        return "No mapping available"
+        """
+        Visualize the section-to-slides mapping. If sections contain actual content 
+        (long strings), return "Contains content". Otherwise, display the mapping 
+        of slide IDs recursively.
+        
+        Returns:
+            A formatted string showing either "Contains content" or the mapping visualization
+        """
+        # Check if first section has content longer than 10 characters
+        if (self.sections and 
+            self.sections[0].content and 
+            len(self.sections[0].content[0]) > 10):
+            return "Contains content"
+
+        # If no mapping available, try to display content as slide IDs
+        if not self.mapping or not self.mapping.mapping:
+            # Display content recursively as slide IDs
+            return self._visualize_content_as_mapping()
+
+        # Original mapping visualization logic
+        section_lookup: Dict[str, Dict[str, Any]] = {}
+
+        def collect_sections(sections: List[ContentSection], depth: int = 0):
+            for section in sections:
+                section_lookup[section.id] = {"title": section.title, "depth": depth}
+                collect_sections(section.subsections, depth + 1)
+
+        collect_sections(self.sections)
+
+        result = "Section-to-Slides Mapping:\n"
+        result += "=" * 60 + "\n\n"
+
+        # Sort mapping by section_id for consistent output
+        sorted_mapping = sorted(self.mapping.mapping, key=lambda x: x.section_id)
+
+        for item in sorted_mapping:
+            section_info = section_lookup.get(
+                item.section_id,
+                {"title": f"Unknown Section ({item.section_id})", "depth": 0},
+            )
+
+            indent = "  " * int(section_info["depth"])
+            level_indicator = (
+                f"[Level {section_info['depth']}]"
+                if int(section_info["depth"]) > 0
+                else "[Root]"
+            )
+
+            result += f"{indent}{level_indicator} {item.section_id}\n"
+            result += f"{indent}Title: {section_info['title']}\n"
+            result += f"{indent}Slides: {len(item.slide_ids)} slide(s)\n"
+            result += f"{indent}Slide IDs: {', '.join(item.slide_ids)}\n"
+            result += "\n"
+
+        return result.rstrip()
+
+    def _visualize_content_as_mapping(self) -> str:
+        """
+        Helper method to visualize content sections recursively when they contain slide IDs
+        instead of using separate mapping.
+        
+        Returns:
+            A formatted string showing the section-to-content mapping
+        """
+        if not self.sections:
+            return "No sections available"
+
+        result = "Section-to-Slides Mapping:\n"
+        result += "=" * 60 + "\n\n"
+
+        def display_section(section: ContentSection, depth: int = 0) -> str:
+            indent = "  " * depth
+            level_indicator = f"[Level {depth}]" if depth > 0 else "[Root]"
+            
+            section_result = f"{indent}{level_indicator} {section.id}\n"
+            section_result += f"{indent}Title: {section.title}\n"
+            section_result += f"{indent}Slides: {len(section.content)} slide(s)\n"
+            
+            if section.content:
+                section_result += f"{indent}Slide IDs: {', '.join(section.content)}\n"
+            else:
+                section_result += f"{indent}Slide IDs: [No slides assigned]\n"
+            
+            section_result += "\n"
+            
+            # Recursively display subsections
+            for subsection in section.subsections:
+                section_result += display_section(subsection, depth + 1)
+            
+            return section_result
+
+        for section in self.sections:
+            result += display_section(section)
+
+        return result.rstrip()
 
 
 Content.model_rebuild()

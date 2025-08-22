@@ -2,10 +2,11 @@
 One-shot outline and mapping generation (Branch B) - when no plan is provided
 Based on the actual implementation from poc.ipynb
 """
-
+import os 
 import logging
 from typing import Any, Dict, List, Optional, Tuple
 
+from dotenv import load_dotenv
 from openai import OpenAI
 
 from ..models import (
@@ -19,6 +20,7 @@ from .prompt_manager import PromptManager
 
 logger = logging.getLogger(__name__)
 
+load_dotenv()
 
 def _format_course_metadata_header(course_metadata: CourseMetadata) -> str:
     """Format a compact metadata header for the model context"""
@@ -49,13 +51,23 @@ class OutlineOneShot:
             api_key: OpenAI API key (uses environment variable if None)
             model: OpenAI model to use for generation
         """
-        self.client = OpenAI(api_key=api_key)
+        logger.info(f"Initializing OutlineOneShot with model: {model}")
+
+        try:
+            self.client = OpenAI(api_key=api_key)
+        except Exception as e:
+            logger.error(f"API key is invalid: {e}")
+            raise Exception(f"API key is invalid: {e}")
+            
+        logger.info("API key is valid")
         self.model = model
         self.prompt_manager = PromptManager()
     
     def build_outline_and_mapping(self, 
                                  slides: List[Slides],
                                  course_metadata: CourseMetadata,
+                                 text_verbosity: Optional[str] = None,
+                                 reasoning_effort: Optional[str] = None,
                                  custom_config: Optional[Dict[str, Any]] = None) -> Tuple[Content, SectionSlideMapping]:
         """
         Generate both outline and section-slide mapping in one shot (Branch B)
@@ -80,7 +92,15 @@ class OutlineOneShot:
         
         try:
             logger.debug("Starting one-shot outline and mapping generation with %d slides", len(slides))
-            # Use the exact API call from poc.ipynb
+            
+            # Get configuration from environment variables
+            reasoning_effort = reasoning_effort if reasoning_effort else os.getenv("OUTLINE_ONESHOT_REASONING_EFFORT", "medium")
+            text_verbosity = text_verbosity if text_verbosity else os.getenv("OUTLINE_ONESHOT_TEXT_VERBOSITY", "low")
+
+            logger.info(f"One-shot with verbosity: {text_verbosity} and reasoning effort: {reasoning_effort}")
+
+            logger.debug(user_prompt)
+            
             response = self.client.responses.parse(
                 model=self.model,
                 input=[
@@ -90,9 +110,9 @@ class OutlineOneShot:
                     },
                     {"role": "user", "content": user_prompt},
                 ],
-                text_format=OutlineAndMapping,
-                reasoning={"effort": "high"},
-                text={"verbosity": "medium"},  # type: ignore
+                text_format=Content,
+                reasoning={"effort": reasoning_effort},
+                text={"verbosity": text_verbosity},
             )
             
             result = response.output_parsed
@@ -100,12 +120,10 @@ class OutlineOneShot:
                 logger.error("OpenAI API returned None for output_parsed")
                 raise Exception("No result returned from API")
                 
-            outline = result.outline
-            mapping = SectionSlideMapping(mapping=result.mapping)
+            outline = result
             
-            logger.debug("Successfully generated outline with %d sections and mapping with %d entries", 
-                        len(outline.sections), len(mapping.mapping))
-            return outline, mapping
+            logger.debug("Successfully generated outline with %d sections", len(outline.sections))
+            return outline
             
         except Exception as e:
             logger.error("Failed to generate outline and mapping: %s", str(e))
