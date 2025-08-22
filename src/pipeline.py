@@ -19,19 +19,27 @@ class CoursePipeline:
     """Main orchestrator for the complete course processing workflow"""
     
 
-    def __init__(self, openai_api_key: Optional[str] = None, model: str = "gpt-5-mini"):
+    def __init__(self, openai_api_key: Optional[str] = None, model: Optional[str] = None):
         """
         Initialize the course processing pipeline
         
         Args:
             openai_api_key: OpenAI API key (uses environment variable if None)
-            model: OpenAI model to use for content generation
+            model: OpenAI model to use for content generation (uses DEFAULT_MODEL env var if None)
         """
-        # Initialize LLM components
-        self.outline_one_shot = OutlineOneShot(api_key=openai_api_key, model=model)
-        self.outline_two_pass = OutlineTwoPass(api_key=openai_api_key, model=model)
-        self.mapping_two_pass = MappingTwoPass(api_key=openai_api_key, model=model)
-        self.writer = Writer(api_key=openai_api_key, model=model)
+        # Get models from environment variables with fallback to default
+        default_model = os.getenv("DEFAULT_MODEL", "gpt-4o-mini")
+        oneshot_model = os.getenv("OUTLINE_ONESHOT_MODEL", model or default_model)
+        writer_model = os.getenv("WRITER_MODEL", model or default_model)
+        
+        # Use provided model or default for other components
+        other_model = model or default_model
+            
+        # Initialize LLM components with specific models
+        self.outline_one_shot = OutlineOneShot(api_key=openai_api_key, model=oneshot_model)
+        self.outline_two_pass = OutlineTwoPass(api_key=openai_api_key, model=other_model)
+        self.mapping_two_pass = MappingTwoPass(api_key=openai_api_key, model=other_model)
+        self.writer = Writer(api_key=openai_api_key, model=writer_model)
     
     def process_course_no_plan(
         self,

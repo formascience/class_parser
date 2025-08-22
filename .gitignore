@@ -5,8 +5,10 @@ __pycache__/
 .cursor/*
 .*
 
-volume/*
+volume/**/*
+!volume/**/
 data/*
+!volume/templates/*
 # C extensions
 *.so
 

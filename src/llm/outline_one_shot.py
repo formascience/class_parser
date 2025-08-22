@@ -43,7 +43,7 @@ def _format_course_metadata_header(course_metadata: CourseMetadata) -> str:
 class OutlineOneShot:
     """Handles combined outline and mapping generation when no plan is provided (Branch B)"""
     
-    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-5-mini"):
+    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-4o-mini"):
         """
         Initialize one-shot generator with OpenAI client
         

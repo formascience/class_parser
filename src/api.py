@@ -137,7 +137,7 @@ async def process_course_no_plan(
         
         # Step 3: Process with pipeline (now save docx for download)
         logger.info("Processing course with pipeline...")
-        pipeline = CoursePipeline(model="gpt-5-nano")
+        pipeline = CoursePipeline()
         course, docx_path, docx_filename = pipeline.process_course_no_plan(
             slides=slides,
             metadata=metadata,

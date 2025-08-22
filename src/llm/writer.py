@@ -25,7 +25,7 @@ ENV_VERBOSITY = os.getenv("WRITER_TEXT_VERBOSITY", "low")
 class Writer:
     """Handles final content enhancement and writing after enrichment with slides"""
     
-    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-5-mini"):
+    def __init__(self, api_key: Optional[str] = None, model: str = "gpt-5-nano"):
         """
         Initialize writer with OpenAI client
         
