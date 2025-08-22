@@ -1,8 +1,8 @@
 [tool.poetry]
-name = "audio-extractor"
+name = "class-parser"
 version = "0.1.0"
-description = "Extract audio from video, split into chunks, and transcribe with Whisper"
-authors = ["Your Name <your.email@example.com>"]
+description = "from class to course"
+authors = ["Youssef Janjar <youssef@formascience.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
@@ -22,6 +22,7 @@ pytesseract = "^0.3.13"
 fastapi = "^0.104.0"
 uvicorn = "^0.24.0"
 python-multipart = "^0.0.6"
+pyyaml = "^6.0.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.0.0"
