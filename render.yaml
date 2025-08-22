@@ -1,0 +1,45 @@
+services:
+  - type: web
+    name: course-parser-api
+    env: python
+    region: oregon  # Choose: oregon, frankfurt, singapore
+    plan: starter   # Choose: free, starter, standard, pro
+    buildCommand: |
+      pip install poetry && 
+      poetry config virtualenvs.create false && 
+      poetry install --only=main
+    startCommand: poetry run uvicorn src.api:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.13"
+      - key: OPENAI_API_KEY
+        sync: false  # Must be set manually in Render dashboard for security
+      # Models
+      - key: DEFAULT_MODEL
+        value: "gpt-5-mini"
+      - key: OUTLINE_ONESHOT_MODEL
+        value: "gpt-5-nano"
+      - key: WRITER_MODEL
+        value: "gpt-5-mini"
+      # Reasoning effort
+      - key: OUTLINE_ONESHOT_REASONING_EFFORT
+        value: "low"
+      - key: OUTLINE_ONESHOT_TEXT_VERBOSITY
+        value: "low"
+      - key: WRITER_REASONING_EFFORT
+        value: "medium"
+      - key: WRITER_TEXT_VERBOSITY
+        value: "medium"
+      # Outline two pass
+      - key: OUTLINE_TWOPASS_REASONING_EFFORT
+        value: "medium"
+      - key: OUTLINE_TWOPASS_TEXT_VERBOSITY
+        value: "low"
+      # Mapping two pass
+      - key: MAPPING_TWOPASS_REASONING_EFFORT
+        value: "low"
+      - key: MAPPING_TWOPASS_TEXT_VERBOSITY
+        value: "low"
+
+    healthCheckPath: /health
+    autoDeploy: true  # Auto-deploy on git push
