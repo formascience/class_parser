@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "from class to course"
 authors = ["Youssef Janjar <youssef@formascience.com>"]
 readme = "README.md"
+package-mode = false
 
 [tool.poetry.dependencies]
 python = "^3.9"
@@ -37,9 +38,8 @@ jupyter = "^1.1.1"
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
-[tool.poetry.scripts]
-extract-audio = "audio_extractor.cli:main"
-extract-pdf = "pdf_extractor.cli:main"
+# [tool.poetry.scripts]
+# Scripts removed since audio_extractor folder was deleted
 
 [tool.black]
 line-length = 88
