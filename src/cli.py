@@ -49,7 +49,7 @@ def detect_branch_and_process(
     save_json: bool = False,
     save_docx: bool = False,
     template_path: str = "volume/fs_template.docx",
-    model: str = "gpt-5-mini",
+    model: str = "gpt-5-nano",
 ) -> None:
     """
     Automatically detect branch and process course
@@ -66,6 +66,7 @@ def detect_branch_and_process(
         model: OpenAI model to use
     """
     # Initialize pipeline
+    logger.info(f"Initializing pipeline with model: {model}")
     pipeline = CoursePipeline(model=model)
     
     # Extract slides

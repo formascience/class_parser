@@ -10,14 +10,11 @@ from .prompt_templates import (
     ONE_SHOT_SYSTEM_PROMPT,
     OUTLINE_FROM_PLAN_SYSTEM_PROMPT,
     WRITER_SYSTEM_PROMPT,
-    build_assistant_prompt,
     build_assistant_prompt_structured,
     build_mapping_prompt,
     build_outline_and_mapping_prompt,
     build_outline_and_mapping_prompt_no_admin,
-    build_prompt_fill_content,
     build_prompt_fill_content_structured,
-    build_system_prompt,
     build_system_prompt_structured,
     build_user_prompt,
 )
@@ -74,21 +71,7 @@ class PromptManager:
         """
         return build_mapping_prompt(outline_json, slides)
     
-    def get_writer_system_prompt(self) -> str:
-        """Get system prompt for content writing/enhancement"""
-        return build_system_prompt()
-    
-    def get_writer_user_prompt(self, content_json: str) -> str:
-        """Get user prompt with content to enhance"""
-        return build_user_prompt(content_json)
-    
-    def get_writer_assistant_prompt(self) -> str:
-        """Get assistant prompt with examples"""
-        return build_assistant_prompt()
-    
-    def get_complete_writer_prompt(self, content_json: str) -> str:
-        """Get complete writer prompt (legacy format)"""
-        return build_prompt_fill_content(content_json)
+
     
     def get_writer_role_prompt(self) -> str:
         """Get role-based system prompt for writer"""

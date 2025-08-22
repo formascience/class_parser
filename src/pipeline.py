@@ -6,7 +6,7 @@ import logging
 import os
 from pathlib import Path
 from typing import Any, Dict, List, Optional
-
+import time
 from .course import Course
 from .data_extraction import PlanExtractor, SlidesExtractor
 from .llm import MappingTwoPass, OutlineOneShot, OutlineTwoPass, Writer
@@ -18,30 +18,39 @@ logger = logging.getLogger(__name__)
 class CoursePipeline:
     """Main orchestrator for the complete course processing workflow"""
     
-    def __init__(self, openai_api_key: Optional[str] = None, model: str = "gpt-5-mini"):
+
+    def __init__(self, openai_api_key: Optional[str] = None, model: Optional[str] = None):
         """
         Initialize the course processing pipeline
         
         Args:
             openai_api_key: OpenAI API key (uses environment variable if None)
-            model: OpenAI model to use for content generation
+            model: OpenAI model to use for content generation (uses DEFAULT_MODEL env var if None)
         """
-        # Initialize LLM components
-        self.outline_one_shot = OutlineOneShot(api_key=openai_api_key, model=model)
-        self.outline_two_pass = OutlineTwoPass(api_key=openai_api_key, model=model)
-        self.mapping_two_pass = MappingTwoPass(api_key=openai_api_key, model=model)
-        self.writer = Writer(api_key=openai_api_key, model=model)
+        # Get models from environment variables with fallback to default
+        default_model = os.getenv("DEFAULT_MODEL", "gpt-4o-mini")
+        oneshot_model = os.getenv("OUTLINE_ONESHOT_MODEL", model or default_model)
+        writer_model = os.getenv("WRITER_MODEL", model or default_model)
+        
+        # Use provided model or default for other components
+        other_model = model or default_model
+            
+        # Initialize LLM components with specific models
+        self.outline_one_shot = OutlineOneShot(api_key=openai_api_key, model=oneshot_model)
+        self.outline_two_pass = OutlineTwoPass(api_key=openai_api_key, model=other_model)
+        self.mapping_two_pass = MappingTwoPass(api_key=openai_api_key, model=other_model)
+        self.writer = Writer(api_key=openai_api_key, model=writer_model)
     
     def process_course_no_plan(
         self,
         slides: List[Slides],
         metadata: CourseMetadata,
-        save_json: bool = False,
-        save_docx: bool = False,
-        template_path: str = "volume/fs_template.docx",
+        save_json: bool = True,
+        save_docx: bool = True,
+        template_path: str = "volume/templates/fs_template.docx",
         output_path: Optional[str] = None,
         test_mode: bool = True,
-    ) -> Course:
+    ) -> [Course, str, str]:
         """
         Process course using Branch B (no plan provided) - one-shot approach
         
@@ -58,29 +67,35 @@ class CoursePipeline:
             Course object with generated content
         """
         logger.info("🚀 Processing course '%s' (Branch B - No Plan)", metadata.name)
-        logger.debug("📊 Total slides: %d", len(slides))
+        logger.info("📊 Total slides: %d", len(slides))
         
-        # Apply test mode if enabled
-        if test_mode and len(slides) > 10:
-            slides = slides[:10]
-            logger.warning("🧪 Test mode enabled: Processing only first 10 slides (%d total available)", len(slides))
+        # Apply test mode if enabled (reduced from 10 to 5 slides for faster testing)
+        if test_mode and len(slides) > 20:
+            logger.info("🧪 Test mode enabled: Processing only first 20 slides (%d total available)", len(slides))
+            slides = slides[:20]
         
-        # Step 1: Generate outline and mapping in one shot
-        logger.info("🤖 Generating outline and mapping...")
-        outline, mapping = self.outline_one_shot.build_outline_and_mapping(slides, metadata)
-        logger.info("✅ Generated outline with %d sections", len(outline.sections))
+        # Step 1: Generate outline with mapping in one shot
+        logger.info("🤖 Generating outline and mapping")
+        start_time = time.time()
+        outline = self.outline_one_shot.build_outline_and_mapping(slides, metadata)
+        outline_time = time.time() - start_time
+        logger.info("✅ Generated outline with %d sections (took %.2f seconds)", len(outline.sections), outline_time)
         
         # Step 2: Enrich content with slides
         logger.info("🔗 Enriching content with slides...")
-        enriched_content = outline.enrich_with_slides(slides, mapping)
-        logger.info("✅ Content enriched with slide data")
+        start_time = time.time()
+        enriched_content = outline.enrich_with_slides(slides)
+        enrich_time = time.time() - start_time
+        logger.info("✅ Content enriched with slide data (took %.2f seconds)", enrich_time)
         
         # Step 3: Final content writing
         logger.info("✍️ Enhancing content with AI...")
+        start_time = time.time()
         # Lower verbosity in test mode to speed up and reduce output size
-        writer_verbosity = "low" if test_mode else "high"
+        writer_verbosity = "low" if test_mode else None
         final_content = self.writer.write_course(enriched_content, verbosity=writer_verbosity)
-        logger.info("✅ Content enhanced and finalized")
+        writing_time = time.time() - start_time
+        logger.info("✅ Content enhanced and finalized (took %.2f seconds)", writing_time)
         
         # Step 4: Create Course object
         course = Course(
@@ -101,14 +116,19 @@ class CoursePipeline:
                 course.save_to_json(output_path=output_path+"/json")
             else:
                 course.save_to_json(output_path="volume/artifacts/json")
+        
         if save_docx:
             if output_path:
-                course.to_docx(output_path=output_path+"/docx", template_path=template_path)
+                docx_path, docx_filename = course.to_docx(output_path=output_path+"/docx", template_path=template_path)
             else:
-                course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
+                docx_path, docx_filename = course.to_docx(output_path="volume/artifacts/docx", template_path=template_path)
+
+        else:
+            docx_path = None
+            docx_filename = None
         
         logger.info("🎉 Course processing complete!")
-        return course
+        return course, docx_path, docx_filename
     
     def process_course_with_plan(
         self,
@@ -140,10 +160,10 @@ class CoursePipeline:
         logger.info("🚀 Processing course '%s' (Branch A - Plan Provided)", metadata.name)
         logger.debug("📊 Total slides: %d", len(slides))
         
-        # Apply test mode if enabled
-        if test_mode and len(slides) > 10:
-            slides = slides[:10]
-            logger.warning("🧪 Test mode enabled: Processing only first 10 slides (%d total available)", len(slides))
+        # Apply test mode if enabled (reduced from 10 to 5 slides for faster testing)
+        if test_mode and len(slides) > 5:
+            slides = slides[:5]
+            logger.warning("🧪 Test mode enabled: Processing only first 5 slides (%d total available)", len(slides))
         
         # Step 1: Generate outline from plan
         logger.info("📝 Generating outline from plan...")
