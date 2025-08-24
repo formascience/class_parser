@@ -9,6 +9,7 @@ from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 from docx.shared import Pt, RGBColor
 
+INDENT_PT = 42
 
 class DocxWriter:
     """Generate a professionally formatted .docx from a Course-like object.
@@ -291,7 +292,7 @@ class DocxWriter:
         text_run.font.bold = False
 
         # Align wrapped lines with the start of text at a small indent
-        text_indent_pt = 18
+        text_indent_pt = INDENT_PT
         paragraph.paragraph_format.left_indent = Pt(text_indent_pt)
         paragraph.paragraph_format.first_line_indent = Pt(-14)
         paragraph.paragraph_format.tab_stops.add_tab_stop(Pt(text_indent_pt))
@@ -317,7 +318,7 @@ class DocxWriter:
         # Place number in the margin; keep wrapped lines aligned with text indent
         number_width = len(number) * 7 + 7  # Rough estimate for marker width
         marker_indent_pt = max(14, number_width)
-        text_indent_pt = 18
+        text_indent_pt = INDENT_PT
         paragraph.paragraph_format.left_indent = Pt(text_indent_pt)
         paragraph.paragraph_format.first_line_indent = Pt(-marker_indent_pt)
         paragraph.paragraph_format.tab_stops.add_tab_stop(Pt(text_indent_pt))
