@@ -146,7 +146,7 @@ async def process_course_no_plan(
             save_docx=True,   # Now save docx for download
             template_path="volume/templates/fs_template.docx",  # Static options
             output_path="volume/artifacts",  # Will save to volume/artifacts/json/ and docx/
-            test_mode=True,   # Static options
+            test_mode=False,   # Static options
         )
         
         # Step 4: Get processing statistics

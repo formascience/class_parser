@@ -49,7 +49,7 @@ class CoursePipeline:
         save_docx: bool = True,
         template_path: str = "volume/templates/fs_template.docx",
         output_path: Optional[str] = None,
-        test_mode: bool = True,
+        test_mode: bool = False,
     ) -> [Course, str, str]:
         """
         Process course using Branch B (no plan provided) - one-shot approach
